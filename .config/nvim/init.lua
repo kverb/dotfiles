@@ -18,6 +18,7 @@ map('n',  '<C-L>', '<C-W><C-L>', {noremap = true})
 map('n',  '<C-H>', '<C-W><C-h>', {noremap = true})
 
 -- easy save and close
-map('n',  '<leader>w', ':w!<CR>', {noremap = true})
-map('n',  '<leader>q', ':q!<CR>', {noremap = true})
+map('n',  '<leader>wq', ':waq!<CR>', {noremap = true})
+map('n',  '<leader>qq', ':q!<CR>', {noremap = true})
+map('n',  '<leader>qa', ':qa!<CR>', {noremap = true})
 

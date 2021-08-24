@@ -8,14 +8,14 @@ M.ui = {
    italic_comments = true,
 
    -- theme to be used, to see all available themes, open the theme switcher by <leader> + th
-   theme = "chadracula",
+   theme = "tokyonight",
 
    -- theme toggler, toggle between two themes, see theme_toggleer mappings
    theme_toggler = {
       enabled = true,
       fav_themes = {
          "one-light",
-         "chadracula",
+         "tokyonight",
       },
    },
 
@@ -115,7 +115,7 @@ M.mappings = {
    terminal = {
       -- multiple mappings can be given for esc_termmode and esc_hide_termmode
       -- get out of terminal mode
-      esc_termmode = { "jk" , "kj"}, -- multiple mappings allowed
+      esc_termmode = { "jk" }, -- multiple mappings allowed
       -- get out of terminal mode and hide it
       -- it does not close it, see pick_term mapping to see hidden terminals
       esc_hide_termmode = { "JK" }, -- multiple mappings allowed
