@@ -1,5 +1,6 @@
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+set $alt Mod1
 
 # Home row direction keys, like vim
 set $left h
@@ -55,7 +56,7 @@ exec swayidle -w\
     bindsym $mod+Shift+d exec $launcher
 
     # Activities
-    bindsym $mod+p exec ~/.config/wofi/windows.py
+    bindsym $alt+Tab exec ~/.config/wofi/windows.py
 
     # Cheatsheet
     bindsym $mod+Shift+p exec $cheat
@@ -98,10 +99,12 @@ exec swayidle -w\
 # Workspaces:
 #
     # Switch to workspace
-    bindsym $mod+1 workspace number 1
-    bindsym $mod+2 workspace number 2
-    bindsym $mod+3 workspace number 3
-    bindsym $mod+4 workspace number 4
+    bindsym $mod+Tab workspace next
+    bindsym $mod+Shift+Tab workspace prev
+    bindsym $mod+1 workspace ₁:🌐
+    bindsym $mod+2 workspace ₂:👾
+    bindsym $mod+3 workspace ₃:🗩
+    bindsym $mod+4 workspace ₄:𓊈𓁿𓊉 
     bindsym $mod+5 workspace number 5
     bindsym $mod+6 workspace number 6
     bindsym $mod+7 workspace number 7
@@ -109,10 +112,10 @@ exec swayidle -w\
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
     # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace number 1
-    bindsym $mod+Shift+2 move container to workspace number 2
-    bindsym $mod+Shift+3 move container to workspace number 3
-    bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+1 move container to workspace ₁:🌐
+    bindsym $mod+Shift+2 move container to workspace ₂:👾
+    bindsym $mod+Shift+3 move container to workspace ₃:🗩 
+    bindsym $mod+Shift+4 move container to workspace ₄:𓊈𓁿𓊉
     bindsym $mod+Shift+5 move container to workspace number 5
     bindsym $mod+Shift+6 move container to workspace number 6
     bindsym $mod+Shift+7 move container to workspace number 7
