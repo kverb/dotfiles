@@ -8,7 +8,7 @@ M.ui = {
    italic_comments = true,
 
    -- theme to be used, to see all available themes, open the theme switcher by <leader> + th
-   theme = "tokyonight",
+   theme = "norchad",
 
    -- theme toggler, toggle between two themes, see theme_toggleer mappings
    theme_toggler = {
@@ -115,10 +115,10 @@ M.mappings = {
    terminal = {
       -- multiple mappings can be given for esc_termmode and esc_hide_termmode
       -- get out of terminal mode
-      esc_termmode = { "jk" }, -- multiple mappings allowed
+      -- esc_termmode = { "jk" }, -- multiple mappings allowed
       -- get out of terminal mode and hide it
       -- it does not close it, see pick_term mapping to see hidden terminals
-      esc_hide_termmode = { "JK" }, -- multiple mappings allowed
+      -- esc_hide_termmode = { "JK" }, -- multiple mappings allowed
       -- show hidden terminal buffers in a telescope picker
       -- pick_term = "<leader>W",
       -- below three are for spawning terminals

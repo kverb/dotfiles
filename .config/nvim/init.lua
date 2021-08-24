@@ -22,3 +22,10 @@ map('n',  '<leader>wq', ':waq!<CR>', {noremap = true})
 map('n',  '<leader>qq', ':q!<CR>', {noremap = true})
 map('n',  '<leader>qa', ':qa!<CR>', {noremap = true})
 
+-- attempt to make single character cuts not pollute system clipboard
+map('n', 'x', '"_x', {noremap = true})
+map('n', 'D', '"_D', {noremap = true})
+map('n', 's', '"_s', {noremap = true})
+map('n', 'S', '"_S', {noremap = true})
+map('n', 'c', '"_c', {noremap = true})
+map('n', 'C', '"_C', {noremap = true})
