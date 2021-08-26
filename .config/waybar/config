@@ -81,7 +81,7 @@
     "backlight": {
         // "device": "acpi_video1",
         "format": "{icon} {percent}%",
-        "format-icons": ["", ""],
+        "format-icons": ["💡"],
         "on-scroll-down": "brightnessctl -c backlight set 5%",
         "on-scroll-up": "brightnessctl -c backlight set +5%"
     },
@@ -92,10 +92,12 @@
             "critical": 15
         },
         "format": "{icon} {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-charging": "{capacity}% ⚡",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        // "format-icons": ["", "", "", "", ""]
-        "format-icons": ["", "", "", "", "", "", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""]
+        // "format-icons": ["", "", "", "", "", "", "", "", "", ""]
     },
      "network": {
         // "interface": "wlp2s0", // (Optional) To force the use of this interface

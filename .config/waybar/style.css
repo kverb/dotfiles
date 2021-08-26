@@ -85,7 +85,7 @@ window#waybar {
 
  
 #clock {
- color:#a3be8c;
+    color: #81a1c1;
 }
 
 #backlight {
@@ -93,11 +93,11 @@ window#waybar {
 }
 
 #battery {
-    color: #d8dee9;
+    color: #81a1c1;
 }
 
 #battery.charging {
-    color: #81a1c1;
+    color: #a3be8c;
 }
 
 @keyframes blink {
@@ -167,7 +167,7 @@ window#waybar {
 
 #window{
     border-style: hidden;
-    margin-top:1px;  
+    margin-top:0px;  
 }    
 #mode{
     margin-bottom:3px;
