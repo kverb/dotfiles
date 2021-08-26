@@ -10,6 +10,7 @@ for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
 for_window [app_id="pamac-manager"] floating enable, resize set width 80 ppt height 70 ppt
 for_window [class="Lxappearance"] floating enable, resize set width 60 ppt height 50 ppt
+for_window [app_id="gnome-calculator"] floating enable
 
 # set floating for window roles
 for_window [window_role="pop-up"] floating enable
@@ -32,5 +33,6 @@ for_window [app_id="firefox" title="firefox — Sharing Indicator"] kill
 # Inhibit idle
 for_window [app_id="firedragon"] inhibit_idle fullscreen
 for_window [app_id="Chromium"] inhibit_idle fullscreen
-assign [app_id="firefox"] → workspace  ₁:🌐
+assign [app_id="firefox"] → workspace ₁:🌐
+assign [class="Signal.*"] → workspace ₃:🗩 
 

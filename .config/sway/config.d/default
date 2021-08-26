@@ -104,7 +104,7 @@ exec swayidle -w\
     bindsym $mod+1 workspace ₁:🌐
     bindsym $mod+2 workspace ₂:👾
     bindsym $mod+3 workspace ₃:🗩
-    bindsym $mod+4 workspace ₄:𓊈𓁿𓊉 
+    bindsym $mod+4 workspace ₄:🕳️ 
     bindsym $mod+5 workspace number 5
     bindsym $mod+6 workspace number 6
     bindsym $mod+7 workspace number 7
@@ -114,8 +114,8 @@ exec swayidle -w\
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace ₁:🌐
     bindsym $mod+Shift+2 move container to workspace ₂:👾
-    bindsym $mod+Shift+3 move container to workspace ₃:🗩 
-    bindsym $mod+Shift+4 move container to workspace ₄:𓊈𓁿𓊉
+    bindsym $mod+Shift+3 move container to workspace ₃:🗩
+    bindsym $mod+Shift+4 move container to workspace ₄:🕳️ 
     bindsym $mod+Shift+5 move container to workspace number 5
     bindsym $mod+Shift+6 move container to workspace number 6
     bindsym $mod+Shift+7 move container to workspace number 7
