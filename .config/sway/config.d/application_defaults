@@ -33,6 +33,7 @@ for_window [app_id="firefox" title="firefox — Sharing Indicator"] kill
 # Inhibit idle
 for_window [app_id="firedragon"] inhibit_idle fullscreen
 for_window [app_id="Chromium"] inhibit_idle fullscreen
-assign [app_id="firefox"] → workspace ₁:🌐
-assign [class="Signal.*"] → workspace ₃:🗩 
+assign [app_id="firefox"] → workspace 1
+assign [class="Signal.*"] → workspace 3
+assign [app_id="whatsapp.*"] → workspace 3
 
