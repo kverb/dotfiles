@@ -41,42 +41,113 @@ nord15 #b48ead
 /* Reset all styles */
 
 * {
-    color: #eceff4;
-    border: 0;
     border-radius: 0;
-    padding: 0 0;
-    font-family:Terminus;
-    font-size: 15px;
-    margin-right: 5px;
-    margin-left: 5px;
-    padding-bottom:3px;
-   }
-
-window#waybar {
-    background:#2e3440;
+    font-family: JetBrains Mono Light;
+    padding-bottom: 1px;
+    padding-top: 1px;
+    font-size: 14px;
+    min-height: 0;
 }
 
-#workspaces button {
-    padding: 2px 0px;
-    border-bottom: 2px;
-    color: #eceff4;
-    border-color: #d8dee9;
+window#waybar {
+    background: transparent;
+    color: white;
+}
+
+tooltip {
+    background: #2a2e38;
+    border-radius: 15px;
+    border-width: 2px;
     border-style: solid;
-    margin-top:2px;
+    border-color: #81a1c1;
+}
+
+#workspaces {
+    background-color: #2e3440;
+    margin: 5px 2px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 15px;
+    border: 2px solid #81a1c1;
+}
+#workspaces button {
+    color: #eceff4;
+}
+
+#workspaces button:first-child {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 2px;
+}
+
+#workspaces button:last-child {
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 15px;
 }
 
 #workspaces button.focused {
-    border-color: #81a1c1;
+    background-color: #4c566a;
+}
+
+#workspaces button.urgent {
+    color: #2a2e38;
+    background-color: #ebcb8b;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 15px;
+}
+
+#workspaces button:hover {
+    background-color: #88c0d0;
+    color: #2a2e38;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 15px;
 }
 
 #mode {
     color: #ebcb8b;
 }
 
-#clock, #battery, #cpu, #memory,#idle_inhibitor, #temperature,#custom-keyboard-layout, #backlight, #network, #pulseaudio, #mode, #tray, #window,#custom-launcher,#custom-power,#custom-pacman {
-    padding: 0 3px;
-    border-bottom: 2px;
-    border-style: solid;
+#window {
+  
+    color: #81a1c1;
+
+    padding: 0px 10px 0px 10px;
+    margin: 5px 0px;
+    background-color: #2e3440;
+
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border: 2px solid #81a1c1;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#idle_inhibitor,
+#temperature,
+#custom-keyboard-layout,
+#backlight,
+#network,
+#pulseaudio,
+#mode,
+#tray,
+#custom-launcher,
+#custom-power,
+#custom-pacman {
+    padding: 5px 10px;
+    margin: 5px 0px;
+    background-color: #2e3440;
+    /* border-radius: 15px; */
+    border-bottom: 2px solid;
+    border-top: 2px solid;
+    border-color: #81a1c1;
 }
  
 /* -----------------------------------------------------------------------------
@@ -85,15 +156,35 @@ window#waybar {
 
  
 #clock {
-    color: #81a1c1;
+    color: #d8dee9;
+    /* this is going to be on the far right, so add the right border */
+    border-top-right-radius: 2px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 2px;
+    border: 2px solid #81a1c1;
+    margin-right: 2px;
 }
 
 #backlight {
     color: #ebcb8b;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 15px;
+    border-left: 2px solid;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-color: #81a1c1;
 }
 
 #battery {
     color: #81a1c1;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 2px;
+    border-right: 2px solid;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-color: #81a1c1;
+    margin-right: 2px;
 }
 
 #battery.charging {
@@ -157,18 +248,24 @@ window#waybar {
    color: #ebcb8b;
 }
 
-#tray {
-}
-
 #custom-launcher,#custom-power{
-    border-style: hidden;
-    margin-top:2px;    
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 15px;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-left: 2px solid;
+    border-color: #81a1c1;
 }
 
-#window{
-    border-style: hidden;
-    margin-top:0px;  
-}    
+#tray {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 2px;
+    border-right: 2px solid;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-color: #81a1c1;
+}
+
 #mode{
     margin-bottom:3px;
 }

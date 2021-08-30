@@ -5,18 +5,23 @@
     "height": 38,
     //"width": 1350, // Waybar width
     // Choose the order of the modules idle_inhibitor
-    "modules-left": ["custom/power", "sway/workspaces", "sway/mode", "sway/window"],
-    "modules-right": [
-      "custom/pacman",
-      // "custom/keyboard-layout",
-      "cpu",
-      "memory",
-      "backlight",
-      "battery",
-      "pulseaudio",
+    "modules-left": [
+      "custom/power",
       "tray",
+      "sway/workspaces",
+      "sway/mode"
+    ],
+    "modules-center": ["sway/window"],
+    "modules-right": [
+      // "custom/pacman",
+      // "custom/keyboard-layout",
+      //"cpu",
+      //"memory",
+      "backlight",
+      "pulseaudio",
       "network",
       "idle_inhibitor",
+      "battery",
       "clock"
     ], 
     
@@ -27,14 +32,10 @@
         "all-outputs": true,
         "format": "{icon}",
         "format-icons": {
-		"3": "3",
-		"4": "4",
-		"5": "5",
-		"6": "6",
-		"7": "7",
-		"8": "8",
-		"9": "9",
-		"10": "10",
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "🕳️"
         }
     },
     "sway/mode": {
@@ -65,11 +66,11 @@
     },
     "cpu": {
         "format": "﬙ {usage}%",
-        "on-click": "alacritty -e htop"
+        "on-click": "alacritty -e gotop"
     },
     "memory": {
         "format": " {}%",
-        "on-click": "alacritty -e htop"
+        "on-click": "alacritty -e gotop"
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -87,17 +88,18 @@
     },
     "battery": {
         "states": {
-            // "good": 95,
+            "full": 98,
+            "good": 95,
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity}%",
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
-        "format-charging": "{capacity}% ⚡",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
+        "format-good": "", // An empty format will hide the module
+        "format-full": "100% ",
         "format-icons": ["", "", "", "", ""]
-        // "format-icons": ["", "", "", "", "", "", "", "", "", ""]
     },
      "network": {
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
@@ -151,5 +153,5 @@
     	"format":" ",
     	"on-click": "exec nwggrid",
     	"tooltip": false,
-},
+    },
 }
