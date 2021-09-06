@@ -35,7 +35,8 @@
             "1": "",
             "2": "",
             "3": "",
-            "4": "🕳️"
+            "4": "🖂",
+            "5": "🕳️"
         }
     },
     "sway/mode": {
@@ -88,7 +89,6 @@
     },
     "battery": {
         "states": {
-            "full": 98,
             "good": 95,
             "warning": 30,
             "critical": 15
@@ -97,7 +97,7 @@
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
-        "format-good": "", // An empty format will hide the module
+        // "format-good": "", // An empty format will hide the module
         "format-full": "100% ",
         "format-icons": ["", "", "", "", ""]
     },
