@@ -36,4 +36,5 @@ for_window [app_id="Chromium"] inhibit_idle fullscreen
 assign [app_id="firefox"] → workspace 1
 assign [class="Signal.*"] → workspace 3
 assign [app_id="whatsapp.*"] → workspace 3
+assign [app_id="geary"] → workspace 4
 

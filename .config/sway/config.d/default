@@ -21,7 +21,7 @@ set $launcher nwggrid
 
 set $powermenu nwgbar
 
-set $cheat gedit ~/.config/sway/cheatsheet
+set $cheat kitty nvim ~/.config/sway/cheatsheet
 
 ### Idle configuration
 exec swayidle -w\
