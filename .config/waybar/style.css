@@ -62,7 +62,7 @@ tooltip {
 
 #workspaces {
     background-color: #2e3440;
-    margin: 5px 2px;
+    margin: 5px 5px;
     border-top-left-radius: 15px;
     border-top-right-radius: 2px;
     border-bottom-left-radius: 2px;
@@ -93,10 +93,6 @@ tooltip {
 #workspaces button.urgent {
     color: #2a2e38;
     background-color: #ebcb8b;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 2px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 15px;
 }
 
 #workspaces button:hover {
@@ -121,7 +117,7 @@ tooltip {
     color: #81a1c1;
 
     padding: 0px 10px 0px 10px;
-    margin: 5px 0px;
+    margin: 5px 5px;
     background-color: #2e3440;
 
     border-top-left-radius: 2px;
@@ -188,7 +184,7 @@ tooltip {
     border-top: 2px solid;
     border-bottom: 2px solid;
     border-color: #81a1c1;
-    margin-right: 2px;
+    margin-right: 5px;
 }
 
 #battery.charging {
