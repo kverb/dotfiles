@@ -143,7 +143,7 @@ M.mappings.plugin = {
       user_keys = "<leader>uk",
    },
    comment = {
-      toggle = "<C-l>", -- trigger comment on a single/selected lines/number prefix
+      toggle = "<leader>cc", -- trigger comment on a single/selected lines/number prefix
    },
    dashboard = {
       bookmarks = "<leader>bm",
