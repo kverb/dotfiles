@@ -70,7 +70,7 @@ tooltip {
     border: 2px solid #81a1c1;
 }
 #workspaces button {
-    color: #81a1c1;
+    color: #d8dee9;
 }
 
 #workspaces button:first-child {
@@ -87,7 +87,7 @@ tooltip {
 }
 
 #workspaces button.focused {
-    background-color: #4c566a;
+    background-color: #3b4252;
 }
 
 #workspaces button.urgent {
