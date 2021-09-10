@@ -49,7 +49,7 @@ nord15 #b48ead
 
 window#waybar {
     background: transparent;
-    color: white;
+    color: #81a1c1;
 }
 
 tooltip {
@@ -70,7 +70,7 @@ tooltip {
     border: 2px solid #81a1c1;
 }
 #workspaces button {
-    color: #eceff4;
+    color: #81a1c1;
 }
 
 #workspaces button:first-child {
