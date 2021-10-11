@@ -42,8 +42,8 @@ nord15 #b48ead
 
 * {
     border-radius: 0;
-    font-family: JetBrains Mono Light;
-    font-size: 14px;
+    font-family: "JetBrains Mono Light", "icomoon", "FuraCode Nerd Font", "FontAwesome";
+    font-size: 15px;
     min-height: 0;
 }
 
@@ -54,20 +54,17 @@ window#waybar {
 
 tooltip {
     background: #2a2e38;
-    border-radius: 15px;
+    /* border-radius: 15px; */
+    border-radius: 25px;
     border-width: 2px;
-    border-style: solid;
-    border-color: #81a1c1;
+    border-style: none;
 }
 
 #workspaces {
-    background-color: #2e3440;
-    margin: 5px 5px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 2px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 15px;
-    border: 2px solid #81a1c1;
+    background-color: #434c5e;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 25px;
 }
 #workspaces button {
     color: #d8dee9;
@@ -79,15 +76,17 @@ tooltip {
    * rounded corner that doesn't fill all the way to the parent's rounded
    * border. Ditto for the last-child.
    */
-    border-top-left-radius: 13px;  
+    border-top-left-radius: 25px;  
+    border-bottom-left-radius: 25px;  
 }
 
 #workspaces button:last-child {
-    border-bottom-right-radius: 13px;
+    border-top-right-radius: 25px;  
+    border-bottom-right-radius: 25px;  
 }
 
 #workspaces button.focused {
-    background-color: #3b4252;
+    background-color: #5e81ac;
 }
 
 #workspaces button.urgent {
@@ -101,15 +100,12 @@ tooltip {
 }
 
 #mode {
-    color: #ebcb8b;
+    color: #2e3440;
+    background-color: #ebcb8b;
     padding: 5px 10px;
-    margin: 5px 0px;
-    background-color: #2e3440;
-    border: 2px solid #81a1c1;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 2px;
+    margin: 10px 0px;
+    border-radius: 25px;
+    border: none;
 }
 
 #window {
@@ -124,8 +120,13 @@ tooltip {
     border-top-right-radius: 2px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    border: 2px solid #81a1c1;
+    /* border: 2px solid #81a1c1; */
+    border: none;
 }
+
+/* #window:blank { */
+/*     border: none; */
+/* } */
 
 #clock,
 #battery,
@@ -141,13 +142,9 @@ tooltip {
 #custom-launcher,
 #custom-power,
 #custom-pacman {
-    padding: 5px 10px;
-    margin: 5px 0px;
+    padding: 5px 10px 5px 10px;
+    margin: 10px 0px;
     background-color: #2e3440;
-    /* border-radius: 15px; */
-    border-bottom: 2px solid;
-    border-top: 2px solid;
-    border-color: #81a1c1;
 }
  
 /* -----------------------------------------------------------------------------
@@ -155,40 +152,59 @@ tooltip {
  * -------------------------------------------------------------------------- */
 
  
-#clock {
-    color: #d8dee9;
-    /* this is going to be on the far right, so add the right border */
-    border-top-right-radius: 2px;
-    border-top-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    border-bottom-left-radius: 2px;
-    border: 2px solid #81a1c1;
-    margin-right: 2px;
+#backlight {
+    background-color: #8fbcbb;
+    color: #2e3440;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border: none;
 }
 
-#backlight {
-    color: #ebcb8b;
-    border-top-left-radius: 2px;
-    border-bottom-left-radius: 15px;
-    border-left: 2px solid;
-    border-top: 2px solid;
-    border-bottom: 2px solid;
-    border-color: #81a1c1;
+#pulseaudio {
+    background-color: #88c0d0;
+    color: #2e3440;
+}
+
+#pulseaudio.muted {
+    background-color: #b48ead;
+}
+
+#idle_inhibitor {
+    background-color: #81a1c1;
+    color: #e5e9f0;
+}
+
+#idle_inhibitor.activated {
+    background-color: #bf616a;
+    color: #e5e9f0;
+}
+
+#network{
+    background-color: #5e81ac;
+    border-color: #5e81ac;
+    color: #d8dee9;
+}
+
+#network.disabled {
+    color:#bf616a;
+}
+
+#network.disconnected {
+    background-color: #bf616a;
 }
 
 #battery {
-    color: #81a1c1;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 2px;
-    border-right: 2px solid;
-    border-top: 2px solid;
-    border-bottom: 2px solid;
-    border-color: #81a1c1;
-    margin-right: 5px;
+    background-color: #4c566a;
+    color: #e5e9f0;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    margin-right: 10px;
+    border: none;
 }
 
 #battery.charging {
-    color: #a3be8c;
+    background-color: #a3be8c;
+    color: #2e3440;
 }
 
 @keyframes blink {
@@ -208,32 +224,21 @@ tooltip {
     animation-direction: alternate;
 }
 
+#clock {
+    margin-right: 15px;
+    color: #eceff4;
+    /* this is going to be on the far right, so add the right border */
+    border-radius: 25px;
+    border: none;
+    background-color: #5e81ac;
+}
+
 #cpu {
     color:#a3be8c ;
 }
 
 #memory {
     color: #d3869b;
-}
-
-#network.disabled {
-    color:#bf616a;
-}
-
-#network{
-    color:#a3be8c;
-}
-
-#network.disconnected {
-    color: #bf616a;
-}
-
-#pulseaudio {
-    color: #b48ead;
-}
-
-#pulseaudio.muted {
-    color: #3b4252;
 }
 
 #temperature {
@@ -244,26 +249,20 @@ tooltip {
     color: #bf616a;
 }
 
-#idle_inhibitor {
-   color: #ebcb8b;
-}
-
 #custom-launcher,#custom-power{
-    border-top-left-radius: 2px;
-    border-bottom-left-radius: 15px;
-    border-top: 2px solid;
-    border-bottom: 2px solid;
-    border-left: 2px solid;
-    border-color: #81a1c1;
+    margin-left: 15px;
+    color: #3b4252;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border: none;
+    background-color: #8fbcbb;
 }
 
 #tray {
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 2px;
-    border-right: 2px solid;
-    border-top: 2px solid;
-    border-bottom: 2px solid;
-    border-color: #81a1c1;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: none;
+    background-color: #5e81ac; 
 }
 
 #custom-keyboard-layout{

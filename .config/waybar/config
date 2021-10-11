@@ -19,8 +19,8 @@
       //"memory",
       "backlight",
       "pulseaudio",
-      "network",
       "idle_inhibitor",
+      "network",
       "battery",
       "clock"
     ], 
@@ -30,13 +30,18 @@
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
+        /* "format": "<span style=\"font-size:24px\">{icon}</span>", */
         "format": "{icon}",
         "format-icons": {
-            "1": "",
+            "1": "",
             "2": "",
-            "3": "",
-            "4": "🖂",
-            "5": "🕳️"
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "7": "",
+            "8": "",
+            "9": "",
         }
     },
     "sway/mode": {
