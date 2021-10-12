@@ -98,6 +98,7 @@ exec swayidle -w\
 #
 # Workspaces:
 #
+workspace 9 output HDMI-A-2
     # Switch to workspace
     bindsym $mod+Tab workspace next
     bindsym $mod+Shift+Tab workspace prev
