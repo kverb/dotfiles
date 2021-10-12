@@ -53,8 +53,8 @@
     "idle_inhibitor": {
         "format": "{icon}",
        "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": "",
+            "deactivated": ""
         }
     },
     "tray": {
@@ -63,9 +63,9 @@
     },
     "clock": {
         "tooltip-format": "{:%A %B %d %Y | %H:%M}",
-        //"format": " {:%a %d %b  %I:%M %p}",	//12 hour format
-        "format": " {:%a %d %b  %H:%M}",	//24 hour format
-        "format-alt": " {:%d/%m/%Y  %H:%M:%S}",
+        //"format": " {:%a %d %b  %I:%M %p}",	//12 hour format
+        "format": "{:%a %d %b%H:%M}",	//24 hour format
+        "format-alt": "{:%d/%m/%Y%H:%M:%S}",
         //"timezones": [ "Kolkata" ],
         //"max-length": 200
         "interval": 1
@@ -88,7 +88,7 @@
     "backlight": {
         // "device": "acpi_video1",
         "format": "{icon} {percent}%",
-        "format-icons": ["💡"],
+        "format-icons": [""],
         "on-scroll-down": "brightnessctl -c backlight set 5%",
         "on-scroll-up": "brightnessctl -c backlight set +5%"
     },
@@ -99,12 +99,12 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         "format-full": "100% ",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", "", "","", "", "", ""]
     },
      "network": {
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
@@ -119,7 +119,7 @@
         "scroll-step": 10,
         "format": "{icon} {volume}%",
         "format-bluetooth": "{icon} {volume}%",
-        "format-muted":"muted ",
+        "format-muted":"",
         "format-icons": {
             "headphones": "",
             "handsfree": "",

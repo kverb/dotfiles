@@ -42,8 +42,8 @@ nord15 #b48ead
 
 * {
     border-radius: 0;
-    font-family: "JetBrains Mono Light", "icomoon", "FuraCode Nerd Font", "FontAwesome";
-    font-size: 15px;
+    font-family: "JetBrains Mono Light", "FuraCode Nerd Font", "FontAwesome";
+    font-size: 14px;
     min-height: 0;
 }
 
