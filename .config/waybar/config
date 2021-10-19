@@ -140,7 +140,7 @@
         "signal": 8
     },
     "custom/power": {
-      	"format":"⏻",
+      	"format":"",
        	"on-click": "nwgbar",
       	"tooltip": false,
    },
