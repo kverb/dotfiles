@@ -209,14 +209,17 @@ bindsym XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo
     bindsym XF86AudioPrev exec playerctl previous
 #
 # Backlight
-#
-    bindsym XF86MonBrightnessUp exec light -A 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob
-    bindsym XF86MonBrightnessDown exec light -U 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob
+#  works on garuda, but not on endeavouros
+#    bindsym XF86MonBrightnessUp exec light -A 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob
+#    bindsym XF86MonBrightnessDown exec light -U 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob
+    bindsym XF86MonBrightnessUp exec brightnessctl -c backlight set +5%
+    bindsym XF86MonBrightnessDown exec brightnessctl -c backlight set 5%-
+
 #
 # App shortcuts
 #
     bindsym $mod+n exec thunar
-    bindsym $mod+o exec firedragon
+    bindsym $mod+o exec firefox
 #
 # Screenshots
 #

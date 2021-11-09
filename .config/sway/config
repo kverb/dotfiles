@@ -10,7 +10,7 @@ include $HOME/.config/sway/config.d/*
 
 input "type:keyboard" {
     repeat_delay 180
-    repeat_rate 20
+    repeat_rate 40
     xkb_options ctrl:nocaps
 }
 
