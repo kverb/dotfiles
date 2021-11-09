@@ -64,8 +64,8 @@
     "clock": {
         "tooltip-format": "{:%A %B %d %Y | %H:%M}",
         //"format": " {:%a %d %b  %I:%M %p}",	//12 hour format
-        "format": "{:%a %d %b%H:%M}",	//24 hour format
-        "format-alt": "{:%d/%m/%Y%H:%M:%S}",
+        "format": "{:%a %d %b %H:%M}",	//24 hour format
+        "format-alt": "{:%d/%m/%Y %H:%M:%S}",
         //"timezones": [ "Kolkata" ],
         //"max-length": 200
         "interval": 1
@@ -104,7 +104,9 @@
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         "format-full": "100% ",
-        "format-icons": ["", "", "", "", "", "","", "", "", ""]
+        // "format-icons": ["", "", "", "", "", "","", "", "", ""]
+        "format-icons": ["", "", "", "", ""]
+        //"format-icons": ["", "", "", "", "", "", "", "", "", ""]
     },
      "network": {
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
