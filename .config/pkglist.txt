@@ -48,7 +48,6 @@ ecryptfs-utils
 efibootmgr
 eog
 evince
-exfatprogs
 f2fs-tools
 fakeroot
 fatresize
@@ -134,7 +133,7 @@ ipw2200-fw
 jfsutils
 jq
 kanshi
-keybase-gui
+keybase-bin
 kitty
 kvantum-qt5
 kvantum-theme-nordic-git
