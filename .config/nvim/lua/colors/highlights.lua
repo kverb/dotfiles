@@ -1,3 +1,5 @@
+local override = require("core.utils").load_config().ui.hl_override
+
 local cmd = vim.cmd
 
 local colors = require("colors").get()
@@ -19,20 +21,13 @@ local purple = colors.purple
 local red = colors.red
 local white = colors.white
 local yellow = colors.yellow
+local one_bg3 = colors.one_bg3
 
 local ui = require("core.utils").load_config().ui
 
-local function bg(group, color)
-   cmd("hi " .. group .. " guibg=" .. color)
-end
-
-local function fg(group, color)
-   cmd("hi " .. group .. " guifg=" .. color)
-end
-
-local function fg_bg(group, fgcol, bgcol)
-   cmd("hi " .. group .. " guifg=" .. fgcol .. " guibg=" .. bgcol)
-end
+local fg = require("core.utils").fg
+local fg_bg = require("core.utils").fg_bg
+local bg = require("core.utils").bg
 
 -- Comments
 if ui.italic_comments then
@@ -41,8 +36,10 @@ else
    fg("Comment", grey_fg)
 end
 
-cmd "hi clear CursorLine" -- disable cusror line
-fg("cursorlinenr", white) -- line number
+-- Disable cusror line
+cmd "hi clear CursorLine"
+-- Line number
+fg("cursorlinenr", white)
 
 -- same it bg, so it doesn't appear
 fg("EndOfBuffer", black)
@@ -56,17 +53,19 @@ bg("Pmenu", one_bg)
 bg("PmenuSbar", one_bg2)
 bg("PmenuSel", pmenu_bg)
 bg("PmenuThumb", nord_blue)
+fg("CmpItemAbbr", white)
+fg("CmpItemAbbrMatch", white)
+fg("CmpItemKind", white)
+fg("CmpItemMenu", white)
 
 -- misc
+
+-- inactive statuslines as thin lines
+fg("StatusLineNC", one_bg3 .. " gui=underline")
+
 fg("LineNr", grey)
-
 fg("NvimInternalError", red)
-
--- inactive statuslines as thin splitlines
-fg("StatusLineNC", line .. " gui=underline")
-
-fg("VertSplit", line)
--- fg_bg("Visual",light_grey, colors.lightbg)
+fg("VertSplit", one_bg2)
 
 if ui.transparency then
    bg("Normal", "NONE")
@@ -75,38 +74,43 @@ if ui.transparency then
    fg("Comment", grey)
 end
 
------ plugin related highlights -----
+-- [[ Plugin Highlights
 
--- dashboard --
+-- Dashboard
 fg("DashboardCenter", grey_fg)
 fg("DashboardFooter", grey_fg)
 fg("DashboardHeader", grey_fg)
 fg("DashboardShortcut", grey_fg)
 
--- git signs --
+-- Git signs
 fg_bg("DiffAdd", nord_blue, "none")
 fg_bg("DiffChange", grey_fg, "none")
 fg_bg("DiffModified", nord_blue, "none")
 
--- indent blankline plugin --
+-- Indent blankline plugin
 fg("IndentBlanklineChar", line)
 
--- LspDiagnostics --
--- error / warnings
+-- ]]
+
+-- [[ LspDiagnostics
+
+-- Errors
 fg("LspDiagnosticsSignError", red)
 fg("LspDiagnosticsSignWarning", yellow)
 fg("LspDiagnosticsVirtualTextError", red)
 fg("LspDiagnosticsVirtualTextWarning", yellow)
 
--- info
+-- Info
 fg("LspDiagnosticsSignInformation", green)
 fg("LspDiagnosticsVirtualTextInformation", green)
 
--- hints
+-- Hints
 fg("LspDiagnosticsSignHint", purple)
 fg("LspDiagnosticsVirtualTextHint", purple)
 
--- NvimTree --
+-- ]]
+
+-- NvimTree
 fg("NvimTreeEmptyFolderName", blue)
 fg("NvimTreeEndOfBuffer", darker_black)
 fg("NvimTreeFolderIcon", folder_bg)
@@ -114,13 +118,15 @@ fg("NvimTreeFolderName", folder_bg)
 fg("NvimTreeGitDirty", red)
 fg("NvimTreeIndentMarker", one_bg2)
 bg("NvimTreeNormal", darker_black)
+bg("NvimTreeNormalNC", darker_black)
 fg("NvimTreeOpenedFolderName", blue)
 fg("NvimTreeRootFolder", red .. " gui=underline") -- enable underline for root folder in nvim tree
 fg_bg("NvimTreeStatuslineNc", darker_black, darker_black)
 fg("NvimTreeVertSplit", darker_black)
 bg("NvimTreeVertSplit", darker_black)
 fg_bg("NvimTreeWindowPicker", red, black2)
--- disable some highlight in nvim tree if transparency enabled
+
+-- Disable some highlight in nvim tree if transparency enabled
 if ui.transparency then
    bg("NvimTreeNormal", "NONE")
    bg("NvimTreeStatusLineNC", "NONE")
@@ -128,8 +134,12 @@ if ui.transparency then
    fg("NvimTreeVertSplit", grey)
 end
 
--- telescope --
-fg("TelescopeBorder", line)
-fg("TelescopePreviewBorder", grey)
-fg("TelescopePromptBorder", line)
-fg("TelescopeResultsBorder", line)
+-- Telescope
+fg("TelescopeBorder", one_bg)
+fg_bg("TelescopePreviewTitle", green, one_bg)
+fg_bg("TelescopePromptTitle", blue, one_bg)
+fg_bg("TelescopeResultsTitle", red, one_bg)
+
+if #override ~= 0 then
+   require(override)
+end

@@ -35,7 +35,7 @@ telescope.setup {
          preview_cutoff = 120,
       },
       file_sorter = require("telescope.sorters").get_fuzzy_file,
-      file_ignore_patterns = {},
+      file_ignore_patterns = { "node_modules" },
       generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
       path_display = { "absolute" },
       winblend = 0,
@@ -73,16 +73,8 @@ if vim.fn.executable "ueberzug" == 1 then
    packer_repos = packer_repos .. ', "telescope-media-files.nvim"'
 end
 
-if not pcall(function()
+pcall(function()
    for _, ext in ipairs(extensions) do
       telescope.load_extension(ext)
    end
-end) then
-   -- This should only trigger when in need of PackerSync, so better do it
-   print "After completion of PackerCompile, restart neovim."
-   -- Trigger packer compile on PackerComplete, so it properly waits for PackerSync
-   vim.cmd 'autocmd User PackerComplete ++once lua print "Waiting for PackerCompile.." require("packer").compile()'
-   vim.cmd 'autocmd User PackerCompileDone ++once echo "Packer Compile done, restart neovim."'
-   require "plugins"
-   loadstring('require("packer").update(' .. packer_repos .. ")")()
-end
+end)

@@ -6,9 +6,9 @@ g.nvchad_user_config = "chadrc"
 
 local options = require("core.utils").load_config().options
 
+opt.title = true
 opt.clipboard = options.clipboard
 opt.cmdheight = options.cmdheight
-opt.completeopt = { "menuone", "noselect" }
 opt.cul = true -- cursor line
 
 -- Indentline
@@ -16,11 +16,12 @@ opt.expandtab = options.expandtab
 opt.shiftwidth = options.shiftwidth
 opt.smartindent = options.smartindent
 
--- disable tilde on end of buffer: https://github.com/  neovim/neovim/pull/8546#issuecomment-643643758
+-- disable tilde on end of buffer: https://github.com/neovim/neovim/pull/8546#issuecomment-643643758
 opt.fillchars = { eob = " " }
 
 opt.hidden = options.hidden
 opt.ignorecase = options.ignorecase
+opt.smartcase = options.smartcase
 opt.mouse = options.mouse
 
 -- Numbers
@@ -38,14 +39,14 @@ opt.splitright = true
 opt.tabstop = options.tabstop
 opt.termguicolors = true
 opt.timeoutlen = options.timeoutlen
-opt.undofile = options.permanent_undo
+opt.undofile = options.undofile
 
 -- interval for writing swap file to disk, also used by gitsigns
 opt.updatetime = options.updatetime
 
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
-opt.whichwrap:append "<>hl"
+opt.whichwrap:append "<>[]hl"
 
 g.mapleader = options.mapleader
 
