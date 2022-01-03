@@ -153,3 +153,5 @@ alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 # if status --is-interactive
 #    neofetch
 # end
+
+set -x GOPATH (go env GOPATH)
