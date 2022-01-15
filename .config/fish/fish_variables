@@ -1,7 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export CM_LAUNCHER:rofi
-SETUVAR --export EDITOR:vimx
+SETUVAR --export EDITOR:nvim
 SETUVAR __done_min_cmd_duration:10000
 SETUVAR __done_notification_urgency_level:low
 SETUVAR __fish_init_2_39_8:\x1d
