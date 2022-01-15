@@ -1,0 +1,8 @@
+pane	0	1	1	:*	1	:/home/kverb	0	fish	:
+pane	0	1	1	:*	2	:/home/kverb	0	fish	:
+pane	0	1	1	:*	3	:/home/kverb	1	fish	:
+pane	0	1	1	:*	4	:/home/kverb	0	fish	:
+pane	0	1	1	:*	5	:/home/kverb	0	fish	:
+pane	0	1	1	:*	6	:/home/kverb	0	fish	:
+window	0	1	:fish	1	:*	a8ba,184x37,0,0{60x37,0,0[60x18,0,0,0,60x18,0,19,5],60x37,61,0[60x18,61,0,1,60x18,61,19,4],62x37,122,0[62x18,122,0,2,62x18,122,19,3]}	:
+state	0	
