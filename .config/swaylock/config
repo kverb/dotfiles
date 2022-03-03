@@ -1,0 +1,34 @@
+# daemonize
+clock
+datestr=%A %B %-d
+#image=$HOME/.config/swaylock/swaylock.png
+screenshots
+effect-blur=7x5
+# scaling=fill
+font=Terminus
+font-size=24
+# 5 second grace period with no password required
+grace=5
+fade-in=0.75
+effect-vignette=0.5:1
+
+
+# Ring
+# no-unlock-indicator
+indicator
+indicator-radius=180
+indicator-caps-lock
+indicator-thickness=7
+line-uses-ring
+line-color=#3b4252
+text-color=#d8dee9
+inside-color=#2e344098
+inside-ver-color=#5e81ac
+line-ver-color=#5e81ac
+ring-ver-color=#5e81ac98
+ring-color=#4c566a
+# key-hl-color=#5e81ac
+key-hl-color=#8fbcbb
+separator-color=#4c566a
+layout-text-color=#eceff4
+line-wrong-color=#bf616a
