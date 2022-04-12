@@ -15,7 +15,8 @@ set $term-float kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi -c ~/.config/wofi/config -I
+# set $menu wofi -c ~/.config/wofi/config -I
+set $menu fuzzel -b 4c566aff -t d8dee9ff -s 2e3440ff -S 8fbcbbff -C 88c0d0ff -m b48eadff -f "JetBrains Mono:weight=thin" -w 80 --show-actions
 
 set $launcher nwggrid
 
