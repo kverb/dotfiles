@@ -1,0 +1,59 @@
+[user]
+    email = ken@kverb.com
+    name = Ken V
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only --line-numbers
+
+[delta]
+    dark = true
+    navigate = true  # use n and N to move between diff sections
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
+    minus-style = "#d8dee9" bold ul "#6b2a50"
+    plus-style = bold syntax "#1a5653"
+    syntax-theme = Nord
+    features = "calochortus-lyallii"
+
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+
+[delta "calochortus-lyallii"]
+    # author: https://github.com/manojkarthick
+    commit-decoration-style = none
+    dark = true
+    file-added-label = [+]
+    file-copied-label = [C]
+    file-decoration-style = none
+    file-modified-label = [M]
+    file-removed-label = [-]
+    file-renamed-label = [R]
+    file-style = 232 bold 184
+    hunk-header-decoration-style = none
+    hunk-header-file-style = "#999999"
+    hunk-header-line-number-style = bold "#03a4ff"
+    hunk-header-style = file line-number syntax
+    line-numbers = true
+    line-numbers-left-style = black
+    line-numbers-minus-style = "#B10036"
+    line-numbers-plus-style = "#03a4ff"
+    line-numbers-right-style = black
+    line-numbers-zero-style = "#999999"
+    minus-emph-style = syntax bold "#780000"
+    minus-style = syntax "#400000"
+    plus-emph-style = syntax bold "#007800"
+    plus-style = syntax "#004000"
+    whitespace-error-style = "#280050" reverse
+    zero-style = syntax
+    syntax-theme = Nord
