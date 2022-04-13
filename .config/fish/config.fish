@@ -155,3 +155,6 @@ alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 # end
 
 set -x GOPATH (go env GOPATH)
+
+# https://github.com/ajeetdsouza/zoxide
+zoxide init fish | source
