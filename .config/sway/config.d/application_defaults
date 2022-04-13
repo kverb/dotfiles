@@ -17,7 +17,7 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [window_role="Preferences"] floating enable
-for_window [window_type="dialog"] floating enable
+for_window [window_type="dialog"] floating enable, resize set width 80ppt height 80 ppt
 for_window [window_type="menu"] floating enable
 for_window [window_role="About"] floating enable
 for_window [title="File Operation Progress"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
@@ -28,13 +28,13 @@ for_window [title="nmtui"] floating enable,  resize set width 50 ppt height 70 p
 #for_window [title="htop"] floating enable, resize set width 50 ppt height 70 ppt
 for_window [app_id="xsensors"] floating enable
 for_window [title="Save File"] floating enable
-for_window [app_id="firefox" title="firefox — Sharing Indicator"] kill
+for_window [class="firefox" title="firefox — Sharing Indicator"] kill
 
 # Inhibit idle
 for_window [app_id="firedragon"] inhibit_idle fullscreen
 for_window [app_id="Chromium"] inhibit_idle fullscreen
-assign [app_id="firefox"] → workspace 1
+assign [class="firefox"] → workspace 1
 assign [class="Signal.*"] → workspace 3
-assign [app_id="whatsapp.*"] → workspace 3
-assign [app_id="geary"] → workspace 4
+assign [class="whatsapp.*"] → workspace 3
+assign [class="geary"] → workspace 4
 
