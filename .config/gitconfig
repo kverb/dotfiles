@@ -1,5 +1,5 @@
 [user]
-    email = ken@kverb.com
+	email = git@kverb.com
     name = Ken V
 [core]
     pager = delta
