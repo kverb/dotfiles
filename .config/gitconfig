@@ -1,6 +1,7 @@
 [user]
 	email = git@kverb.com
     name = Ken V
+	signingkey = kverb@users.noreply.github.com
 [core]
     pager = delta
 
@@ -57,3 +58,7 @@
     whitespace-error-style = "#280050" reverse
     zero-style = syntax
     syntax-theme = Nord
+[init]
+	defaultBranch = main
+[commit]
+	gpgsign = true
