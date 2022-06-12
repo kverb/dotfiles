@@ -1,4 +1,4 @@
-﻿## Set values
+## Set values
 # Hide welcome message
 set fish_greeting
 set VIRTUAL_ENV_DISABLE_PROMPT "1"
@@ -158,3 +158,5 @@ set -x GOPATH (go env GOPATH)
 
 # https://github.com/ajeetdsouza/zoxide
 zoxide init fish | source
+
+alias h="helix"
