@@ -42,9 +42,10 @@ nord15 #b48ead
 
 * {
     border-radius: 0;
-    font-family: "JetBrains Mono Light";
-    font-size: 14px;
-    min-height: 0;
+    /* font-family: "JetBrains Mono Light"; */
+    font-family: "Spleen 32x64";
+    font-size: 16px;
+    min-height: 14px;
 }
 
 window#waybar {

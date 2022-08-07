@@ -16,7 +16,7 @@ set $term-float kitty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 # set $menu wofi -c ~/.config/wofi/config -I
-set $menu fuzzel -P ' ' -b 434c5eff -t d8dee9ff -s 2e3440ff -S 8fbcbbff -C 88c0d0ff -m b48eadff -w 60 --show-actions -f "JetBrains Mono:weight=thin:size=16" -i "Arc-X-P"
+set $menu fuzzel -P ' ' -b 434c5eff -t d8dee9ff -s 2e3440ff -S 8fbcbbff -C 88c0d0ff -m b48eadff -w 60 --show-actions -f "Spleen 32x64:size=16" -i "Arc-X-P"
 
 set $launcher nwggrid
 
