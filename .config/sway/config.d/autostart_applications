@@ -28,7 +28,7 @@ exec dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 
 # Clipman
 exec clipman restore
-exec wl-paste -t text --watch clipman store
+exec wl-paste -t text --watch clipman store -P --max-items 2000
 
 # Gnome Keyring
 exec gnome-keyring-daemon --daemonize --start --components=gpg,pkcs11,secrets,ssh
