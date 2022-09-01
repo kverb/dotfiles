@@ -17,11 +17,11 @@
       // "custom/keyboard-layout",
       //"cpu",
       //"memory",
-      "backlight",
       "pulseaudio",
+      "backlight",
       "idle_inhibitor",
-      "network",
       "battery",
+      "network",
       "clock"
     ], 
     

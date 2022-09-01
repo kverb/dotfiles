@@ -156,14 +156,15 @@ tooltip {
 #backlight {
     background-color: #8fbcbb;
     color: #2e3440;
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
-    border: none;
 }
 
 #pulseaudio {
     background-color: #88c0d0;
     color: #2e3440;
+    /* Rounded corners for the left side of the module */
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border: none;
 }
 
 #pulseaudio.muted {
@@ -184,6 +185,11 @@ tooltip {
     background-color: #5e81ac;
     border-color: #5e81ac;
     color: #d8dee9;
+    /* Rounded corners for the right side of the module */
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    margin-right: 10px;
+    border: none;
 }
 
 #network.disabled {
@@ -197,10 +203,6 @@ tooltip {
 #battery {
     background-color: #4c566a;
     color: #e5e9f0;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-    margin-right: 10px;
-    border: none;
 }
 
 #battery.charging {
