@@ -12,24 +12,23 @@ set nocompatible " explicitly get out of vi-compatible mode
  au BufNewFile,BufRead *.vundle set filetype=vim
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"call vundle#begin()
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'ctrlpvim/ctrlp.vim.git'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-fugitive'
+"Plugin 'gmarik/Vundle.vim'
+"Plugin 'terryma/vim-multiple-cursors'
+"Plugin 'ctrlpvim/ctrlp.vim.git'
+"Plugin 'tpope/vim-commentary'
+"Plugin 'tpope/vim-fugitive'
 " Plugin 'tpope/vim-surround'
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/syntastic'
-Plugin 'ervandew/supertab'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'dracula/vim', { 'name': 'dracula' }
+"Plugin 'bling/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'scrooloose/syntastic'
+"Plugin 'ervandew/supertab'
+"Plugin 'airblade/vim-gitgutter'
+"Plugin 'christoomey/vim-tmux-navigator'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+"call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 " Brief help
@@ -44,7 +43,7 @@ filetype plugin indent on    " required
 
 " colorscheme jellybeans
 set termguicolors
-colorscheme dracula
+"colorscheme dracula
 
 let mapleader=","
 " shortcuts for deleting, saving, etc
@@ -83,7 +82,7 @@ set scrolloff=20 " Keep 10 lines (top/bottom) for scope
 set showcmd " show the command being typed
 set ruler " Always show current positions along the bottom
 set statusline=%F%m%r%h%w\ 
-set statusline+=%{fugitive#statusline()}\    
+"set statusline+=%{fugitive#statusline()}\    
 set statusline+=[%{strlen(&fenc)?&fenc:&enc}]
 set statusline+=\ [line\ %l\/%L] 
 set formatoptions=rq " Automatically insert comment leader on return, and let gq format comments
