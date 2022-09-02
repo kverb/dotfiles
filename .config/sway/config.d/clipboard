@@ -1,0 +1,3 @@
+exec wl-paste -t text --watch clipman store --no-persist
+bindsym Alt+Shift+c exec clipman pick -t wofi
+
