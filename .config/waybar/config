@@ -45,7 +45,9 @@
         }
     },
     "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
+        // "format": "<span style=\"italic\">{}</span>"
+        "format": "{}"
+
     },
     "sway/window": {
         "format": "{}"
@@ -111,7 +113,7 @@
      "network": {
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
         "format": "⚠ Disabled",
-        "format-wifi": " {essid}",
+        "format-wifi": " {ipaddr}",
         "format-ethernet": " {ipaddr}",
         "format-disconnected": "⚠ Disconnected",
         // "on-click": "connman-gtk"
@@ -143,7 +145,7 @@
     },
     "custom/power": {
       	"format":"",
-       	"on-click": "nwgbar",
+       	"on-click": "nwg-bar",
       	"tooltip": false,
    },
    "custom/keyboard-layout": {
@@ -155,10 +157,5 @@
       	"signal": 1, // SIGHUP
       	"tooltip": false,
         "on-click": "~/.config/waybar/scripts/keyhint.sh",
-},
-     "custom/launcher": {
-    	"format":" ",
-    	"on-click": "exec nwggrid",
-    	"tooltip": false,
-    },
+}
 }

@@ -12,6 +12,9 @@
 
 
 /*
+These are here for reference.
+It appears that gtk3 css does not support variables. Sigh.
+https://www.nordtheme.com/docs/colors-and-palettes
 Polar Night
 nord0  #2e3440
 nord1  #3b4252
@@ -229,11 +232,11 @@ tooltip {
 
 #clock {
     margin-right: 15px;
-    color: #eceff4;
+    color: #2e3440;
     /* this is going to be on the far right, so add the right border */
     border-radius: 25px;
     border: none;
-    background-color: #5e81ac;
+    background-color: #8fbcbb;
 }
 
 #cpu {
