@@ -160,3 +160,5 @@ set -x GOPATH (go env GOPATH)
 zoxide init fish | source
 
 alias h="helix"
+
+set -gx EDITOR vim
