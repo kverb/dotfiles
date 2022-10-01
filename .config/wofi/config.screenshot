@@ -1,7 +1,8 @@
-hide_search=true
+prompt=Take Screenshot
+hide_search=false
 hide_scroll=true
 insensitive=true
-width=1
+width=200
 show=dmenu
 lines=5
 location=centre
