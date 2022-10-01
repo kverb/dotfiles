@@ -1,0 +1,10 @@
+prompt=Upload Screenshot
+hide_search=false
+hide_scroll=true
+insensitive=true
+width=200
+show=dmenu
+lines=5
+location=centre
+x=870
+y=455
