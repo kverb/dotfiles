@@ -3,17 +3,25 @@
 # Example configuration:
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Put your touchpad's ID to replace "Touchpad-ID" (keep the quotation marks)
+# Read `man 5 sway-input` for more information about this section.
 
-input type:touchpad {
-      dwt enabled
-      tap enabled
-      natural_scroll enabled
+input "type:keyboard" {
+    repeat_delay 180
+    repeat_rate 40
+    xkb_options ctrl:nocaps,compose:prsc
+	xkb_layout "us"
 }
 
-# Read `man 5 sway-input` for more information about this section.
-#
-input type:keyboard xkb_layout "us"
-input * xkb_options compose:prsc
+input "type:touchpad" {
+    natural_scroll disabled
+    tap enabled
+    middle_emulation disabled
+}
+
+input 1578:16768:MOSART_Semi._2.4G_INPUT_DEVICE_Mouse {
+	scroll_factor 2
+	pointer_accel 1
+}
 
 exec_always {
    'swaymsg input type:keyboard xkb_layout "$(localectl status | grep "X11 Layout" | sed -e "s/^.*X11 Layout://")"'
