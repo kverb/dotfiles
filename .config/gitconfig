@@ -1,7 +1,7 @@
 [user]
-	email = git@kverb.com
+    email = git@kverb.com
     name = Ken V
-	signingkey = kverb@users.noreply.github.com
+    signingkey = kverb@users.noreply.github.com
 [core]
     pager = delta
 
