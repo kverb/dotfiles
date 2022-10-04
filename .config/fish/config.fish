@@ -100,7 +100,9 @@ alias lt='exa -aT --color=always --group-directories-first --icons' # tree listi
 alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
 
 # Replace some more things with better alternatives
-alias cat='bat --style header --style rules --style snip --style changes --style header'
+if command -sq bat
+    alias cat='bat --style header --style rules --style snip --style changes --style header'
+end
 [ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
 
 # Common use
@@ -156,9 +158,15 @@ alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
 set -x GOPATH (go env GOPATH)
 
-# https://github.com/ajeetdsouza/zoxide
-zoxide init fish | source
+if command -sq gping
+    alias ping=gping
+end
 
-alias h="helix"
+if command -sq zoxide
+    # https://github.com/ajeetdsouza/zoxide
+    zoxide init fish | source
+end
 
 set -gx EDITOR vim
+
+
