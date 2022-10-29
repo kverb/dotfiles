@@ -120,6 +120,8 @@ bindsym --to-code $mod+Shift+e mode $mode_exit
 #
 # Workspaces:
 #
+workspace 7 output HDMI-A-2
+workspace 8 output HDMI-A-2
 workspace 9 output HDMI-A-2
     # Switch to workspace
     bindsym $mod+Tab workspace next
@@ -240,8 +242,8 @@ bindsym XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo
 #
 # App shortcuts
 #
-    bindsym $mod+n exec thunar
-    bindsym $mod+o exec firefox
+#    bindsym $mod+n exec thunar
+#    bindsym $mod+o exec firefox
 #
 # Screenshots
 #
