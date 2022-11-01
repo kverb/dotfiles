@@ -37,7 +37,7 @@ exec gnome-keyring-daemon --daemonize --start --components=gpg,pkcs11,secrets,ss
 exec libinput-gestures-setup start
 
 # Outputs
-exec kanshi
+exec_always kanshi
 
 # Xdg DEsktop Portal
 exec /usr/libexec/xdg-desktop-portal
