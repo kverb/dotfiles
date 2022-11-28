@@ -10,15 +10,16 @@ gaps outer 5
 default_border pixel 1
 
 # Default Font
-# font pango: JetBrains Mono 12
-font pango: Spleen 32x64 14
+font pango: JetBrains Mono 12
+#font pango: Spleen 32x64 14
 
 # Thin borders:
 smart_borders on
 
 # Set wallpaper:
-exec ~/.azotebg
+#exec ~/.azotebg
 # exec swaybg -o eDP-1 -i '/home/kverb/Pictures/ign_astronaut.png' -m fill &
+output * bg #000000 solid_color
 
 
 # Title format for windows
@@ -27,11 +28,10 @@ for_window [shell="x_wayland"] title_format "%class - %title"
 
 ## Window decoration
 # class                 border  backgr. text    indicator child_border
-client.focused          #88c0d0 #434c5e #eceff4 #8fbcbb   #88c0d0
-client.focused_inactive #2e3440 #2e3440 #d8dee9 #4c566a   #2e3440
-client.unfocused        #2e3440 #2e3440 #d8dee9 #4c566a   #2e3440
-client.urgent           #ebcb8b #ebcb8b #2e3440 #8fbcbb   #ebcb8b
-
+client.focused          #00a595 #000000 #00a595 #00a48c   #ffcf00
+client.focused_inactive #00a48c #000000 #00a595 #00a48c   #00a48c
+client.unfocused        #2e3440 #000000 #00a595 #00a48c   #00a48c
+client.urgent           #ebcb8b #000000 #00a595 #00a48c   #00a48c
 #
 # Status Bar:
 #
