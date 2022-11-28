@@ -5,275 +5,204 @@
  * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
  *
  * =========================================================================== */
- 
+
 /* -----------------------------------------------------------------------------
  * Keyframes
  * -------------------------------------------------------------------------- */
 
-
 /*
-These are here for reference.
-It appears that gtk3 css does not support variables. Sigh.
-https://www.nordtheme.com/docs/colors-and-palettes
-Polar Night
-nord0  #2e3440
-nord1  #3b4252
-nord2  #434c5e
-nord3  #4c566a
-Snow Storm
-nord4  #d8dee9
-nord5  #e5e9f0
-nord6  #eceff4
-Frost
-nord7  #8fbcbb
-nord8  #88c0d0
-nord9  #81a1c1
-nord10 #5e81ac
-Aurora
-nord11 #bf616a
-nord12 #d08770
-nord13 #ebcb8b
-nord14 #a3be8c
-nord15 #b48ead
+Arc-Dark Color Scheme
+*
+*@define-color highlight #5294e2 ;
+*@define-color base1  #404552 ;
 */
+
+/* ENCOM colors */
+@define-color base1  #000000;
+@define-color fg  #00a595;
+@define-color selectionBG  #00a48c;
+
+
+@keyframes blink-warning {
+    70% {
+        color: white;
+    }
+
+    to {
+        color: white;
+        background-color: orange;
+    }
+}
+
+@keyframes blink-critical {
+    70% {
+      color: white;
+    }
+
+    to {
+        color: white;
+        background-color: red;
+    }
+}
 
 /* -----------------------------------------------------------------------------
  * Base styles
  * -------------------------------------------------------------------------- */
- 
+
 /* Reset all styles */
-
 * {
+    border: none;
     border-radius: 0;
-    /* font-family: "JetBrains Mono Light"; */
-    font-family: "Spleen 32x64";
-    font-size: 16px;
-    min-height: 14px;
+    min-height: 0;
+    margin: 1px;
+    padding: 0;
 }
 
-window#waybar {
+/* The whole bar */
+#waybar {
     background: transparent;
-    color: #81a1c1;
+    color: @fg;
+    background-color: @base1;
+    font-family: Terminus;
+    font-size: 14px;
+    border-bottom: 3px solid @selectionBG;
 }
 
-tooltip {
-    background: #2a2e38;
-    /* border-radius: 15px; */
-    border-radius: 25px;
-    border-width: 2px;
-    border-style: none;
-}
-
-#workspaces {
-    background-color: #434c5e;
-    margin: 10px 5px;
-    border: none;
-    border-radius: 25px;
-}
-#workspaces button {
-    color: #d8dee9;
-}
-
-#workspaces button:first-child {
-  /* not sure why this doesn't work with 15px to match the parent.
-   * without this hacky adjustment, there is a thin ~2px arc along the
-   * rounded corner that doesn't fill all the way to the parent's rounded
-   * border. Ditto for the last-child.
-   */
-    border-top-left-radius: 25px;  
-    border-bottom-left-radius: 25px;  
-}
-
-#workspaces button:last-child {
-    border-top-right-radius: 25px;  
-    border-bottom-right-radius: 25px;  
-}
-
-#workspaces button.focused {
-    background-color: #5e81ac;
-}
-
-#workspaces button.urgent {
-    color: #2a2e38;
-    background-color: #ebcb8b;
-}
-
-#workspaces button:hover {
-    background-color: #88c0d0;
-    color: #2a2e38;
-}
-
-#mode {
-    color: #2e3440;
-    background-color: #ebcb8b;
-    padding: 5px 10px;
-    margin: 10px 0px;
-    border-radius: 25px;
-    border: none;
-}
-
-#window {
-  
-    color: #81a1c1;
-
-    padding: 0px 10px 0px 10px;
-    margin: 5px 5px;
-    background-color: #2e3440;
-
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    /* border: 2px solid #81a1c1; */
-    border: none;
-}
-
-/* #window:blank { */
-/*     border: none; */
-/* } */
-
-#clock,
+/* Every modules */
 #battery,
-#cpu,
-#memory,
-#idle_inhibitor,
-#temperature,
-#custom-keyboard-layout,
+#clock,
 #backlight,
+#cpu,
+#custom-keyboard-layout,
+#memory,
+#mode,
+#custom-weather,
 #network,
 #pulseaudio,
+#temperature,
 #tray,
-#custom-launcher,
-#custom-power,
-#custom-pacman {
-    padding: 5px 10px 5px 10px;
-    margin: 10px 0px;
-    background-color: #2e3440;
+#idle_inhibitor,
+#custom-PBPbattery {
+    padding:0.5rem 0.6rem;
+    margin: 1px 0px;
 }
- 
+
 /* -----------------------------------------------------------------------------
- * Module styles
+ * Modules styles
  * -------------------------------------------------------------------------- */
 
- 
-#backlight {
-    background-color: #8fbcbb;
-    color: #2e3440;
-}
-
-#pulseaudio {
-    background-color: #88c0d0;
-    color: #2e3440;
-    /* Rounded corners for the left side of the module */
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
-    border: none;
-}
-
-#pulseaudio.muted {
-    background-color: #b48ead;
-}
-
-#idle_inhibitor {
-    background-color: #81a1c1;
-    color: #e5e9f0;
-}
-
-#idle_inhibitor.activated {
-    background-color: #bf616a;
-    color: #e5e9f0;
-}
-
-#network{
-    background-color: #5e81ac;
-    border-color: #5e81ac;
-    color: #d8dee9;
-    /* Rounded corners for the right side of the module */
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-    margin-right: 10px;
-    border: none;
-}
-
-#network.disabled {
-    color:#bf616a;
-}
-
-#network.disconnected {
-    background-color: #bf616a;
-}
-
 #battery {
-    background-color: #4c566a;
-    color: #e5e9f0;
-}
-
-#battery.charging {
-    background-color: #a3be8c;
-    color: #2e3440;
-}
-
-@keyframes blink {
-    to {
-        color: #4c566a;
-        background-color: #eceff4;
-    }
-}
-
-#battery.critical:not(.charging) {
-    background: #bf616a;
-    color: #eceff4;
-    animation-name: blink;
-    animation-duration: 0.5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
 
-#clock {
-    margin-right: 15px;
-    color: #2e3440;
-    /* this is going to be on the far right, so add the right border */
-    border-radius: 25px;
-    border: none;
-    background-color: #8fbcbb;
+#battery.warning {
+    color: orange;
 }
 
-#cpu {
-    color:#a3be8c ;
+#battery.critical {
+    color: red;
+}
+
+#battery.warning.discharging {
+    animation-name: blink-warning;
+    animation-duration: 3s;
+}
+
+#battery.critical.discharging {
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+#cpu.warning {
+    color: orange;
+}
+
+#cpu.critical {
+    color: red;
 }
 
 #memory {
-    color: #d3869b;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
-#temperature {
-    color: #8fbcbb;
+#memory.warning {
+    color: orange;
+ }
+
+#memory.critical {
+    color: red;
+    animation-name: blink-critical;
+    animation-duration: 2s;
+    padding-left:5px;
+    padding-right:5px;
+}
+
+#mode {
+    background: @highlight;
+    border-bottom: 3px transparent;
+    color:#00a48c;
+    margin-left: 5px;
+    padding: 7px;
+}
+
+#network.disconnected {
+    color: orange;
+}
+
+#pulseaudio {
+    padding-top:6px;
+}
+
+#pulseaudio.muted {
+    color: @highlight;
 }
 
 #temperature.critical {
-    color: #bf616a;
+    color: red;
 }
 
-#custom-launcher,#custom-power{
-    margin-left: 15px;
-    color: #3b4252;
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
-    border: none;
-    background-color: #8fbcbb;
+#window {
+    font-weight: bold;
 }
 
-#tray {
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-    border: none;
-    background-color: #5e81ac; 
+#workspaces {
+    font-size:13px;
+    color: @fg;
 }
 
-#custom-keyboard-layout{
-   color:#d08770;
-}   
+#workspaces button {
+    margin-bottom: 0px;
+    padding:10px;
+    color: @fg;
+}
 
+#workspaces button.focused {
+    background: @selectionBG;
+    color: @base1;
+}
 
+#workspaces button.urgent {
+    border-color: #c9545d;
+    color: #c9545d;
+}
 
+#custom-power {
+    margin-left:15px;
+    margin-right:15px;
+    font-size:15px;
+}
+
+#custom-launcher {
+    font-size:15px;
+    margin-left:15px;
+    margin-right:10px;
+}
+
+#backlight.icon {
+    padding-right:1px;
+    font-size: 13px;
+}
