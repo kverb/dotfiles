@@ -167,6 +167,11 @@ if command -sq zoxide
     zoxide init fish | source
 end
 
+if command -sq helix
+    alias h=helix
+end
+
 set -gx EDITOR vim
 
+alias svim="sudo -E vim"
 
