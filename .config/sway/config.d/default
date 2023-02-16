@@ -16,7 +16,22 @@ set $term-float kitty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 # set $menu wofi -c ~/.config/wofi/config -I
-set $menu fuzzel -p ' ' -b 434c5eff -t d8dee9ff -s 2e3440ff -S 8fbcbbff -C 88c0d0ff -m b48eadff -w 60 --show-actions -f "Spleen 32x64:size=16" -i "Arc-X-P"
+set $menu fuzzel \
+    -p '⦉  ⦊ ' \
+    -b 2e3440ff \
+    -t d8dee9ff \
+    -s 3b4252ff \
+    -S 8fbcbbff \
+    -C 88c0d0ff \
+    -m 88c0d0ff \
+    -M a3be8cff \
+    -w 60 \
+    -x 15 \
+    -P 10 \
+    --show-actions \
+    -f "Spleen 32x64:size=16" \
+    -i "Arc-X-P" \
+    -T kitty
 
 # set $powermenu nwg-bar
 
