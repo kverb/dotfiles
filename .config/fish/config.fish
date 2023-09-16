@@ -167,11 +167,18 @@ if command -sq zoxide
     zoxide init fish | source
 end
 
+# most distros already export this alias with packaged helix.
+# Unfortunately pacman does not 
 if command -sq helix
-    alias h=helix
+    alias hx=helix
 end
 
 set -gx EDITOR vim
 
 alias svim="sudo -E vim"
 
+# Technically, you can add export.sh to your shell’s profile directly;
+# however, it is not recommended. Doing so activates IDF virtual environment in
+# every terminal session (including those where IDF is not needed),
+# defeating the purpose of the virtual environment and likely affecting other software.
+alias espidf=". $HOME/esp/esp-idf/export.fish"
