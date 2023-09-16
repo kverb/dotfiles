@@ -1,6 +1,31 @@
-theme = "nord"
+theme = "rose_pine"
 
 
 [keys.insert]
 "A-x" = "normal_mode" # Maps Alt-X to enter normal mode
 k = { j = "normal_mode" } # Maps `jk` to exit insert mode
+
+[editor]
+gutters = ["diagnostics", "spacer", "line-numbers", "spacer", "diff"]
+bufferline = "multiple"
+color-modes = true
+true-color = true
+
+
+[editor.statusline]
+left = ["mode", "spinner"]
+center = ["diagnostics"]
+right = [ "file-name", "separator", "selections", "separator","position", "separator", "file-type"]
+separator = ""
+mode.normal = "      "
+mode.insert = "      "
+mode.select = "     󱣽 "
+
+[editor.lsp]
+display-messages = true
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.file-picker]
+hidden = false
