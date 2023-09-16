@@ -266,7 +266,7 @@ bindsym XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo
     bindsym Ctrl+$alt+3 exec ~/.config/sway/scripts/screenshot-upload.sh
     bindsym Shift+$alt+3 exec ~/.config/sway/scripts/screenshot.sh
     bindsym Shift+$alt+4 exec ~/.config/sway/scripts/screenrecord.sh
-    bindsym Ctrl+$alt+4 exec pkill -SIGINT wf-recorder
+    bindsym Ctrl+$alt+4 exec pkill --signal SIGINT wf-recorder
 
 
 exec systemctl --user import-environment WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP GNUPGHOME MOZ_ENABLE_WAYLAND

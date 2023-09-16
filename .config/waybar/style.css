@@ -61,7 +61,8 @@ tooltip {
     /* border-radius: 15px; */
     border-radius: 25px;
     border-width: 2px;
-    border-style: none;
+    /* border-style: "solid 1 px"; */
+    border-color: #8fbcbb;
 }
 
 #workspaces {
@@ -156,11 +157,6 @@ tooltip {
  * -------------------------------------------------------------------------- */
 
  
-#backlight {
-    background-color: #8fbcbb;
-    color: #2e3440;
-}
-
 #pulseaudio {
     background-color: #88c0d0;
     color: #2e3440;
@@ -275,5 +271,8 @@ tooltip {
    color:#d08770;
 }   
 
-
+#backlight {
+    background-color: #8fbcbb;
+    color: #2e3440;
+}
 
