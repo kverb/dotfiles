@@ -1,5 +1,4 @@
-theme = "base16_terminal_alt"
-
+theme = "adwaita-dark"
 
 [keys.insert]
 "A-x" = "normal_mode" # Maps Alt-X to enter normal mode
