@@ -1,6 +1,0 @@
-theme = "nord"
-
-
-[keys.insert]
-"A-x" = "normal_mode" # Maps Alt-X to enter normal mode
-k = { j = "normal_mode" } # Maps `jk` to exit insert mode
