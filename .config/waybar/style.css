@@ -159,11 +159,6 @@ tooltip {
     background-color: #545454;
 }
 
-#idle_inhibitor {
-    /* attempt to center the 'eye' icon better */
-    padding: 3px 5px 1px 5px;
-}
-
 #idle_inhibitor.activated {
     background-color: #911f34;
     color: #000;
