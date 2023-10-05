@@ -16,15 +16,16 @@ left = ["mode", "spinner"]
 center = ["diagnostics"]
 right = [ "file-name", "separator", "selections", "separator","position", "separator", "file-type"]
 separator = ""
-mode.normal = "      "
-mode.insert = "      "
-mode.select = "     󱣽 "
+mode.normal = ""
+mode.insert = ""
+mode.select = ""
 
 [editor.lsp]
 display-messages = true
 
 [editor.cursor-shape]
 insert = "bar"
+select = "underline"
 
 [editor.file-picker]
 hidden = false
