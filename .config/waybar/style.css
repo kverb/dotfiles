@@ -10,31 +10,49 @@
  * Keyframes
  * -------------------------------------------------------------------------- */
 
-
 /*
-These are here for reference.
+These are here for reference, from the kitty Encom theme.
 It appears that gtk3 css does not support variables. Sigh.
-https://www.nordtheme.com/docs/colors-and-palettes
-Polar Night
-nord0  #2e3440
-nord1  #3b4252
-nord2  #434c5e
-nord3  #4c566a
-Snow Storm
-nord4  #d8dee9
-nord5  #e5e9f0
-nord6  #eceff4
-Frost
-nord7  #8fbcbb
-nord8  #88c0d0
-nord9  #81a1c1
-nord10 #5e81ac
-Aurora
-nord11 #bf616a
-nord12 #d08770
-nord13 #ebcb8b
-nord14 #a3be8c
-nord15 #b48ead
+background            #000000
+foreground            #00a595
+cursor                #bbbbbb
+selection_background  #00a48c
+color0                #000000
+# darker gray
+color8                #545454
+color1                #9f0000
+# reddish
+#color9                #ff0000
+color9                #911f34
+color2                #008b00
+# bright green
+#color10               #00ee00
+color10               #205944
+# yellowish
+#color3                #ffcf00
+color3                #f09a1a
+color11               #ffff00
+# blueish
+#color4                #0081ff
+color4                #1ab0f0
+color12               #0000ff
+# purple
+#color5                #bc00ca
+color5                #bc00ca
+color13               #ff00ff
+# green
+#color6                #008b8b
+color6                #008b8b
+color14               #00cdcd
+# gray
+color7                #bbbbbb
+color15               #ffffff
+selection_foreground #000000
+
+active_tab_foreground   #00a595
+active_tab_background   #000
+inactive_tab_foreground #0f3d39
+inactive_tab_background #000000
 */
 
 /* -----------------------------------------------------------------------------
@@ -49,54 +67,39 @@ nord15 #b48ead
     font-family: "Spleen 32x64";
     font-size: 16px;
     min-height: 14px;
+    border: none;
 }
 
 window#waybar {
     background: transparent;
-    color: #81a1c1;
+    color: #000000;
 }
 
 tooltip {
-    background: #2a2e38;
-    /* border-radius: 15px; */
-    border-radius: 25px;
+    background: #545454;
     border-width: 2px;
     /* border-style: "solid 1 px"; */
-    border-color: #8fbcbb;
+    border-color: #00a595;
 }
 
 #workspaces {
-    background-color: #434c5e;
-    margin: 10px 5px;
-    border: none;
-    border-radius: 25px;
+    background-color: #000;
+    margin: 10px 0px;
+    border-bottom: solid 2px #00a595;
+    border-right: solid 1px #00a595;
 }
 #workspaces button {
-    color: #d8dee9;
-}
-
-#workspaces button:first-child {
-  /* not sure why this doesn't work with 15px to match the parent.
-   * without this hacky adjustment, there is a thin ~2px arc along the
-   * rounded corner that doesn't fill all the way to the parent's rounded
-   * border. Ditto for the last-child.
-   */
-    border-top-left-radius: 25px;  
-    border-bottom-left-radius: 25px;  
-}
-
-#workspaces button:last-child {
-    border-top-right-radius: 25px;  
-    border-bottom-right-radius: 25px;  
+    color: #00a595;
 }
 
 #workspaces button.focused {
-    background-color: #5e81ac;
+    background-color: #00a595;
+    color: #000;
 }
 
 #workspaces button.urgent {
-    color: #2a2e38;
-    background-color: #ebcb8b;
+    color: #000;
+    background-color: #ffcf00;
 }
 
 #workspaces button:hover {
@@ -107,26 +110,19 @@ tooltip {
 #mode {
     color: #2e3440;
     background-color: #ebcb8b;
-    padding: 5px 10px;
+    border-bottom: solid 2px #00a595;
+    border-right: solid 1px #00a595;
+    padding: 5px 10px 5px 10px;
     margin: 10px 0px;
-    border-radius: 25px;
-    border: none;
 }
 
 #window {
-  
-    color: #81a1c1;
-
-    padding: 0px 10px 0px 10px;
-    margin: 5px 5px;
-    background-color: #2e3440;
-
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    /* border: 2px solid #81a1c1; */
-    border: none;
+    color: #00a595;
+    background-color: #000;
+    border-bottom: solid 2px #00a595;
+    border-right: solid 1px #00a595;
+    padding: 5px 10px 5px 10px;
+    margin: 10px 0px;
 }
 
 /* #window:blank { */
@@ -149,46 +145,33 @@ tooltip {
 #custom-pacman {
     padding: 5px 10px 5px 10px;
     margin: 10px 0px;
-    background-color: #2e3440;
+    background-color: #000;
+    color: #00a595;
+    border-right: solid 1px #00a595;
+    border-bottom: solid 2px #00a595;
 }
  
 /* -----------------------------------------------------------------------------
  * Module styles
  * -------------------------------------------------------------------------- */
 
- 
-#pulseaudio {
-    background-color: #88c0d0;
-    color: #2e3440;
-    /* Rounded corners for the left side of the module */
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
-    border: none;
-}
-
 #pulseaudio.muted {
-    background-color: #b48ead;
+    background-color: #545454;
 }
 
 #idle_inhibitor {
-    background-color: #81a1c1;
-    color: #e5e9f0;
+    /* attempt to center the 'eye' icon better */
+    padding: 3px 5px 1px 5px;
 }
 
 #idle_inhibitor.activated {
-    background-color: #bf616a;
-    color: #e5e9f0;
+    background-color: #911f34;
+    color: #000;
 }
 
-#network{
-    background-color: #5e81ac;
-    border-color: #5e81ac;
-    color: #d8dee9;
-    /* Rounded corners for the right side of the module */
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-    margin-right: 10px;
-    border: none;
+#network {
+    /* on the left edge of the right modules */
+    border-left: solid 1px #00a595;
 }
 
 #network.disabled {
@@ -199,20 +182,14 @@ tooltip {
     background-color: #bf616a;
 }
 
-#battery {
-    background-color: #4c566a;
-    color: #e5e9f0;
-}
-
 #battery.charging {
-    background-color: #a3be8c;
-    color: #2e3440;
+    color: #f09a1a;
 }
 
 @keyframes blink {
     to {
         color: #4c566a;
-        background-color: #eceff4;
+        background-color: #000;
     }
 }
 
@@ -227,52 +204,11 @@ tooltip {
 }
 
 #clock {
-    margin-right: 15px;
-    color: #2e3440;
-    /* this is going to be on the far right, so add the right border */
-    border-radius: 25px;
-    border: none;
-    background-color: #8fbcbb;
-}
-
-#cpu {
-    color:#a3be8c ;
-}
-
-#memory {
-    color: #d3869b;
-}
-
-#temperature {
-    color: #8fbcbb;
+    /* goes on far right side */
+    border-right: none;
 }
 
 #temperature.critical {
-    color: #bf616a;
-}
-
-#custom-launcher,#custom-power{
-    margin-left: 15px;
-    color: #3b4252;
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
-    border: none;
-    background-color: #8fbcbb;
-}
-
-#tray {
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-    border: none;
-    background-color: #5e81ac; 
-}
-
-#custom-keyboard-layout{
-   color:#d08770;
-}   
-
-#backlight {
-    background-color: #8fbcbb;
-    color: #2e3440;
+    color: #ff0000;
 }
 

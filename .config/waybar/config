@@ -7,9 +7,11 @@
     "height": 30,
 
     "modules-left": [
-        // "custom/launcher",
+        "custom/power",
+        "tray",
         "sway/workspaces",
         "sway/mode",
+        "sway/window"
     ],
  
     "modules-center": [
@@ -17,19 +19,16 @@
 
     "modules-right": [
         "network",
-        "idle_inhibitor",
         "memory",
         // "cpu",
-        "pulseaudio",
         // "custom/keyboard-layout",
         "battery",
         //"custom/PBPbattery",
-        "backlight#icon",
-        "backlight#value",
+        // "backlight#icon",
+        // "backlight#value",
+        "idle_inhibitor",
+        "pulseaudio",
         "clock",
-        "tray",
-        //"custom/weather",
-        "custom/power",
     ],
 
     // Modules
@@ -49,7 +48,7 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
