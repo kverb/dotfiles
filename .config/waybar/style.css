@@ -76,10 +76,9 @@ window#waybar {
 }
 
 tooltip {
-    background: #545454;
-    border-width: 2px;
-    /* border-style: "solid 1 px"; */
-    border-color: #00a595;
+    color: #00a595;
+    background: #000;
+    border: solid 2px #00a595;
 }
 
 #workspaces {
