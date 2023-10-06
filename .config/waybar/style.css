@@ -174,7 +174,8 @@ tooltip {
 }
 
 #network.disconnected {
-    background-color: #bf616a;
+    color:#d8dee9;
+    background-color:#6b2a50;
 }
 
 #battery.charging {
