@@ -22,18 +22,8 @@ end
 
 # Add ~/.local/bin to PATH
 if test -d ~/.local/bin
-    if not contains -- ~/.local/bin $PATH
-        set -p PATH ~/.local/bin
-    end
+    fish_add_path ~/.local/bin
 end
-
-# Add depot_tools to PATH
-if test -d ~/Applications/depot_tools
-    if not contains -- ~/Applications/depot_tools $PATH
-        set -p PATH ~/Applications/depot_tools
-    end
-end
-
 
 ## Starship prompt
 if status --is-interactive
@@ -156,7 +146,7 @@ alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 #    neofetch
 # end
 
-set -x GOPATH (go env GOPATH)
+fish_add_path (go env GOPATH)
 
 if command -sq gping
     alias ping=gping
@@ -182,3 +172,7 @@ alias svim="sudo -E vim"
 # every terminal session (including those where IDF is not needed),
 # defeating the purpose of the virtual environment and likely affecting other software.
 alias espidf=". $HOME/esp/esp-idf/export.fish"
+
+if command -sq ranger
+    alias r=ranger
+end
