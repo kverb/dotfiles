@@ -16,8 +16,8 @@ important ones are listed at the bottom of the document. Waybar is also document
 # kill focused window
 +q
 
-# Application menu - wofi:
-+d
+# Application menu - fuzzel:
++space
 
 # Activities:
 +p
@@ -73,7 +73,7 @@ important ones are listed at the bottom of the document. Waybar is also document
 +Shift+space floating toggle
 
 # change focus between tiling / floating windows:
-+space focus mode_toggle
+#+d focus mode_toggle
 
 # focus the parent container:
 +a focus parent

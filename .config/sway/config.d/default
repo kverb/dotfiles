@@ -45,9 +45,6 @@ exec swayidle -w\
 
     bindsym $mod+space exec $menu
 
-    # Activities
-    bindsym $alt+Tab exec ~/.config/wofi/windows.py
-
     # Cheatsheet
     bindsym $mod+Shift+p exec $cheat
 
