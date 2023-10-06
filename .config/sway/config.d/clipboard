@@ -1,20 +1,5 @@
 bindsym Alt+Shift+c exec \
 	clipman pick \
 	-t CUSTOM \
-	-T 'fuzzel \
-		-d -R -p "  " \
-		# copied from the launcher config for fuzzel \
-		-x 20          \
-		-r 0           \
- 	    -b 000000ff    \
-	    -t 00a595ff    \
-	    -s 00a48cff    \
-	    -S 000000ff    \
-	    -C 00a595ff    \
-	    -B 2           \
-	    -m bc00caff    \
-	    -M f09a1aff    \
-	    -w 80          \
-		--line-height=20 \
-	    -f "Spleen 32x64:size=12,octicons:size=14" '
+	-T 'fuzzel -d -R -p "  "'
 
