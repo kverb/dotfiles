@@ -1,3 +1,21 @@
 # bindsym Alt+Shift+c exec clipman pick -t wofi --max-items=30
-bindsym Alt+Shift+c exec clipman pick -t CUSTOM -T 'fuzzel -d -R -p "  " -b 434c5eff -t d8dee9ff -s 2e3440ff -S 8fbcbbff -C 88c0d0ff -m b48eadff -w 80 -f "Spleen 32x64:size=12,octicons:size=14" '
+bindsym Alt+Shift+c exec \
+	clipman pick \
+	-t CUSTOM \
+	-T 'fuzzel \
+		-d -R -p "  " \
+		# copied from the launcher config for fuzzel \
+		-x 20          \
+		-r 0           \
+ 	    -b 000000ff    \
+	    -t 00a595ff    \
+	    -s 00a48cff    \
+	    -S 000000ff    \
+	    -C 00a595ff    \
+	    -B 2           \
+	    -m bc00caff    \
+	    -M f09a1aff    \
+	    -w 80          \
+		--line-height=20 \
+	    -f "Spleen 32x64:size=12,octicons:size=14" '
 
