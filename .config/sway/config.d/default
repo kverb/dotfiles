@@ -12,13 +12,7 @@ set $right l
 # set $term-float alacritty
 set $term-float kitty
 
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-# set $menu wofi -c ~/.config/wofi/config -I
-set $menu fuzzel -p ' ' -b 434c5eff -t d8dee9ff -s 2e3440ff -S 8fbcbbff -C 88c0d0ff -m b48eadff -w 60 --show-actions -f "Spleen 32x64:size=16" -i "Arc-X-P"
-
-# set $powermenu nwg-bar
+set $powermenu exec ~/.config/waybar/scripts/power-menu.sh
 
 set $cheat kitty helix ~/.config/sway/cheatsheet
 
@@ -43,7 +37,7 @@ exec swayidle -w\
     bindsym $mod+Return exec $term-float  
           
     # Open the power menu
-    # bindsym $mod+Shift+e exec $powermenu
+    bindsym $mod+Shift+e exec $powermenu
     # see below for mode_exit alternative
 
     # Kill focused window
@@ -69,29 +63,29 @@ exec swayidle -w\
 
 # from https://github.com/ovk/dotfiles/blob/master/sway/config
 # Exit menu
-set $mode_exit "\
- <span> </span> <span foreground='#bf616a'>(<b>l</b>)</span> \
- <span> </span> <span foreground='#bf616a'>(<b>o</b>)</span> \
- <span> </span> <span foreground='#bf616a'>(<b>r</b>)</span> \
- <span> </span> <span foreground='#bf616a'>(<b>s</b>)</span> \
- <span> </span> <span foreground='#bf616a'>(<b>S</b>)</span> \
- <span> </span> <span foreground='#bf616a'>(<b>h</b>)</span>"
-
-mode --pango_markup $mode_exit {
-    bindsym --to-code {
-        l exec swaylock, mode "default"
-        o exec loginctl terminate-user $USER, mode "default"
-        r exec systemctl reboot, mode "default"
-        s exec systemctl poweroff, mode "default"a3be8c
-        Shift+s exec systemctl suspend, mode "default"
-        h exec systemctl hibernate, mode "default"
-    }
-
-    # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym --to-code $mod+Shift+e mode $mode_exit
+#set $mode_exit "\
+# <span> </span> <span foreground='#bf616a'>(<b>l</b>)</span> \
+# <span> </span> <span foreground='#bf616a'>(<b>o</b>)</span> \
+# <span> </span> <span foreground='#bf616a'>(<b>r</b>)</span> \
+# <span> </span> <span foreground='#bf616a'>(<b>s</b>)</span> \
+# <span> </span> <span foreground='#bf616a'>(<b>S</b>)</span> \
+# <span> </span> <span foreground='#bf616a'>(<b>h</b>)</span>"
+#
+#mode --pango_markup $mode_exit {
+#    bindsym --to-code {
+#        l exec swaylock, mode "default"
+#        o exec loginctl terminate-user $USER, mode "default"
+#        r exec systemctl reboot, mode "default"
+#        s exec systemctl poweroff, mode "default"a3be8c
+#        Shift+s exec systemctl suspend, mode "default"
+#        h exec systemctl hibernate, mode "default"
+#    }
+#
+#    # Return to default mode
+#    bindsym Return mode "default"
+#    bindsym Escape mode "default"
+#}
+#bindsym --to-code $mod+Shift+e mode $mode_exit
 
 #
 # Moving around:
