@@ -91,7 +91,7 @@ alias l.="exa -a | egrep '^\.'"                                     # show only 
 
 # Replace some more things with better alternatives
 if command -sq bat
-    alias cat='bat --style header --style rules --style snip --style changes --style header'
+    alias cat='bat --style header --style rule --style snip --style changes --style header'
 end
 [ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
 
