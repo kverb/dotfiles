@@ -1,21 +1,8 @@
-# daemonize
-clock
-datestr=%A %B %-d
-#image=$HOME/.config/swaylock/swaylock.png
-screenshots
-effect-blur=7x5
-scaling=fill
 font=spleen 32x64
 font-size=24
-# 3 second grace period with no password required
-grace=3
-fade-in=0.75
-effect-vignette=0.5:1
-
+color=3B4252FF
 
 # Ring
-no-unlock-indicator
-indicator
 indicator-radius=380
 indicator-caps-lock
 indicator-thickness=7
