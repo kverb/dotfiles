@@ -11,29 +11,3 @@ client.focused_inactive #2e3440 #2e3440 #d8dee9 #4c566a   #2e3440
 client.unfocused        #2e3440 #2e3440 #d8dee9 #4c566a   #2e3440
 client.urgent           #ebcb8b #ebcb8b #2e3440 #8fbcbb   #ebcb8b
 
-# launcher
-set $menu fuzzel \
-    -p '⦉  ⦊ ' \
-    -b 2e3440ff \
-    -t d8dee9ff \
-    -s 3b4252ff \
-    -S 8fbcbbff \
-    -C 88c0d0ff \
-    -m 88c0d0ff \
-    -M a3be8cff \
-    -w 60 \
-    -x 15 \
-    -P 10 \
-    --show-actions \
-    -f "Spleen 32x64:size=16" \
-    -i "Arc-X-P" \
-    -T kitty
-
-bindsym $mod+space exec $menu
-
-# clipboard menu
-# unfortunately no nice way afaik to split each param onto new lines
-bindsym Alt+Shift+c \
-	exec clipman pick \
-		-t CUSTOM \
-		-T 'fuzzel -d -R -p "  " -b 434c5eff -t d8dee9ff -s 2e3440ff -S 8fbcbbff -C 88c0d0ff -m b48eadff -w 80 -f "Spleen 32x64:size=12,octicons:size=14" '
