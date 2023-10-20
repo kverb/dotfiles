@@ -11,7 +11,7 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
      
 # Sway Fader
-exec python3 ~/.config/sway/scripts/swayfader.py     
+#exec python3 ~/.config/sway/scripts/swayfader.py     
  
 # Wob
 exec mkfifo $SWAYSOCK.wob
@@ -21,7 +21,7 @@ exec tail -f $SWAYSOCK.wob | wob --border-color '#ffdcbb8c' --background-color '
 exec autotiling
 
 # Wlsunset
-exec ~/.config/sway/scripts/light.sh
+# exec ~/.config/sway/scripts/light.sh
 
 # Welcome
 exec dex -a -s /etc/xdg/autostart/:~/.config/autostart/
@@ -40,12 +40,13 @@ exec libinput-gestures-setup start
 exec_always kanshi
 
 # Xdg DEsktop Portal
-exec /usr/libexec/xdg-desktop-portal
+# https://wiki.archlinux.org/title/XDG_Desktop_Portal
+exec /usr/lib/xdg-desktop-portal
 
 # Tracker daemon for gnome apps
 exec tracker daemon -s
 
 # Cheatsheet
-exec micro ~/.config/sway/cheatsheet
+#exec micro ~/.config/sway/cheatsheet
 
 exec nm-applet --indicator
