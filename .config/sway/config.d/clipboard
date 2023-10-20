@@ -2,4 +2,3 @@ bindsym Alt+Shift+c exec \
 	clipman pick \
 	-t CUSTOM \
 	-T 'fuzzel -d -R -p "  "'
-
