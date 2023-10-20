@@ -1,8 +1,7 @@
 # nord-specific components of sway config
 
 # Set wallpaper:
-exec ~/.azotebg
-# exec swaybg -o eDP-1 -i '/home/kverb/Pictures/ign_astronaut.png' -m fill &
+exec swaybg -o eDP-1 -i '/home/kverb/Pictures/ign_astronaut.png' -m fill &
 
 ## Window decoration
 # class                 border  backgr. text    indicator child_border
