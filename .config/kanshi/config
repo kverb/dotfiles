@@ -1,3 +1,4 @@
 profile ultrawide {
-	output "Unknown U34G2G4R3 0x000069AF" enable mode 3440x1440@144.001Hz
+
+	output 'AOC U34G2G4R3 0x000069AF' enable mode 3440x1440@144.001Hz scale 2
 }
