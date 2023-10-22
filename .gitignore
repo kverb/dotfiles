@@ -18,3 +18,19 @@
 .xsession*
 go
 repos
+.bashrc
+.config/Signal Beta/
+.config/autostart/
+.config/fuzzel/fuzzel.ini
+.config/keybase/
+.config/pavucontrol.ini
+.config/ranger/colorschemes/__pycache__/
+.config/ranger/plugins/__pycache__/
+.config/sway/config.d/encom.sway
+.config/waybar/config
+.gitconfig
+.gnupg/
+.gtkrc-2.0
+.nanorc
+.pki/
+
