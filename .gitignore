@@ -35,3 +35,6 @@ repos
 .pki/
 
 .config/fish/fish_variables
+.config/mako/config
+.config/waybar/style.css
+.ssh/
