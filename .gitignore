@@ -34,3 +34,4 @@ repos
 .nanorc
 .pki/
 
+.config/fish/fish_variables
