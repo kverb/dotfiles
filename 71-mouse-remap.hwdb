@@ -2,16 +2,18 @@
 # this is an udev hwdb rule file.
 # It's purpose is to remap some buttons on the elecom Huge trackball
 # it should be placed in /etc/udev/hwdb.d/
+# find the libinput event id with `evtest` or `sudo libinput --list-devices`
 # update hwdb with:
 # sudo systemd-hwdb update
 # sudo udevadm control --reload-rules
-# sudo udevadm trigger /dev/input/event27 
-# (to verify the changes were made): udevadm info /dev/input/event27
+# sudo udevadm trigger /dev/input/event{ID}
+# (to verify the changes were made): udevadm info /dev/input/event{ID}
 
 # set 'forward' btn to be another left click
 # set 'fn1' to be 'forward'
 # set 'fn3' to be a middle click
 evdev:name:ELECOM TrackBall Mouse HUGE TrackBall:*
+  KEYBOARD_KEY_90002=btn_middle
   KEYBOARD_KEY_90005=btn_left
   KEYBOARD_KEY_90006=btn_extra
-  KEYBOARD_KEY_90008=btn_middle
+  KEYBOARD_KEY_90008=btn_right
