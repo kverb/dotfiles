@@ -26,9 +26,13 @@ exec autotiling
 # Welcome
 exec dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 
-# Clipman
-exec clipman restore
-exec wl-paste -t text --watch clipman store -P --max-items 2000
+# Clipboard
+# if using clipman, uncomment below
+#exec clipman restore
+#exec wl-paste -t text --watch clipman store -P --max-items 2000
+# otherwise, if using cliphist : 
+exec wl-paste -t text --watch cliphist store
+exec wl-paste -t image --watch cliphist store
 
 # Gnome Keyring
 exec gnome-keyring-daemon --daemonize --start --components=gpg,pkcs11,secrets,ssh

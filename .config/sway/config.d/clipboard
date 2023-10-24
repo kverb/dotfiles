@@ -1,4 +1,13 @@
-bindsym Alt+Shift+c exec \
-	clipman pick \
-	-t CUSTOM \
-	-T 'fuzzel -d -R -p "  "'
+#If using clipman, uncomment below; make sure cliphist is commented out
+#bindsym Alt+Shift+c exec \
+#	clipman pick \
+#	-t CUSTOM \
+#	-T 'fuzzel -d -R -p "  "'
+
+# cliphist
+bindsym Alt+Shift+c exec    \
+	cliphist list |        \
+	fuzzel -d -R -p "  " | \
+	cliphist decode |      \
+	wl-copy
+	
