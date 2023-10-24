@@ -10,7 +10,7 @@ gaps outer 5
 default_border pixel 1
 
 # Default Font
-font pango: JetBrains Mono 12
+font pango: JetBrains Mono 10
 #font pango: Spleen 32x64 14
 
 # Thin borders:
