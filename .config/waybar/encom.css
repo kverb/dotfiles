@@ -65,8 +65,7 @@ inactive_tab_background #000000
     border-radius: 0;
     /* font-family: "JetBrains Mono Light"; */
     font-family: "Spleen 32x64";
-    font-size: 12px;
-    min-height: 14px;
+    font-size: 12pt;
     border: none;
 }
 
