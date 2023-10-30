@@ -1,25 +1,41 @@
 ## FIRST LINE/ROW: Info & Status
+
+right_format="$cmd_duration"
 # First param ─┌
 [username]
-format = " [╭─$user]($style)@"
+format = " [╭─$user]($style)"
 style_user = "bold green"
 style_root = "bold green"
 show_always = true
 
 # Second param
 [hostname]
-format = "[$hostname]($style) ❭ "
+format = "@[$hostname]($style)"
 style = "bold dimmed purple"
 trim_at = "-"
-ssh_only = false
+ssh_only = true
 disabled = false
 
 # Third param
 [directory]
+format = " [$path]($style) 󰭄 "
 style = "blue"
 truncation_length = 0
 truncate_to_repo = true
 truncation_symbol = "repo: "
+
+# Prompt: optional param 1
+[time]
+format = " 🕙 $time($style)\n"
+time_format = "%T"
+style = "bright-white"
+disabled = true
+
+# Prompt: param 2 └─
+[character]
+success_symbol = " [╰─ ](bold green)"
+error_symbol = " [╰─󰖭](bold red)"
+
 
 # Before all the version info (python, nodejs, php, etc.)
 [git_status]
@@ -31,7 +47,7 @@ deleted = "x"
 
 # Last param in the first line/row
 [cmd_duration]
-min_time = 1
+min_time = 2
 format = "took [$duration]($style)"
 disabled = false
 
@@ -58,18 +74,6 @@ disabled = true
 threshold = 80
 style = "bold green"
 disabled = true
-
-# Prompt: optional param 1
-[time]
-format = " 🕙 $time($style)\n"
-time_format = "%T"
-style = "bright-white"
-disabled = true
-
-# Prompt: param 2 └─
-[character]
-success_symbol = " [╰─❭](bold green)"
-error_symbol = " [×](bold red)"
 
 # SYMBOLS
 [status]
@@ -100,7 +104,7 @@ symbol = " "
 symbol = " "
 
 [golang]
-symbol = " "
+symbol = "􀄴 "
 
 [hg_branch]
 symbol = " "
