@@ -83,12 +83,12 @@ function copy
 end
 
 ## Useful aliases
-# Replace ls with exa
-alias ls='exa -al --color=always --group-directories-first --icons' # preferred listing
-alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
-alias ll='exa -l --color=always --group-directories-first --icons'  # long format
-alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
-alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
+# Replace ls with eza
+alias ls='eza -al --color=always --group-directories-first --icons' # preferred listing
+alias la='eza -a --color=always --group-directories-first --icons'  # all files and dirs
+alias ll='eza -l --color=always --group-directories-first --icons'  # long format
+alias lt='eza -aT --color=always --group-directories-first --icons' # tree listing
+alias l.="eza -a | egrep '^\.'"                                     # show only dotfiles
 
 # Replace some more things with better alternatives
 if command -sq bat
@@ -168,12 +168,7 @@ set -gx EDITOR vim
 
 alias svim="sudo -E vim"
 
-# Technically, you can add export.sh to your shell’s profile directly;
-# however, it is not recommended. Doing so activates IDF virtual environment in
-# every terminal session (including those where IDF is not needed),
-# defeating the purpose of the virtual environment and likely affecting other software.
-alias espidf=". $HOME/esp/esp-idf/export.fish"
-
 if command -sq ranger
     alias r=ranger
 end
+
