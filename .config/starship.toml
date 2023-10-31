@@ -4,14 +4,16 @@ right_format="$cmd_duration"
 # First param ─┌
 [username]
 format = " [╭─$user]($style)"
-style_user = "#b0e0e6"
-style_root = "bold green"
+style_user = "#00d8c3"
+# dark yellow triadic 
+style_root = "#a59500"
 show_always = true
 
 # Second param
 [hostname]
 format = "@[$hostname]($style)"
-style = "bold dimmed purple"
+# purple
+style = "#9500a5"
 trim_at = "-"
 ssh_only = true
 disabled = false
@@ -19,22 +21,18 @@ disabled = false
 # Third param
 [directory]
 format = " [$path]($style) 󰭄 "
-style = "blue"
+# light cyan
+style = "#b8dddd"
 truncation_length = 0
 truncate_to_repo = true
 truncation_symbol = "repo: "
 
-# Prompt: optional param 1
-[time]
-format = " 🕙 $time($style)\n"
-time_format = "%T"
-style = "bright-white"
-disabled = true
 
 # Prompt: param 2 └─
 [character]
-success_symbol = " [╰─ ](#b0e0e6)"
-error_symbol = " [╰─󰖭](bold red)"
+success_symbol = " [╰─ ](#00d8c3)"
+# 'medium violet red'
+error_symbol = " [╰─󰖭](#C71585)"
 
 
 # Before all the version info (python, nodejs, php, etc.)
