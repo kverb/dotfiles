@@ -94,7 +94,9 @@ end
 
 # Replace some more things with better alternatives
 if command -sq bat
-    alias cat='bat --style header --style rule --style snip --style changes --style header'
+    set -x BAT_THEME "Coldark-Dark"
+    alias batt='bat --style header --style rule --style snip --style changes --style header'
+    alias cat='bat -pp'
 end
 [ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
 
