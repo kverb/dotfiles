@@ -46,7 +46,7 @@ deleted = "x"
 # Last param in the first line/row
 [cmd_duration]
 min_time = 2
-format = "took [$duration]($style)"
+format = "took [$duration](#00d8c3)"
 disabled = false
 
 
