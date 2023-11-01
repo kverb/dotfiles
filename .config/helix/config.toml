@@ -1,4 +1,4 @@
-theme = "adwaita-dark"
+theme = "encom"
 
 [keys.insert]
 "A-x" = "normal_mode" # Maps Alt-X to enter normal mode
