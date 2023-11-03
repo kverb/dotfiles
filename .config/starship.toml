@@ -4,7 +4,7 @@ right_format="$cmd_duration"
 # First param ─┌
 [username]
 format = " [╭─$user]($style)"
-style_user = "bold green"
+style_user = "#b0e0e6"
 style_root = "bold green"
 show_always = true
 
@@ -33,7 +33,7 @@ disabled = true
 
 # Prompt: param 2 └─
 [character]
-success_symbol = " [╰─ ](bold green)"
+success_symbol = " [╰─ ](#b0e0e6)"
 error_symbol = " [╰─󰖭](bold red)"
 
 
@@ -104,7 +104,7 @@ symbol = " "
 symbol = " "
 
 [golang]
-symbol = "􀄴 "
+symbol = " "
 
 [hg_branch]
 symbol = " "
