@@ -7,7 +7,7 @@ selected=$(echo -e " Active\n Screen\n Output\n󰋱 Area\n Window\n"
   -l 4 \
   -p ' '        \
   -w 20          \
-  | awk '{print tolower($1)}')
+  | awk '{print tolower($2)}')
 
  
 case $selected in
