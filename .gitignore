@@ -38,3 +38,4 @@ repos
 .config/mako/config
 .config/waybar/style.css
 .ssh/
+.config/tmux/plugins
