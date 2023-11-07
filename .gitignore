@@ -39,3 +39,4 @@ repos
 .config/waybar/style.css
 .ssh/
 .config/tmux/plugins
+.config/kitty/kitty.conf.bak
