@@ -47,7 +47,12 @@
 # used for lifetimes
 "label" = "primary2"
 
-"markup" = {fg = "bg", bg = "primary3"}
+"markup.heading" = { fg = "secondary", modifiers = ["italic"]}
+"markup.list" = { fg = "primary3" }
+"markup.link" = { fg = "secondary" }
+"markup.link.url" = { fg = "tertiary" }
+"markup.raw" = { fg = "primary2", bg = "bg2" }
+"markup.quote" = { fg = "primary2", bg = "bg2" }
 
 "diff.plus" = "secondary"
 "diff.minus" = "red"
