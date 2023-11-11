@@ -5,7 +5,7 @@
 "attribute" = { fg = "tertiary", modifiers = ["italic"] }
 "ui.virtual.wrap"="softwrap"
 "keyword" = "keyword"
-"keyword.control.conditional" = { fg = "primary3", modifiers = ["italic"] }
+"keyword.control.conditional" = { fg = "primary3"}
 "keyword.directive" = "red" # -- preprocessor comments (#if in C)
 
 "namespace" = { fg = "primary1", modifiers = ["italic"] }
@@ -69,6 +69,7 @@
 "ui.statusline.normal" = { fg = "bg", bg = "secondary" }
 "ui.statusline.insert" = { fg = "tertiary", bg = "bg"}
 "ui.statusline.select" = { fg = "bg", bg = "red"}
+"ui.statusline.separator" = "❭"
 
 "ui.popup" = { bg = "bg2", fg="primary1" }
 "ui.popup.info" = { bg = "bg", fg="primary1" }
