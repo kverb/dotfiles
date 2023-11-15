@@ -35,7 +35,12 @@ for_window [app_id="firedragon"] inhibit_idle fullscreen
 for_window [app_id="Chromium"] inhibit_idle fullscreen
 
 assign [class="firefox"] → workspace 1
+assign [app_id="microsoft-edge-beta"] → workspace 1
 assign [class="Signal.*"] → workspace 3
 assign [app_id="whatsapp.*"] → workspace 3
 assign [app_id="geary"] → workspace 4
+# proton mail webview app
+assign [app_id="msedge-_pacgdjiidkfdhilcljkeebfoklekebig.*"] → workspace 4
+# gmail webview app
+assign [app_id="msedge-_fmgjjmmmlfnkbppncabfkddbjimcfncm.*"] → workspace 4
 
