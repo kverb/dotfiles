@@ -6,3 +6,20 @@
 input 1267:12074:ELAN9009:00_04F3:2F2A_Stylus map_to_output DP-1
 input 1267:16801:ELAN9008:00_04F3:41A1_Stylus map_to_output eDP-1
 
+# turn off 'screenpad' (bottom display) with special key found on asus zenbook duo
+# requires asus-wmi https://github.com/Plippo/asus-wmi-screenpad
+bindsym XF86Launch7 exec ~/.config/sway/scripts/zenbook-screenpad.sh
+
+# there doesn't seem to be a way to bind to the
+# 'XF86Brightness{Up/Down}' with a modifier, so use the corresponding F-keys.
+bindsym $alt+F5 exec brightnessctl -q -d 'asus::screenpad' set +10%
+# we need to set a floor here (-n 1), because otherwise a 0 value turns the display off
+# in such a way that tells sway "there's no output connected anymore", and re-jiggers 
+# all windows around. Instead, i would prefer to use the screenpad toggle button to
+# control that.
+bindsym $alt+F4 exec brightnessctl -q -d 'asus::screenpad' set 10%- -n 1
+
+# there are only four steps (0-3) for the asus keyboard backlight
+bindsym $mod+F5 exec brightnessctl -q -d 'asus::kbd_backlight' set +25%
+bindsym $mod+F4 exec brightnessctl -q -d 'asus::kbd_backlight' set 25%-
+
