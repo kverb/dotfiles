@@ -18,6 +18,13 @@ input "type:touchpad" {
     middle_emulation disabled
 }
 
+# TODO maybe make this more mouse/trackball specific.
+# as-is, it requires a fairly hi dpi setting on the mouse to be comfortable
+input "type:pointer" {
+	accel_profile "flat"
+    pointer_accel -0.2
+}
+
 input 1578:16768:MOSART_Semi._2.4G_INPUT_DEVICE_Mouse {
 	scroll_factor 2
 	pointer_accel 1
