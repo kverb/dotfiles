@@ -14,7 +14,7 @@
 These are here for reference, from the kitty Encom theme.
 It appears that gtk3 css does not support variables. Sigh.
 background            #000000
-foreground            #00a595
+foreground            #8cb3b8
 cursor                #bbbbbb
 selection_background  #00a48c
 color0                #000000
@@ -49,7 +49,7 @@ color7                #bbbbbb
 color15               #ffffff
 selection_foreground #000000
 
-active_tab_foreground   #00a595
+active_tab_foreground   #8cb3b8
 active_tab_background   #000
 inactive_tab_foreground #0f3d39
 inactive_tab_background #000000
@@ -75,23 +75,23 @@ window#waybar {
 }
 
 tooltip {
-    color: #00a595;
+    color: #8cb3b8;
     background: #000;
-    border: solid 2px #00a595;
+    border: solid 2px #8cb3b8;
 }
 
 #workspaces {
     background-color: #000;
     margin: 10px 0px;
-    border-bottom: solid 2px #00a595;
-    border-right: solid 1px #00a595;
+    border-bottom: solid 2px #8cb3b8;
+    border-right: solid 1px #8cb3b8;
 }
 #workspaces button {
-    color: #00a595;
+    color: #8cb3b8;
 }
 
 #workspaces button.focused {
-    background-color: #00a595;
+    background-color: #8cb3b8;
     color: #000;
 }
 
@@ -108,17 +108,17 @@ tooltip {
 #mode {
     color: #2e3440;
     background-color: #ebcb8b;
-    border-bottom: solid 2px #00a595;
-    border-right: solid 1px #00a595;
+    border-bottom: solid 2px #8cb3b8;
+    border-right: solid 1px #8cb3b8;
     padding: 5px 10px 5px 10px;
     margin: 10px 0px;
 }
 
 #window {
-    color: #00a595;
+    color: #8cb3b8;
     background-color: #000;
-    border-bottom: solid 2px #00a595;
-    border-right: solid 1px #00a595;
+    border-bottom: solid 2px #8cb3b8;
+    border-right: solid 1px #8cb3b8;
     padding: 5px 10px 5px 10px;
     margin: 10px 0px;
 }
@@ -144,9 +144,9 @@ tooltip {
     padding: 5px 10px 5px 10px;
     margin: 10px 0px;
     background-color: #000;
-    color: #00a595;
-    border-right: solid 1px #00a595;
-    border-bottom: solid 2px #00a595;
+    color: #8cb3b8;
+    border-right: solid 1px #8cb3b8;
+    border-bottom: solid 2px #8cb3b8;
 }
  
 /* -----------------------------------------------------------------------------
@@ -164,7 +164,7 @@ tooltip {
 
 #network {
     /* on the left edge of the right modules */
-    border-left: solid 1px #00a595;
+    border-left: solid 1px #8cb3b8;
 }
 
 #network.disabled {
