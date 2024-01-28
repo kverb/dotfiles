@@ -176,3 +176,21 @@ if command -sq ranger
     alias r=ranger
 end
 
+if command -sq btm 
+    alias btmb="btm --battery --color gruvbox"
+end
+
+if command -sq fff
+    # Add this to you config.fish or equivalent.
+    # Fish don't support recursive calls so use f function
+    function f
+        fff $argv
+        set -q XDG_CACHE_HOME; or set XDG_CACHE_HOME $HOME/.cache
+        cd (cat $XDG_CACHE_HOME/fff/.fff_d)
+    end
+end
+
+if command -sq pack
+    source (pack completion --shell fish)
+end
+
