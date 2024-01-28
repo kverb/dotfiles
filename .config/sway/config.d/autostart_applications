@@ -41,7 +41,7 @@ exec gnome-keyring-daemon --daemonize --start --components=gpg,pkcs11,secrets,ss
 exec libinput-gestures-setup start
 
 # Outputs
-exec_always kanshi
+exec way-displays > /tmp/way-displays.${USER}.log 2>&1
 
 # Xdg DEsktop Portal
 # https://wiki.archlinux.org/title/XDG_Desktop_Portal
