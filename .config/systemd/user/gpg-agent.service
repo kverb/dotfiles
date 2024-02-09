@@ -1,0 +1,12 @@
+[Unit]
+Description=GPG Key Agent
+Requires=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/gpg-agent --daemon
+
+[Install]
+WantedBy=default.target
+
