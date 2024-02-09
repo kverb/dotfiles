@@ -8,7 +8,6 @@
 .config/font-manager
 .config/pacseek
 .config/pulse
-.config/systemd
 .config/user-dirs*
 .dmrc
 .local
