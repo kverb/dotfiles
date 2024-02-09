@@ -1,0 +1,15 @@
+[Unit]
+Description=libreddit daemon
+After=network.service
+
+[Service]
+DynamicUser=no
+# Default Values
+#Environment=ADDRESS=0.0.0.0
+#Environment=PORT=8080
+# Optional Override
+EnvironmentFile=/home/%u/.config/libreddit.conf
+ExecStart=/home/%u/apps/libreddit
+
+[Install]
+WantedBy=default.target
