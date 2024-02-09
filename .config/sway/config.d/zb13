@@ -1,0 +1,6 @@
+# zenbook S 13 OLED config
+
+# there are only four steps (0-3) for the asus keyboard backlight
+bindsym $mod+F5 exec brightnessctl -q -d 'asus::kbd_backlight' set +25%
+bindsym $mod+F4 exec brightnessctl -q -d 'asus::kbd_backlight' set 25%-
+
