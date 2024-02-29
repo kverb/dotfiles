@@ -9,16 +9,18 @@ selected=$(echo -e " Active\n Screen\n Output\n󰋱 Area\n Window\n"
   -w 20          \
   | awk '{print tolower($2)}')
 
+gs=~/.config/grimshot
+
  
 case $selected in
   active)
-    /usr/share/sway/scripts/grimshot --notify copy active;;
+    $gs --notify copy active;;
   screen)
-    /usr/share/sway/scripts/grimshot --notify copy screen;;
+    $gs --notify copy screen;;
   output)
-    /usr/share/sway/scripts/grimshot --notify copy output;;
+    $gs --notify copy output;;
   area)
-    /usr/share/sway/scripts/grimshot --notify copy area;;
+    $gs --notify copy area;;
   window)
-    /usr/share/sway/scripts/grimshot --notify copy window;;
+    $gs --notify copy window;;
 esac
