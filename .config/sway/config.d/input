@@ -16,7 +16,7 @@ input "type:touchpad" {
     natural_scroll disabled
     tap enabled
     middle_emulation disabled
-	scroll_factor 0.25
+	scroll_factor 0.85
 }
 
 # TODO maybe make this more mouse/trackball specific.
