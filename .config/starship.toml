@@ -4,6 +4,7 @@ format = """
 [](fg:primary2)\
 $os\
 $username\
+$hostname\
 [](fg:primary2 bg:primary3)\
 $directory\
 [](fg:primary3 bg:primary4)\
@@ -81,6 +82,12 @@ show_always = true
 style_user = "bg:primary2 fg:bg2"
 style_root = "bg:red fg:primary1"
 format = '[ $user ]($style)'
+
+[hostname]
+ssh_only = true
+ssh_symbol = '@ '
+format = '[$ssh_symbol$hostname ]($style)'
+style = "bg:primary2 fg:red"
 
 [directory]
 style = "fg:bg bg:primary3"
