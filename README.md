@@ -35,28 +35,28 @@ Sway, Waybar, fuzzel, mako, kitty, way-displays, swaylock
 ```bash
 cd ~
 # the extra args in this git alias are essential, and combined with the --bare clone are what make this work
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 git clone --bare git@github.com:kverb/dotfiles.git .cfg
-config checkout
+dotfiles checkout
 ```
 
   If you encounter an error because some of the config files already exist, here is atlassian's recommendation to mv them into a backup dir:
   ```bash
   mkdir -p .config-backup && \
-  config checkout 2>&1 | grep -e "\s+\." | awk {'print $1'} | \
+  dotfiles checkout 2>&1 | grep -e "\s+\." | awk {'print $1'} | \
   xargs -I{} mv {} .config-backup/{}
   ```  
 
 2. Set the flag showUntrackedFiles to no on this specific (local) repository. Otherwise, you'll get a lot of extraneous files in `config status`. Keep this in mind when you make changes in a currently untracked file (you'll need to remember to `config add`. 
 ```bash
-config config --local status.showUntrackedFiles no
+dotfiles config --local status.showUntrackedFiles no
 ```
 3. when you make changes, treat the changes as you would source code in git:
-   - sync latest from remote: `config pull`
-   - check the status of locally changed files: `config status` , `config diff`
-   - stage a file change `config add <file>`
-   - commit `config commit -m 'Change color to blue'`
-   - push to remote `config push`
+   - sync latest from remote: `dotfiles pull`
+   - check the status of locally changed files: `dotfiles status` , `dotfiles diff`
+   - stage a file change `dotfiles add <file>`
+   - commit `dotfiles commit -m 'Change color to blue'`
+   - push to remote `dotfiles push`
    - etc. 
 5. Theme Setup: Some components (fuzzel, Sway, Waybar, mako) require additional steps to apply the desired theme:
   - fuzzel: Copy [encom.ini](./.config/fuzzel/encom.ini) or symlink: `ln -s encom.ini config.ini`
