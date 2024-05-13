@@ -169,6 +169,19 @@ workspace 9 output HDMI-A-2
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+
+# make swapping windows easier
+mode "swap" {
+    bindsym h move left; swap container with mark '_swap'; unmark '_swap'; focus left
+    bindsym j move down; swap container with mark '_swap'; unmark '_swap'; focus down
+    bindsym k move up; swap container with mark '_swap'; unmark '_swap'; focus up
+    bindsym l move right; swap container with mark '_swap'; unmark '_swap'; focus right
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+semicolon mode "swap"
+
 #
 # Scratchpad:
 #
