@@ -62,7 +62,7 @@ Raspbian = "󰐿"
 Mint = "󰣭"
 Macos = "󰀵"
 Manjaro = ""
-Linux = "󰌽"
+Linux = ""
 Gentoo = "󰣨"
 Fedora = "󰣛"
 Alpine = ""
@@ -74,6 +74,7 @@ CentOS = ""
 Debian = "󰣚"
 Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
+Unknown = "?"
 
 [username]
 show_always = true
