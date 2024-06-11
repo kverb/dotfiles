@@ -9,8 +9,8 @@ set $up k
 set $right l
 
 # Your preferred terminal emulators
-# set $term-float alacritty
-set $term-float kitty
+# set $term-float kitty
+set $term-float wezterm
 
 set $powermenu exec ~/.config/waybar/scripts/power-menu.sh
 # set $powermenu nwg-bar
