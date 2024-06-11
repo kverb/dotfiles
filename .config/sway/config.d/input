@@ -12,6 +12,10 @@ input "type:keyboard" {
 	xkb_layout "us"
 }
 
+# japanese language switching 
+bindsym Ctrl+Mod1+Space exec "ibus engine xkb:us::eng; ibus engine mozc"
+
+
 input "type:touchpad" {
     natural_scroll disabled
     tap enabled
