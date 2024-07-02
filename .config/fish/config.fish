@@ -151,7 +151,9 @@ alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 #    neofetch
 # end
 
-fish_add_path (go env GOPATH)
+if command -sq go
+    fish_add_path (go env GOPATH)
+end
 
 if command -sq gping
     alias ping=gping
@@ -193,4 +195,6 @@ end
 if command -sq pack
     source (pack completion --shell fish)
 end
+
+# set GPG_AGENT_INFO ~/.gnupg/S.gpg-agent:0:1
 
