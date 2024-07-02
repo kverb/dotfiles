@@ -15,8 +15,8 @@ config.colors = {
   },
 }
 
-config.use_fancy_tab_bar = false
-
+config.use_fancy_tab_bar = true
+config.hide_tab_bar_if_only_one_tab = true
 
 config.window_frame = {
   -- The font used in the tab bar.
@@ -33,7 +33,6 @@ config.window_frame = {
   -- The overall background color of the tab bar when
   -- the window is not focused
   inactive_titlebar_bg = '#333333',
-
 }
 
 config.keys = {
