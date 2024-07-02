@@ -66,3 +66,5 @@
 [alias]
 	# git find <string>
     find = log --pretty=\"format:%Cred%cr %Cgreen%h %Cblue%s\" --name-status -i --grep 
+[gpg]
+	program = gpg
