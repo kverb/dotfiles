@@ -20,6 +20,7 @@ Recommended:
 - helix (Modern text editor)
 - bottom (Graphical resource monitor)
 - tig (Text-mode Git interface)
+- [wezterm](https://github.com/wez/wezterm) (terminal emulator)
 
 ## Desktop Configuration
 
@@ -27,7 +28,7 @@ For laptops/desktops, this repo includes a Sway Window Manager configuration loo
 
 Dependencies:
 
-Sway, Waybar, fuzzel, mako, kitty, way-displays, swaylock
+Sway, Waybar, fuzzel, mako, kitty, way-displays, swaylock, wezterm
 
 ### Installation Notes:
 
