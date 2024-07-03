@@ -1,0 +1,5 @@
+SCALING: FALSE
+
+MODE:
+  - NAME_DESC: 'AOC U34'
+    HZ: 144.001

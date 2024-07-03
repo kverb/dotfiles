@@ -1,0 +1,208 @@
+/* =============================================================================
+ *
+ * Waybar configuration
+ *
+ * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ *
+ * =========================================================================== */
+
+/* -----------------------------------------------------------------------------
+ * Keyframes
+ * -------------------------------------------------------------------------- */
+
+/*
+These are here for reference, from the kitty Encom theme.
+It appears that gtk3 css does not support variables. Sigh.
+background            #000000
+foreground            #00a595
+cursor                #bbbbbb
+selection_background  #00a48c
+color0                #000000
+# darker gray
+color8                #545454
+color1                #9f0000
+# reddish
+#color9                #ff0000
+color9                #911f34
+color2                #008b00
+# bright green
+#color10               #00ee00
+color10               #205944
+# yellowish
+#color3                #ffcf00
+color3                #f09a1a
+color11               #ffff00
+# blueish
+#color4                #0081ff
+color4                #1ab0f0
+color12               #0000ff
+# purple
+#color5                #bc00ca
+color5                #bc00ca
+color13               #ff00ff
+# green
+#color6                #008b8b
+color6                #008b8b
+color14               #00cdcd
+# gray
+color7                #bbbbbb
+color15               #ffffff
+selection_foreground #000000
+
+active_tab_foreground   #00a595
+active_tab_background   #000
+inactive_tab_foreground #0f3d39
+inactive_tab_background #000000
+*/
+
+/* -----------------------------------------------------------------------------
+ * Base styles
+ * -------------------------------------------------------------------------- */
+
+/* Reset all styles */
+
+* {
+  border-radius: 0;
+  /* font-family: "JetBrains Mono Light"; */
+  font-family: "Spleen 32x64";
+  font-size: 16px;
+  min-height: 16px;
+  border: none;
+}
+
+window#waybar {
+  background: transparent;
+  color: #000000;
+}
+
+tooltip {
+  color: #00a595;
+  background: #000;
+  border: solid 2px #00a595;
+}
+
+#workspaces {
+  background-color: #000;
+  margin: 10px 0px;
+  border-bottom: solid 2px #00a595;
+  border-right: solid 1px #00a595;
+}
+#workspaces button {
+  color: #00a595;
+}
+
+#workspaces button.focused {
+  background-color: #00a595;
+  color: #000;
+}
+
+#workspaces button.urgent {
+  color: #000;
+  background-color: #ffcf00;
+}
+
+#workspaces button:hover {
+  background-color: #88c0d0;
+  color: #2a2e38;
+}
+
+#mode {
+  color: #2e3440;
+  background-color: #ebcb8b;
+  border-bottom: solid 2px #00a595;
+  border-right: solid 1px #00a595;
+  padding: 5px 10px 5px 10px;
+  margin: 10px 0px;
+}
+
+#window {
+  color: #00a595;
+  background-color: #000;
+  border-bottom: solid 2px #00a595;
+  border-right: solid 1px #00a595;
+  padding: 5px 10px 5px 10px;
+  margin: 10px 0px;
+}
+
+/* #window:blank { */
+/*     border: none; */
+/* } */
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#idle_inhibitor,
+#temperature,
+#custom-keyboard-layout,
+#backlight,
+#network,
+#pulseaudio,
+#tray,
+#custom-launcher,
+#custom-power,
+#custom-pacman {
+  padding: 5px 10px 5px 10px;
+  margin: 10px 0px;
+  background-color: #000;
+  color: #00a595;
+  border-right: solid 1px #00a595;
+  border-bottom: solid 2px #00a595;
+}
+
+/* -----------------------------------------------------------------------------
+ * Module styles
+ * -------------------------------------------------------------------------- */
+
+#pulseaudio.muted {
+  background-color: #545454;
+}
+
+#idle_inhibitor.activated {
+  background-color: #911f34;
+  color: #000;
+}
+
+#network {
+  /* on the left edge of the right modules */
+  border-left: solid 1px #00a595;
+}
+
+#network.disabled {
+  color: #bf616a;
+}
+
+#network.disconnected {
+  color: #d8dee9;
+  background-color: #6b2a50;
+}
+
+#battery.charging {
+  color: #f09a1a;
+}
+
+@keyframes blink {
+  to {
+    color: #4c566a;
+    background-color: #000;
+  }
+}
+
+#battery.critical:not(.charging) {
+  background: #bf616a;
+  color: #eceff4;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#clock {
+  /* goes on far right side */
+  border-right: none;
+}
+
+#temperature.critical {
+  color: #ff0000;
+}
