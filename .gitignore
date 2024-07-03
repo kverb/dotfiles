@@ -52,4 +52,5 @@
 
 ## re-exclude these specifics
 .viminfo
-
+**/__pycache__/
+**/__pycache__/*
