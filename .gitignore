@@ -34,3 +34,6 @@
 !*.hwdb
 !*.png
 
+## re-exclude these specifics
+.viminfo
+
