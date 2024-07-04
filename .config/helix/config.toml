@@ -1,8 +1,16 @@
-theme = "encom"
+theme = "term16_dark"
 
 [keys.insert]
 "A-x" = "normal_mode" # Maps Alt-X to enter normal mode
 k = { j = "normal_mode" } # Maps `jk` to exit insert mode
+
+[keys.normal]
+"C-h" = "jump_view_left"
+"C-l" = "jump_view_right"
+
+[keys.select]
+"C-j" = ["extend_to_line_bounds", "delete_selection", "paste_after", "select_mode"]
+"C-k" = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before", "select_mode"]
 
 [editor]
 gutters = ["diagnostics", "spacer", "line-numbers", "spacer", "diff"]
