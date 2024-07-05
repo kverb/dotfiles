@@ -90,7 +90,7 @@
 
 "ui.cursor" = {fg="bg", bg = "primary1" }
 "ui.cursor.match" = { fg = "primary2", modifiers = ["bold", "underlined"] }
-"ui.cursorline.primary" = { bg = "primary1" }
+"ui.cursorline.primary" = { bg = "primary4" }
 
 "ui.highlight" = { fg = "bsecondary", bg = "bg" }
 
