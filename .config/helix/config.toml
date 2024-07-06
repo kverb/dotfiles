@@ -1,12 +1,15 @@
-theme = "term16_dark"
+theme = "encom"
 
 [keys.insert]
 "A-x" = "normal_mode" # Maps Alt-X to enter normal mode
-k = { j = "normal_mode" } # Maps `jk` to exit insert mode
+k = { j = "normal_mode" } # Maps `kj` to exit insert mode
 
 [keys.normal]
 "C-h" = "jump_view_left"
 "C-l" = "jump_view_right"
+"D" = "kill_to_line_end"
+"A-D" = "kill_to_line_start"
+y = { y = ["extend_to_line_bounds", "yank"] }
 
 [keys.select]
 "C-j" = ["extend_to_line_bounds", "delete_selection", "paste_after", "select_mode"]
