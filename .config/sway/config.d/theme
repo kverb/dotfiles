@@ -11,8 +11,8 @@ smart_gaps on
 default_border pixel 1
 
 # Default Font
-font pango: JetBrains Mono 10
-#font pango: Spleen 32x64 14
+# font pango: JetBrains Mono 10
+font pango: Kode Mono 12
 
 # Thin borders:
 smart_borders on

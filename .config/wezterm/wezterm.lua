@@ -15,6 +15,10 @@ config.colors = {
   },
 }
 
+config.font = wezterm.font 'Kode Mono'
+config.font_size = 13.0
+config.line_height = 1.15
+
 config.use_fancy_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
 
@@ -25,7 +29,7 @@ config.window_frame = {
   -- Whatever font is selected here, it will have the
   -- main font setting appended to it to pick up any
   -- fallback fonts you may have used there.
-  font = wezterm.font { family = 'Spleen 32x64', weight = 'Medium' },
+  font = wezterm.font 'Kode Mono',
   -- The overall background color of the tab bar when
   -- the window is focused
   active_titlebar_bg = '#000000',
