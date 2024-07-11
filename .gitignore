@@ -42,7 +42,13 @@
 !.config/wezterm/**
 !.gitignore
 !.gitmodules
+!.local
+.local/*
+!.local/share
+.local/share/*
 !.local/share/applications/*
+!.local/share/fonts
+!.local/share/fonts/**
 !.vim*
 
 !README.md
