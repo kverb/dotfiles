@@ -36,6 +36,9 @@
 !.config/tmux/**
 !.config/way-displays
 !.config/way-displays/**
+# until we can figure out a better profile system, just re-ignore this.
+# clients will have to copy|link the appropriate config to cfg.yaml
+.config/way-displays/cfg.yaml
 !.config/waybar
 !.config/waybar/**
 !.config/wezterm
