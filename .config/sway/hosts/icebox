@@ -1,14 +1,13 @@
 # configuration specific to 'icebox', or any ultrawide display
 # Define workspace 1
-workspace 1 output DP-2
-workspace 1 layout splitv
 
 # Assign applications to specific positions in workspace 1
-assign [app_id="google-chrome" ] workspace 1
+# assign [app_id="google-chrome" ] workspace 1
 assign [class="Spotify"] workspace 1
 assign [class="Signal Beta"] workspace 1
 
 # Set up the layout for workspace 1
 for_window [workspace="1"] splitv
-for_window [workspace="1"] layout stacking
 
+# needs https://github.com/ammgws/autotiling-rs
+exec autotiling-rs

@@ -16,7 +16,7 @@ config.colors = {
 }
 
 config.font = wezterm.font 'Kode Mono'
-config.font_size = 13.0
+config.font_size = 14.0
 config.line_height = 1.15
 
 config.use_fancy_tab_bar = true
