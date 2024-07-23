@@ -10,7 +10,6 @@ selected=$(echo -e " Active\n Screen\n Output\n󰋱 Area\n Window\n"
   | awk '{print tolower($2)}')
 
 gs=~/.config/grimshot
-
  
 case $selected in
   active)

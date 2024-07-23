@@ -28,9 +28,11 @@ fi
 
 ACTION=${1:-usage}
 SUBJECT=${2:-screen}
-FILE=${3:-$(getTargetDirectory)/$(date '+%F_%H-%M-%S').png}
+DATENAME="$(date '+%F_%H-%M-%S').png"
+FILE=${3:-$(getTargetDirectory)/$DATENAME}
 S3BUCKET="s3-kverb"
-S3URL="https://us-east-1.linodeobjects.com/s3-kverb/$(date '+%F_%H-%M-%S').png"
+S3URL="https://us-east-1.linodeobjects.com/s3-kverb/$DATENAME"
+W81STURL="https://kb.w81st.com/ss/$DATENAME"
 
 if [ "$ACTION" != "save" ] && [ "$ACTION" != "copy" ] && [ "$ACTION" != "check" ] && [ "$ACTION" != "save" ] && [ "$ACTION" != "upload" ]; then
   echo "Usage:"
@@ -147,14 +149,15 @@ if [ "$ACTION" = "copy" ] ; then
   takeScreenshot - "$GEOM" "$OUTPUT" | wl-copy --type image/png || die "Clipboard error"
   notifyOk "$WHAT copied to buffer"
 else
-  if takeScreenshot "$FILE" "$GEOM" "$OUTPUT"; then
+  if takeScreenshot $FILE "$GEOM" "$OUTPUT"; then
     TITLE="Screenshot of $SUBJECT"
-    MESSAGE=$(basename "$FILE")
+    MESSAGE=$(basename "$W81STURL")
     notifyOk "$MESSAGE" "$TITLE"
-    echo $FILE
+    echo $W81STURL
     if [ "$ACTION" = "upload" ] ; then
-        linode-cli obj put --acl-public $FILE $S3BUCKET
-        wl-copy --type text/plain $S3URL
+        cp $FILE ~/w81st/ss/$DATENAME &
+        wl-copy --type text/plain $W81STURL
+        rm $FILE
     fi
   else
     notifyError "Error taking screenshot with grim"
