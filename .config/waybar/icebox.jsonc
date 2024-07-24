@@ -19,13 +19,13 @@
 
     "modules-right": [
         "network",
-        // "memory",
-        // "cpu",
+        "memory",
+        "cpu",
         // "custom/keyboard-layout",
-        "battery",
+        // "battery",
         //"custom/PBPbattery",
-        "backlight#icon",
-        "backlight#value",
+        // "backlight#icon",
+        // "backlight#value",
         "idle_inhibitor",
         "pulseaudio",
         "clock",

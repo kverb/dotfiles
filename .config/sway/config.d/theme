@@ -21,10 +21,4 @@ smart_borders on
 for_window [shell="xdg_shell"] title_format "%title"
 for_window [shell="x_wayland"] title_format "%class - %title"
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-   swaybar_command waybar
-}
+

@@ -126,7 +126,7 @@
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
-        "format": "<span style=\"color: #00a595\">{icon}</span>"
+        // "format": "<span style=\"color: #00a595\">{icon}</span>"
 
 
     },

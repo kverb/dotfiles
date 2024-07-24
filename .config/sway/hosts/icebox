@@ -1,6 +1,8 @@
 # configuration specific to 'icebox', or any ultrawide display
-# Define workspace 1
+# Outputs
+exec way-displays -c ~/.config/way-displays/aoc34.yml > /tmp/way-displays.${USER}.log 2>&1
 
+# Define workspace 1
 # Assign applications to specific positions in workspace 1
 # assign [app_id="google-chrome" ] workspace 1
 assign [class="Spotify"] workspace 1
@@ -11,3 +13,10 @@ for_window [workspace="1"] splitv
 
 # needs https://github.com/ammgws/autotiling-rs
 exec autotiling-rs
+
+# Status Bar:
+# well, swaybar_command doesn't accept args, which is ridiculous.
+# so just exec here and it seems to work fine
+
+exec waybar -c ~/.config/waybar/icebox.jsonc
+

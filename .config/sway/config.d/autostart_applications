@@ -4,7 +4,6 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Desktop notifications
 exec mako
 
-
 # GTK3 applications take a long time to start
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
@@ -12,7 +11,7 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 
 # japanese / emoji input method editor
 # exec --no-startup-id ibus-daemon -drx
-exec /usr/lib/ibus/ibus-ui-gtk3 --enable-wayland-im --exec-daemon --daemon-args "--xim --panel disable"
+# exec /usr/lib/ibus/ibus-ui-gtk3 --enable-wayland-im --exec-daemon --daemon-args "--xim --panel disable"
      
 # Sway Fader
 #exec python3 ~/.config/sway/scripts/swayfader.py     
@@ -43,9 +42,6 @@ exec gnome-keyring-daemon --daemonize --start --components=gpg,pkcs11,secrets,ss
 
 # for Touchpad gestures
 exec libinput-gestures-setup start
-
-# Outputs
-exec way-displays > /tmp/way-displays.${USER}.log 2>&1
 
 # Xdg DEsktop Portal
 # https://wiki.archlinux.org/title/XDG_Desktop_Portal

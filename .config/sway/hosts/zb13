@@ -1,0 +1,12 @@
+# configuration specific to 'zb13' or similar hi-res laptop
+assign [class="Signal Beta"] workspace 3
+
+# Outputs
+exec way-displays -c ~/.config/way-displays/zb13.yml > /tmp/way-displays.${USER}.log 2>&1
+
+# Status Bar:
+# well, swaybar_command doesn't accept args, which is ridiculous.
+# so just exec here and it seems to work fine
+
+exec waybar -c ~/.config/waybar/zb13.jsonc
+
