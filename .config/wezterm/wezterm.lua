@@ -5,13 +5,13 @@ config.default_prog = { '/usr/bin/fish', '-l' }
 
 
 config.color_scheme = 'Gruvbox Material (Gogh)'
--- config.color_scheme = 'Fahrenheit'
+-- config.color_scheme = 'carbonfox'
 config.colors = {
   background = 'black',
   tab_bar = {
     background = '#000000',
     -- The color of the inactive tab bar edge/divider
-    inactive_tab_edge = '#00a595',
+    inactive_tab_edge = '#b0e0e6',
   },
 }
 
