@@ -109,3 +109,9 @@ includeInlayParameterNameHints = "all"
 includeInlayParameterNameHintsWhenArgumentMatchesName = true
 includeInlayPropertyDeclarationTypeHints = true
 includeInlayVariableTypeHints = true
+
+[[language]]
+# extend the markdown to include mdx
+name = "markdown"
+file-types = ["md", "mdx"]
+

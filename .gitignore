@@ -17,6 +17,7 @@
 !.config/kanshi/**
 !.config/kitty
 !.config/kitty/**
+!.config/libreddit.conf
 !.config/makepkg.conf
 !.config/mako
 !.config/mako/**
