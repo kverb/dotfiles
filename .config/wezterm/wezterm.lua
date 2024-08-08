@@ -15,9 +15,20 @@ config.colors = {
   },
 }
 
-config.font = wezterm.font 'Kode Mono'
-config.font_size = 14.0
+config.font = wezterm.font 'Berkeley Mono Variable'
+-- config.font = wezterm.font 'Kode Mono'
 config.line_height = 1.15
+
+
+local font_size
+if hostname == 'icebox' then
+  -- Use a bigger font on the ultrawide
+  font_size = 15.0
+else
+  font_size = 13.0
+end
+
+config.font_size = font_size
 
 config.use_fancy_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
