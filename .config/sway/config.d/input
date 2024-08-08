@@ -15,11 +15,11 @@ input "type:keyboard" {
 # japanese language switching 
 bindsym Ctrl+Mod1+Space exec "ibus engine xkb:us::eng; ibus engine mozc"
 
-
 input "type:touchpad" {
     natural_scroll disabled
     tap enabled
     middle_emulation disabled
+	scroll_factor 0.5
 }
 
 # TODO maybe make this more mouse/trackball specific.
