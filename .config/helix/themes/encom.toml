@@ -1,94 +1,128 @@
 # ENCOM
 # Almost monochromatic theme inspired by Encom OS from Tron: Legacy
 # author: @kverb
+
+# Syntax highlighting
+# -------------------
 "attribute" = { fg = "tertiary", modifiers = ["italic"] }
-"ui.virtual.wrap" = "softwrap"
-"keyword" = "keyword"
+"keyword" = { fg = "keyword" }
 "keyword.control.conditional" = { fg = "primary3" }
-"keyword.directive" = "red"
+"keyword.directive" = { fg = "red" }
 "namespace" = { fg = "primary1", modifiers = ["italic"] }
-"punctuation" = "primary3"
-"punctuation.delimiter" = "primary3"
-"operator" = "primary2"
-"special" = "tertiary"
+"punctuation" = { fg = "primary3" }
+"punctuation.delimiter" = { fg = "primary3" }
+"operator" = { fg = "primary2" }
+"special" = { fg = "tertiary" }
 "variable" = { fg = "primary1" }
-"variable.builtin" = "btertiary"
+"variable.builtin" = { fg = "btertiary" }
 "variable.parameter" = { fg = "primary1" }
-"variable.other.member" = "primary1"
-"type" = "secondary"
-"type.builtin" = "red"
-"type.enum.variant" = "red"
-"constructor" = "primary2"
+"variable.other.member" = { fg = "primary1" }
+"type" = { fg = "secondary" }
+"type.builtin" = { fg = "red" }
+"type.enum.variant" = { fg = "red" }
+"constructor" = { fg = "primary2" }
 "function" = { fg = "primary2" }
-"function.macro" = "btertiary"
-"function.builtin" = "primary3"
+"function.macro" = { fg = "btertiary" }
+"function.builtin" = { fg = "primary3" }
 "function.method" = { fg = "secondary" }
-"tag" = "primary1"
+"tag" = { fg = "primary1" }
 "comment" = { fg = "primary3", modifiers = ["italic"] }
 "string" = { fg = "primary3" }
-"string.regexp" = "tertiary"
-"string.special" = "btertiary"
-"constant" = "primary1"
-"constant.builtin" = "primary2"
-"constant.numeric" = "primary2"
-"constant.character.escape" = "tertiary"
-"label" = "primary2"
+"string.regexp" = { fg = "tertiary" }
+"string.special" = { fg = "btertiary" }
+"constant" = { fg = "primary1" }
+"constant.builtin" = { fg = "primary2" }
+"constant.numeric" = { fg = "primary2" }
+"constant.character.escape" = { fg = "tertiary" }
+"label" = { fg = "primary2" }
+
 "markup.heading" = { fg = "secondary", modifiers = ["italic"] }
 "markup.list" = { fg = "primary3" }
 "markup.link" = { fg = "secondary" }
 "markup.link.url" = { fg = "tertiary" }
 "markup.raw" = { fg = "primary2", bg = "bg2" }
 "markup.quote" = { fg = "primary2", bg = "bg2" }
-"diff.plus" = "secondary"
-"diff.minus" = "red"
-"diff.delta" = "bsecondary"
-"ui.background" = { bg = "bg" }
+
+"diff.plus" = { fg = "secondary" }
+"diff.minus" = { fg = "red" }
+"diff.delta" = { fg = "bsecondary" }
+
+# User Interface
+# --------------
+"ui.background" = { bg = "bg", fg = "primary1" }
 "ui.background.separator" = { fg = "secondary" }
+
 "ui.linenr" = { fg = "primary4", bg = "bg" }
 "ui.linenr.selected" = { fg = "primary1" }
+
 "ui.statusline" = { fg = "bg", bg = "primary2" }
 "ui.statusline.inactive" = { fg = "primary1", bg = "bg2" }
 "ui.statusline.normal" = { fg = "bg", bg = "secondary" }
 "ui.statusline.insert" = { fg = "tertiary", bg = "bg" }
 "ui.statusline.select" = { fg = "bg", bg = "red" }
-"ui.statusline.separator" = "❭"
+"ui.statusline.separator" = { fg = "❭" }
+
 "ui.popup" = { bg = "bg2", fg = "primary1" }
 "ui.popup.info" = { bg = "bg", fg = "primary1" }
 "ui.window" = { fg = "primary2", bg = "bg2" }
 "ui.help" = { bg = "bg", fg = "primary3" }
+
+# "ui.bufferline" = {}
+# "ui.bufferline.active" = {}
+# "ui.bufferline.background" = {}
+
 "ui.text" = { fg = "primary1" }
-"ui.text.focus" = { fg = "primary1" }
-"ui.virtual" = { fg = "primary4" }  # i think this doesn't do anything?
+# "ui.text.inactive" = {}
+"ui.text.info" = { fg = "primary1" }
+"ui.text.focus" = { fg = "primary2" }
+
 "ui.virtual.ruler" = { bg = "primary2" }
 "ui.virtual.indent-guide" = { fg = "primary4" }
 "ui.virtual.inlay-hint" = { fg = "primary3" }
+# "ui.virtual.jump-label" = {}
 "ui.virtual.whitespace" = { fg = "whitespace" }
+"ui.virtual.wrap" = { fg = "softwrap" }
+
 "ui.selection" = { bg = "bg2" }
 "ui.selection.primary" = { bg = "bg2" }
+
 "ui.cursor" = { fg = "bg", bg = "primary1" }
+"ui.cursor.insert" = { fg = "primary1" }
+"ui.cursor.select" = { fg = "red" }
 "ui.cursor.match" = { fg = "primary2", modifiers = ["bold", "underlined"] }
 "ui.cursor.primary" = { fg = "bg", bg = "primary3" }
-"ui.cursorline.primary" = { fg = "primary", bg = "primary4" }
+"ui.cursor.primary.normal" = { fg = "bg", bg = "primary3" }
+"ui.cursor.primary.insert" = { fg = "bg", bg = "btertiary" }
+"ui.cursor.primary.select" = { fg = "bg", bg = "red" }
+
+"ui.cursorline.primary" = { fg = "primary1", bg = "primary4" }
+
 "ui.highlight" = { fg = "bsecondary", bg = "bg" }
+
 "ui.menu" = { fg = "bg", bg = "primary2" }
 "ui.menu.selected" = { fg = "primary1", bg = "bg2" }
 "ui.menu.scroll" = { fg = "primary3", bg = "bg2" }
-diagnostic = { modifiers = ["underlined"] }
-warning = "tertiary"
-error = "red"
-info = "secondary"
-hint = "bsecondary"
+
+"diagnostic" = { modifiers = ["underlined"] }
+
+"warning" = { fg = "tertiary" }
+"error" = { fg = "red" }
+"info" = { fg = "secondary" }
+"hint" = { fg = "bsecondary" }
 
 [palette]
 
-bg = "#000000"           # nearly black
-bg2 = "#303340"          # dark slate blue
+# colors in "" are the HTML / web color names (likely from the extended set)
+# https://en.wikipedia.org/wiki/Web_colors
+bg = "#000000"           # "black"
+bg2 = "#303340"          # "dark slate blue"
+# primary variants are mostly for foreground elements
 primary1 = "#b0e0e6"     # "powder blue"
 primary2 = "#8cb3b8"     # a little darker
 primary3 = "#69868a"     # darker still
 primary4 = "#46595c"     # very dark cyan
-secondary = "#00a595"    # Encom Primary color (teal)
-bseconday = "#00d8c3"    # bright teal
+secondary = "#00a595"    # teal
+bsecondary = "#00d8c3"   # bright teal
 tertiary = "#d9c400"     # yellow
 btertiary = "#e8db66"    # bright yellow
 red = "#C71585"          # "medium violet red"
