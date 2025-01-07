@@ -9,6 +9,8 @@
 !.config/fish/**
 !.config/fuzzel
 !.config/fuzzel/**
+!.config/ghostty
+!.config/ghostty/**
 !.config/gitconfig
 !.config/grimshot
 !.config/helix
