@@ -5,3 +5,5 @@ font-size = 13
 
 # ctrl+enter to fullscreen wtf?
 keybind = ctrl+enter=unbind
+
+command = fish
