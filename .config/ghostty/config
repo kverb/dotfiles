@@ -6,4 +6,7 @@ font-size = 13
 # ctrl+enter to fullscreen wtf?
 keybind = ctrl+enter=unbind
 
+keybind = alt+c=copy_to_clipboard
+keybind = alt+v=paste_from_clipboard
+
 command = fish
