@@ -26,6 +26,8 @@
 !.config/pkglist.txt
 !.config/ranger
 !.config/ranger/**
+!.config/river
+!.config/river/**
 !.config/starship.toml
 !.config/sway
 !.config/sway/**
