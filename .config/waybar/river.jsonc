@@ -1,0 +1,139 @@
+// Global 
+{
+    "layer": "top",
+    "position": "top",
+
+    // If height property would be not present, it'd be calculated dynamically
+    // "height": 30,
+
+    "modules-left": [
+        "custom/power",
+        "tray",
+        "river/tags",
+        "river/mode",
+    ],
+ 
+    "modules-center": [
+        "river/window"
+    ],
+
+    "modules-right": [
+        "network",
+        "battery",
+        "backlight#icon",
+        "backlight#value",
+        "idle_inhibitor",
+        "pulseaudio",
+        "clock",
+    ],
+
+    // Modules
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons":{
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "clock": {
+        "interval": 10,
+        "format-alt": " {:%e %b %Y}", // Icon: calendar-alt
+        "format": "{:%H:%M}",
+        "tooltip-format": "{:%e %B %Y}"
+    },
+    "network": {
+        "interval": 5,
+        "format-wifi": "  {essid} ({signalStrength}%)", // Icon: wifi
+        "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
+        "format-disconnected": "⚠  Disconnected",
+        "tooltip-format": "{ifname}: {ipaddr}",
+        "on-click": "xfce4-terminal -e 'nmtui'",
+    },
+    "network#vpn": {
+        "interface": "tun0",
+        "format": "  {essid} ({signalStrength}%)",
+        "format-disconnected": "⚠  Disconnected",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+    },
+
+    "river/mode": {
+        "format": "{}",
+        "tooltip": false
+    },
+
+    "river/window": {
+        "format": "{}",
+        "max-length": 120
+    },
+
+    "river/tags": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        // "format": "<span style=\"color: #00a595\">{icon}</span>"
+        "format": "{name}",
+        "format-empty": "",
+        "tooltip": false
+    },
+
+    "pulseaudio": {
+        "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}  {format_source}",
+        "format-bluetooth-muted": " {icon}  {format_source}",
+        "format-muted": "婢 {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "וֹ",
+            "headset": "  ",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [""]
+        },
+        "on-click": "pavucontrol",
+        "on-scroll-up": "pamixer -ui 2",
+        "on-scroll-down": "pamixer -ud 2",
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing":10,
+     },
+
+    "backlight#icon": {
+        "format": "{icon}",
+        "format-icons": [""],
+        "on-scroll-down": "brightnessctl -c backlight set 1%-",
+        "on-scroll-up": "brightnessctl -c backlight set +1%"
+    },
+
+    "backlight#value" :{
+         "format": "{percent}%",
+         "on-scroll-down": "brightnessctl -c backlight set 1%-",
+         "on-scroll-up": "brightnessctl -c backlight set +1%"
+    },
+
+    "custom/power": {
+        "format":"⏻",
+        "on-click": "exec ~/.config/river/scripts/powermenu.sh",
+        "tooltip": false,
+    },
+}
