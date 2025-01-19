@@ -10,8 +10,8 @@ set $right l
 
 # Your preferred terminal emulators
 # set $term-float kitty
-# set $term-float wezterm
-set $term-float ghostty
+set $term-float wezterm
+# set $term-float ghostty
 
 set $powermenu exec ~/.config/waybar/scripts/power-menu.sh
 # set $powermenu nwg-bar
