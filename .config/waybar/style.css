@@ -20,8 +20,8 @@
   border-radius: 0;
   font-family: "OCR A";
   /* font-family: "Kode Mono"; */
-  font-size: 14px;
-  min-height: 14px;
+  font-size: 15px;
+  min-height: 28px;
   border: none;
 
 }
@@ -76,7 +76,7 @@ tooltip {
   background-color: #ebcb8b;
   border-bottom: solid 1px #b0e0e6;
   border-right: solid 1px #b0e0e6;
-  padding: 5px 10px 5px 10px;
+  padding: 0px 5px 0px 5px;
 }
 
 #window {
@@ -85,7 +85,7 @@ tooltip {
   border-bottom: solid 1px #b0e0e6;
   border-left: solid 1px #b0e0e6;
   border-right: solid 1px #b0e0e6;
-  padding: 5px 10px 5px 10px;
+  padding: 0px 5px 0px 5px;
 }
 
 /* #window:blank { */
@@ -106,7 +106,7 @@ tooltip {
 #custom-launcher,
 #custom-power,
 #custom-pacman {
-  padding: 5px 10px 5px 10px;
+  padding: 0px 10px 0px 10px;
   background-color: #000;
   color: #b0e0e6;
   border-right: solid 1px #b0e0e6;
