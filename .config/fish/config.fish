@@ -1,13 +1,13 @@
 ## Set values
 # Hide welcome message
 set fish_greeting
-set VIRTUAL_ENV_DISABLE_PROMPT "1"
+set VIRTUAL_ENV_DISABLE_PROMPT 1
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
-set -x MANROFFOPT "-c"
+set -x MANROFFOPT -c
 
 ## Export variable need for qt-theme
-if type "qtile" >> /dev/null 2>&1
-   set -x QT_QPA_PLATFORMTHEME "qt5ct"
+if type qtile >>/dev/null 2>&1
+    set -x QT_QPA_PLATFORMTHEME qt5ct
 end
 
 # Set settings for https://github.com/franciscolourenco/done
@@ -18,7 +18,7 @@ set -U __done_notification_urgency_level low
 ## Environment setup
 # Apply .profile: use this to put fish compatible .profile stuff in
 if test -f ~/.fish_profile
-  source ~/.fish_profile
+    source ~/.fish_profile
 end
 
 # Add ~/.local/bin to PATH
@@ -28,37 +28,38 @@ end
 
 ## Starship prompt
 if status --is-interactive
-   source ("/usr/bin/starship" init fish --print-full-init | psub)
+    source ("/usr/bin/starship" init fish --print-full-init | psub)
 end
 
 
 ## Functions
 # Functions needed for !! and !$ https://github.com/oh-my-fish/plugin-bang-bang
 function __history_previous_command
-  switch (commandline -t)
-  case "!"
-    commandline -t $history[1]; commandline -f repaint
-  case "*"
-    commandline -i !
-  end
+    switch (commandline -t)
+        case "!"
+            commandline -t $history[1]
+            commandline -f repaint
+        case "*"
+            commandline -i !
+    end
 end
 
 function __history_previous_command_arguments
-  switch (commandline -t)
-  case "!"
-    commandline -t ""
-    commandline -f history-token-search-backward
-  case "*"
-    commandline -i '$'
-  end
+    switch (commandline -t)
+        case "!"
+            commandline -t ""
+            commandline -f history-token-search-backward
+        case "*"
+            commandline -i '$'
+    end
 end
 
-if [ "$fish_key_bindings" = fish_vi_key_bindings ];
-  bind -Minsert ! __history_previous_command
-  bind -Minsert '$' __history_previous_command_arguments
+if [ "$fish_key_bindings" = fish_vi_key_bindings ]
+    bind -Minsert ! __history_previous_command
+    bind -Minsert '$' __history_previous_command_arguments
 else
-  bind ! __history_previous_command
-  bind '$' __history_previous_command_arguments
+    bind ! __history_previous_command
+    bind '$' __history_previous_command_arguments
 end
 
 # Fish command history
@@ -74,8 +75,8 @@ end
 function copy
     set count (count $argv | tr -d \n)
     if test "$count" = 2; and test -d "$argv[1]"
-	set from (echo $argv[1] | trim-right /)
-	set to (echo $argv[2])
+        set from (echo $argv[1] | trim-right /)
+        set to (echo $argv[2])
         command cp -r $from $to
     else
         command cp $argv
@@ -86,15 +87,15 @@ end
 # Replace ls with eza
 if command -sq eza
     alias ls='eza -al --color=always --group-directories-first --icons -o --no-permissions --no-user' # preferred listing
-    alias la='eza -a --color=always --group-directories-first --icons'  # all files and dirs
-    alias ll='eza -l --color=always --group-directories-first --icons'  # long format
+    alias la='eza -a --color=always --group-directories-first --icons' # all files and dirs
+    alias ll='eza -l --color=always --group-directories-first --icons' # long format
     alias lt='eza -aT --color=always --group-directories-first --icons' # tree listing
-    alias l.="eza -a | egrep '^\.'"                                     # show only dotfiles
+    alias l.="eza -a | egrep '^\.'" # show only dotfiles
 end
 
 # Replace some more things with better alternatives
 if command -sq bat
-    set -x BAT_THEME "Coldark-Dark"
+    set -x BAT_THEME Coldark-Dark
     alias batt='bat --style header --style rule --style snip --style changes --style header'
     alias cat='bat -pp'
 end
@@ -120,15 +121,15 @@ alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias hw='hwinfo --short'                                   # Hardware Info
-alias big="expac -H M '%m\t%n' | sort -h | nl"              # Sort installed packages according to size in MB
-alias gitpkg='pacman -Q | grep -i "\-git" | wc -l'			# List amount of -git packages
+alias hw='hwinfo --short' # Hardware Info
+alias big="expac -H M '%m\t%n' | sort -h | nl" # Sort installed packages according to size in MB
+alias gitpkg='pacman -Q | grep -i "\-git" | wc -l' # List amount of -git packages
 
 # Get fastest mirrors 
-alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist" 
-alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist" 
-alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist" 
-alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist" 
+alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
+alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
+alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
 
 # Help people new to Arch
 alias apt='man pacman'
@@ -178,8 +179,8 @@ if command -sq ranger
     alias r=ranger
 end
 
-if command -sq btm 
-    alias btmb="btm --battery --color gruvbox"
+if command -sq btm
+    alias btmb="btm --battery"
 end
 
 if command -sq fff
@@ -197,4 +198,3 @@ if command -sq pack
 end
 
 # set GPG_AGENT_INFO ~/.gnupg/S.gpg-agent:0:1
-
