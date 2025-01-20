@@ -2,7 +2,7 @@ font=Spleen32x64
 format=<b> %s </b>\n%b
 text-alignment=right
 background-color=#000000
-text-color=#00a595
+text-color=#b0e0e6
 width=415
 height=200
 padding=10
@@ -16,7 +16,7 @@ markup=1
 
 border-size=2
 border-radius=0
-border-color=#00a595
+border-color=#b0e0e6
 
 default-timeout=3000
 ignore-timeout=1
