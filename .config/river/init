@@ -1,121 +1,225 @@
 #!/bin/sh
 
-# Mod keys
-mod="Mod4"
-alt="Mod1"
+# This is the example configuration file for river.
+#
+# If you wish to edit this, you will probably want to copy it to
+# $XDG_CONFIG_HOME/river/init or $HOME/.config/river/init first.
+#
+# See the river(1), riverctl(1), and rivertile(1) man pages for complete
+# documentation.
 
-# Spawn terminal
-riverctl map normal $mod Return spawn wezterm
+# Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
 
-# launcher
-riverctl map normal $mod Space spawn fuzzel
+# Set background and border color
+riverctl background-color 0x000000
+riverctl border-width 1
+riverctl border-color-focused 0xb0e0e6
+riverctl border-color-unfocused 0x586e75
 
-# Power menu
-riverctl map normal $mod+Shift E spawn ~/.config/waybar/scripts/power-menu.sh
+# --------------------
+# WM-related keybinds
+# --------------------
+riverctl map normal Super Q close  # defeault, kills the focused view
 
-# Kill focused window
-riverctl map normal $mod Q close
+# Super+J and Super+K to focus the next/previous view in the layout stack
+riverctl map normal Super J focus-view next
+riverctl map normal Super K focus-view next
+# L H is redundant but helps it work as you would expect when there are mixed splits
+riverctl map normal Super L focus-view next
+riverctl map normal Super H focus-view previous
 
-# Floating modifier
-riverctl float-filter-add app-id=".*"
-riverctl map-pointer $mod BTN_LEFT move-view
-riverctl map-pointer $mod BTN_RIGHT resize-view
+# Super+Shift+J and Super+Shift+K to swap the focused view with the next/previous view in the layout stack
+riverctl map normal Super+Shift J swap next
+riverctl map normal Super+Shift H swap next
+riverctl map normal Super+Shift K swap previous
+riverctl map normal Super+Shift L swap previous
 
-# Move focus around (Vim keys)
-riverctl map normal $mod H focus-view left
-riverctl map normal $mod J focus-view down
-riverctl map normal $mod K focus-view up
-riverctl map normal $mod L focus-view right
+# Super+Period and Super+Comma to focus the next/previous output (display)
+riverctl map normal Super Period focus-output next
+riverctl map normal Super Comma focus-output previous
 
-# Move windows
-riverctl map normal $mod+Shift H move-view left
-riverctl map normal $mod+Shift J move-view down
-riverctl map normal $mod+Shift K move-view up
-riverctl map normal $mod+Shift L move-view right
+# Super+Shift+{Period,Comma} to send the focused view to the next/previous output
+riverctl map normal Super+Shift Period send-to-output next
+riverctl map normal Super+Shift Comma send-to-output previous
 
-# Workspaces
-for i in $(seq 1 10); do
-    riverctl map normal $mod+$i send-to-tags $((1 << (i - 1)))
-    riverctl map normal $mod+Shift+$i focus-tag $((1 << (i - 1)))
+# Super+Shift+Return to bump the focused view to the top of the layout stack
+riverctl map normal Super+Shift Return zoom
+
+# Super+N and Super+M to decrease/increase the main ratio of rivertile(1)
+# riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
+# riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
+
+# Super+Alt+{H,J,K,L} to move views
+riverctl map normal Super+Alt H move left 100
+riverctl map normal Super+Alt J move down 100
+riverctl map normal Super+Alt K move up 100
+riverctl map normal Super+Alt L move right 100
+
+# Super+Alt+Control+{H,J,K,L} to snap views to screen edges
+riverctl map normal Super+Alt+Control H snap left
+riverctl map normal Super+Alt+Control J snap down
+riverctl map normal Super+Alt+Control K snap up
+riverctl map normal Super+Alt+Control L snap right
+
+# Super+Alt+Shift+{H,J,K,L} to resize views
+riverctl map normal Super+Alt+Shift H resize horizontal -100
+riverctl map normal Super+Alt+Shift J resize vertical 100
+riverctl map normal Super+Alt+Shift K resize vertical -100
+riverctl map normal Super+Alt+Shift L resize horizontal 100
+
+# Super + Left Mouse Button to move views
+riverctl map-pointer normal Super BTN_LEFT move-view
+
+# Super + Right Mouse Button to resize views
+riverctl map-pointer normal Super BTN_RIGHT resize-view
+
+# Super + Middle Mouse Button to toggle float
+riverctl map-pointer normal Super BTN_MIDDLE toggle-float
+
+for i in $(seq 1 7)
+do
+    tags=$((1 << ($i - 1)))
+
+    # Super+[1-7] to focus tag [0-6]
+    riverctl map normal Super $i set-focused-tags $tags
+
+    # Super+Shift+[1-7] to tag focused view with tag [0-6]
+    riverctl map normal Super+Shift $i set-view-tags $tags
+
+    # Super+Control+[1-7] to toggle focus of tag [0-6]
+    riverctl map normal Super+Control $i toggle-focused-tags $tags
 done
 
-# Resizing
-riverctl map normal $mod R enter-mode resize
-riverctl map resize $mod H shrink horizontal 10
-riverctl map resize $mod J grow vertical 10
-riverctl map resize $mod K shrink vertical 10
-riverctl map resize $mod L grow horizontal 10
-riverctl map resize $mod Escape leave-mode
+# Super+0 to focus all tags
+# Super+Shift+0 to tag focused view with all tags
+all_tags=$(((1 << 32) - 1))
+riverctl map normal Super 0 set-focused-tags $all_tags
+riverctl map normal Super+Shift 0 set-view-tags $all_tags
 
-# Fullscreen
-riverctl map normal $mod F toggle-fullscreen
+# Super+Space to toggle float
+riverctl map normal Super+Shift Space toggle-float
 
-# Toggle floating
-riverctl map normal $mod+Shift Space toggle-floating
+# Super+F to toggle fullscreen
+riverctl map normal Super F toggle-fullscreen
+
+# Super+{Up,Right,Down,Left} to change layout orientation
+riverctl map normal Super Up    send-layout-cmd rivertile "main-location top"
+riverctl map normal Super Right send-layout-cmd rivertile "main-location right"
+riverctl map normal Super Down  send-layout-cmd rivertile "main-location bottom"
+riverctl map normal Super Left  send-layout-cmd rivertile "main-location left"
+
+# Declare a passthrough mode. This mode has only a single mapping to return to
+# normal mode. This makes it useful for testing a nested wayland compositor
+riverctl declare-mode passthrough
+
+# Super+F11 to enter passthrough mode
+riverctl map normal Super F11 enter-mode passthrough
+
+# Super+F11 to return to normal mode
+riverctl map passthrough Super F11 enter-mode normal
+
+# --------------------------------
+# application and custom keybinds
+# --------------------------------
+# terminal
+riverctl map normal Super Return spawn "wezterm start --always-new-process"
+# launcher
+riverctl map normal Super Space spawn fuzzel
+# Power menu
+riverctl map normal Super+Shift E spawn ~/.config/river/scripts/powermenu.sh
+
+# clipboard history via fuzzel
+riverctl map normal Alt+Shift C spawn " \
+	cliphist list |        \
+	fuzzel -d -R -p '  ' | \
+	cliphist decode |      \
+	wl-copy
+	"
 
 # Audio controls
-riverctl map normal XF86AudioRaiseVolume spawn "pamixer -ui 2"
-riverctl map normal XF86AudioLowerVolume spawn "pamixer -ud 2"
-riverctl map normal XF86AudioMute spawn "pamixer --toggle-mute"
+riverctl map normal None XF86AudioRaiseVolume spawn "pamixer -i 4"
+riverctl map normal None XF86AudioLowerVolume spawn "pamixer -d 4"
+riverctl map normal None XF86AudioMute spawn "pamixer --toggle-mute"
 
 # Brightness controls
-riverctl map normal XF86MonBrightnessUp spawn "brightnessctl -c backlight set +2%"
-riverctl map normal XF86MonBrightnessDown spawn "brightnessctl -c backlight set 2%-"
+riverctl map normal None XF86MonBrightnessUp spawn "brightnessctl -c backlight set +2%"
+riverctl map normal None XF86MonBrightnessDown spawn "brightnessctl -c backlight set 2%-"
 
 # Custom screenshot shortcuts
-riverctl map normal Ctrl+Shift+$alt+3 spawn ~/.config/sway/scripts/screenshot-upload.sh
-riverctl map normal Ctrl+$alt+3 spawn grim -g "$(slurp)" - | wl-copy
-riverctl map normal Shift+$alt+3 spawn ~/.config/sway/scripts/screenshot.sh
-riverctl map normal Shift+$alt+4 spawn ~/.config/sway/scripts/screenrecord.sh
-riverctl map normal Ctrl+$alt+4 spawn pkill --signal SIGINT wf-recorder
+riverctl map normal Control+Shift+Alt+3 spawn ~/.config/sway/scripts/screenshot-upload.sh
+riverctl map normal Control+Alt+3 spawn 'grim -g "$(slurp)" - | wl-copy'
+riverctl map normal Shift+Alt+3 spawn ~/.config/sway/scripts/screenshot.sh
+riverctl map normal Shift+Alt+4 spawn ~/.config/sway/scripts/screenrecord.sh
+riverctl map normal Control+Alt+4 spawn 'pkill --signal SIGINT wf-recorder'
 
-# manually exclude top pixels so windows don't render underneath waybar
-riverctl arrange 0 30 0 0
 
-# start waybar
-# Conditional device-specific settings
+# ----------------
+# libinput config
+# ----------------
+riverctl set-repeat 50 180  # key-repeat rate. very fast.
+riverctl keyboard-layout -options 'ctrl:nocaps,compose:prsc' us  # remaps capslock to control, and print screen to compose key
+riverctl input *Touchpad natural-scroll disabled
+riverctl input *Touchpad tap enabled
+riverctl input *Touchpad disable-while-typing enabled
+riverctl input *Touchpad pointer-accel 0.3
+riverctl input *Touchpad scroll-factor 0.2
+
+riverctl input "1578:16768:MOSART_Semi._2.4G_INPUT_DEVICE_Mouse" pointer-accel 1
+riverctl input "1578:16768:MOSART_Semi._2.4G_INPUT_DEVICE_Mouse" scroll-factor 2
+
+# ----------------------------
+# leftover stuff from the default bash
+# ----------------------------
+# Make all views with an app-id that starts with "float" and title "foo" start floating.
+riverctl rule-add -app-id 'float*' -title 'foo' float
+
+# Make all views with app-id "bar" and any title use client-side decorations
+riverctl rule-add -app-id "bar" csd
+
+# riverctl default-layout rivertile
+# rivertile -view-padding 6 -outer-padding 6 &
+
+# --------------
+# Tiling config
+# --------------
+# requires river-bsp-layout installed
+riverctl default-layout bsp-layout
+river-bsp-layout --inner-gap 5      \
+								 --outer-gap 5      \
+								 --og-top 5         \
+								 --vsplit-perc 0.55 \
+								 --hsplit-perc 0.5 &
+
+# similar to adjusting the tiling ratios
+riverctl map normal Super N send-layout-cmd bsp-layout '--inc-vsplit 0.1'    
+riverctl map normal Super M send-layout-cmd bsp-layout '--dec-vsplit 0.1'    
+
+# without this, river starts with a crosshair that you need to specify as the first tiling focus area
+riverctl focus-output 0
+riverctl set-focused-tags 1
+	
+# -----------------
+# autostart things
+# -----------------
+# network manager
+nm-applet --indicator &
+# clipboard saver
+wl-paste -t text --watch cliphist store &
+wl-paste -t image --watch cliphist store &
+wl-paste --primary --watch cliphist store &
+waybar -c ~/.config/waybar/river.jsonc &  # status bar
+# notification toasts
+mako &
+
+# -----------------------
+# Device-specific config
+# -----------------------
 if [ "$(hostname)" = "zb13" ]; then
     # Assign "Signal Beta" to workspace 3
     riverctl spawn-on-tags class="Signal Beta" tags=0x4
 
     # Configure outputs
     way-displays -c ~/.config/way-displays/zb13.yml > /tmp/way-displays.${USER}.log 2>&1 &
-
-    # Launch the status bar
-    waybar -c ~/.config/waybar/zb13.jsonc &
 else
 	way-displays &
-	waybar -c ~/.config/waybar/icebox.jsonc &
 fi
-
-# Waybar with reserved space
-# waybar -c ~/.config/waybar/zb13.jsonc --enable river-status &
-
-# Input configurations
-riverctl input type:keyboard repeat-delay 180
-riverctl input type:keyboard repeat-rate 40
-setxkbmap -option ctrl:nocaps,compose:prsc -layout us
-
-
-riverctl input type:touchpad natural-scroll disabled
-riverctl input type:touchpad tap enabled
-riverctl input type:touchpad pointer-accel 0.3
-riverctl input type:touchpad scroll-factor 0.25
-
-riverctl input type:pointer accel-profile flat
-riverctl input type:pointer pointer-accel -0.2
-
-riverctl input "1578:16768:MOSART_Semi._2.4G_INPUT_DEVICE_Mouse" pointer-accel 1
-riverctl input "1578:16768:MOSART_Semi._2.4G_INPUT_DEVICE_Mouse" scroll-factor 2
-
-# Language switching
-# riverctl map normal Ctrl+Mod1+Space spawn ibus engine xkb:us::eng; ibus engine mozc
-
-# Dynamic keyboard layout
-#riverctl input type:keyboard xkb-layout "$(localectl status | grep 'X11 Layout' | awk '{print $3}')"
-#riverctl input type:keyboard xkb-variant "$(localectl status | grep 'X11 Variant' | awk '{print $3}')"
-
-# requires river-bsp-layout
-riverctl default-layout bsp-layout
-river-bsp-layout --inner-gap 5 --outer-gap 10 --split-perc 0.5 &
-

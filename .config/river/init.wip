@@ -1,0 +1,121 @@
+#!/bin/sh
+
+# Mod keys
+mod="Mod4"
+alt="Mod1"
+
+# Spawn terminal
+riverctl map normal $mod Return spawn wezterm
+
+# launcher
+riverctl map normal $mod Space spawn fuzzel
+
+# Power menu
+riverctl map normal $mod+Shift E spawn ~/.config/waybar/scripts/power-menu.sh
+
+# Kill focused window
+riverctl map normal $mod Q close
+
+# Floating modifier
+riverctl float-filter-add app-id=".*"
+riverctl map-pointer $mod BTN_LEFT move-view
+riverctl map-pointer $mod BTN_RIGHT resize-view
+
+# Move focus around (Vim keys)
+riverctl map normal $mod H focus-view left
+riverctl map normal $mod J focus-view down
+riverctl map normal $mod K focus-view up
+riverctl map normal $mod L focus-view right
+
+# Move windows
+riverctl map normal $mod+Shift H move-view left
+riverctl map normal $mod+Shift J move-view down
+riverctl map normal $mod+Shift K move-view up
+riverctl map normal $mod+Shift L move-view right
+
+# Workspaces
+for i in $(seq 1 10); do
+    riverctl map normal $mod+$i send-to-tags $((1 << (i - 1)))
+    riverctl map normal $mod+Shift+$i focus-tag $((1 << (i - 1)))
+done
+
+# Resizing
+riverctl map normal $mod R enter-mode resize
+riverctl map resize $mod H shrink horizontal 10
+riverctl map resize $mod J grow vertical 10
+riverctl map resize $mod K shrink vertical 10
+riverctl map resize $mod L grow horizontal 10
+riverctl map resize $mod Escape leave-mode
+
+# Fullscreen
+riverctl map normal $mod F toggle-fullscreen
+
+# Toggle floating
+riverctl map normal $mod+Shift Space toggle-floating
+
+# Audio controls
+riverctl map normal XF86AudioRaiseVolume spawn "pamixer -ui 2"
+riverctl map normal XF86AudioLowerVolume spawn "pamixer -ud 2"
+riverctl map normal XF86AudioMute spawn "pamixer --toggle-mute"
+
+# Brightness controls
+riverctl map normal XF86MonBrightnessUp spawn "brightnessctl -c backlight set +2%"
+riverctl map normal XF86MonBrightnessDown spawn "brightnessctl -c backlight set 2%-"
+
+# Custom screenshot shortcuts
+riverctl map normal Ctrl+Shift+$alt+3 spawn ~/.config/sway/scripts/screenshot-upload.sh
+riverctl map normal Ctrl+$alt+3 spawn grim -g "$(slurp)" - | wl-copy
+riverctl map normal Shift+$alt+3 spawn ~/.config/sway/scripts/screenshot.sh
+riverctl map normal Shift+$alt+4 spawn ~/.config/sway/scripts/screenrecord.sh
+riverctl map normal Ctrl+$alt+4 spawn pkill --signal SIGINT wf-recorder
+
+# manually exclude top pixels so windows don't render underneath waybar
+riverctl arrange 0 30 0 0
+
+# start waybar
+# Conditional device-specific settings
+if [ "$(hostname)" = "zb13" ]; then
+    # Assign "Signal Beta" to workspace 3
+    riverctl spawn-on-tags class="Signal Beta" tags=0x4
+
+    # Configure outputs
+    way-displays -c ~/.config/way-displays/zb13.yml > /tmp/way-displays.${USER}.log 2>&1 &
+
+    # Launch the status bar
+    waybar -c ~/.config/waybar/zb13.jsonc &
+else
+	way-displays &
+	waybar -c ~/.config/waybar/icebox.jsonc &
+fi
+
+# Waybar with reserved space
+# waybar -c ~/.config/waybar/zb13.jsonc --enable river-status &
+
+# Input configurations
+riverctl input type:keyboard repeat-delay 180
+riverctl input type:keyboard repeat-rate 40
+setxkbmap -option ctrl:nocaps,compose:prsc -layout us
+
+
+riverctl input type:touchpad natural-scroll disabled
+riverctl input type:touchpad tap enabled
+riverctl input type:touchpad pointer-accel 0.3
+riverctl input type:touchpad scroll-factor 0.25
+
+riverctl input type:pointer accel-profile flat
+riverctl input type:pointer pointer-accel -0.2
+
+riverctl input "1578:16768:MOSART_Semi._2.4G_INPUT_DEVICE_Mouse" pointer-accel 1
+riverctl input "1578:16768:MOSART_Semi._2.4G_INPUT_DEVICE_Mouse" scroll-factor 2
+
+# Language switching
+# riverctl map normal Ctrl+Mod1+Space spawn ibus engine xkb:us::eng; ibus engine mozc
+
+# Dynamic keyboard layout
+#riverctl input type:keyboard xkb-layout "$(localectl status | grep 'X11 Layout' | awk '{print $3}')"
+#riverctl input type:keyboard xkb-variant "$(localectl status | grep 'X11 Variant' | awk '{print $3}')"
+
+# requires river-bsp-layout
+riverctl default-layout bsp-layout
+river-bsp-layout --inner-gap 5 --outer-gap 10 --split-perc 0.5 &
+
