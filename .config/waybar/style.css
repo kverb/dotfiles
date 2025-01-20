@@ -45,8 +45,11 @@ tooltip {
   border-bottom: solid 1px #b0e0e6;
   border-right: solid 1px #b0e0e6;
 }
+
 #workspaces button,
 #tags button {
+  padding-left: 8;
+  padding-right: 8;
   color: #b0e0e6;
 }
 
