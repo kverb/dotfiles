@@ -79,6 +79,12 @@ tooltip {
   padding: 0px 5px 0px 5px;
 }
 
+#mode.normal {
+  color: #000;
+  background-color: #000;
+  border: none;
+}
+
 #window {
   color: #b0e0e6;
   background-color: #000;

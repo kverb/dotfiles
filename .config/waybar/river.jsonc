@@ -9,8 +9,8 @@
     "modules-left": [
         "custom/power",
         "tray",
-        "river/tags"
-        // "river/mode"
+        "river/tags",
+        "river/mode"
     ],
  
     "modules-center": [
