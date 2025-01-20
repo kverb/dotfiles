@@ -86,7 +86,7 @@
         "all-outputs": true,
         // "format": "<span style=\"color: #00a595\">{icon}</span>"
         "format": "{name}",
-        "format-empty": ""
+        "num-tags": 7
     },
 
     "pulseaudio": {
