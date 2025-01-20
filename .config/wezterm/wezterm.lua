@@ -15,8 +15,8 @@ config.colors = {
   },
 }
 
-config.font = wezterm.font 'Berkeley Mono Variable'
--- config.font = wezterm.font 'Kode Mono'
+-- config.font = wezterm.font 'Berkeley Mono Variable'
+config.font = wezterm.font 'Kode Mono'
 config.line_height = 1.15
 
 
