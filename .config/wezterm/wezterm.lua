@@ -5,7 +5,6 @@ config.default_prog = { '/usr/bin/fish', '-l' }
 
 
 config.color_scheme = 'Gruvbox Material (Gogh)'
--- config.color_scheme = 'carbonfox'
 config.colors = {
   background = 'black',
   tab_bar = {
@@ -15,9 +14,9 @@ config.colors = {
   },
 }
 
--- config.font = wezterm.font 'Berkeley Mono Variable'
-config.font = wezterm.font 'Kode Mono'
-config.line_height = 1.15
+config.font = wezterm.font 'Berkeley Mono Variable'
+-- config.font = wezterm.font 'Kode Mono'
+config.line_height = 1.2
 
 
 local font_size
@@ -56,7 +55,7 @@ config.keys = {
 }
 
 -- config.debug_key_events = true
-enable_kitty_keyboard = true
 
+config.enable_kitty_keyboard = true
 
 return config
