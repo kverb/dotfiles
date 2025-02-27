@@ -1,38 +1,79 @@
 #!/bin/sh
 
-# This is the example configuration file for river.
-#
-# If you wish to edit this, you will probably want to copy it to
-# $XDG_CONFIG_HOME/river/init or $HOME/.config/river/init first.
-#
-# See the river(1), riverctl(1), and rivertile(1) man pages for complete
-# documentation.
-
+# lots of config lifted from https://github.com/warrior0x7/rivercfg/blob/main/.config/river/init
+# 
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
+
+TILER=wideriver
+LAYOUT_MODE=layout
+
+# declare an alt mode, mostly for moving views around.
+riverctl declare-mode $LAYOUT_MODE
+riverctl map normal Super+Shift R enter-mode $LAYOUT_MODE
+riverctl map $LAYOUT_MODE None Escape enter-mode normal
 
 # Set background and border color
 riverctl background-color 0x000000
 riverctl border-width 1
-riverctl border-color-focused 0xb0e0e6
-riverctl border-color-unfocused 0x586e75
+# these are overwritten by wideriver
+# riverctl border-color-focused 0xb0e0e6
+#riverctl border-color-unfocused 0x586e75
+
+# default-attach-mode basically dictates if views are FIFO or LIFO.
+# By default (top), newly spawned views are added to the "top" of the stack,
+# which results in new views being added to the first position.
+# IMO this is counter-intuitive and should actually be called 'bottom'.
+# Setting to 'below' here makes new views behave similar to how sway works
+# and is IMO much more intuitive. The focused view remains as-is, and new views are appended "below" it.
+# So e.g,. they open to the right or bottom, and if the focused view has multiple
+# "children" (in sway terms), the new view will be inserted between the focused and its
+# descendents. 
+riverctl default-attach-mode below
+
+# -----------------
+# helper functions
+# -----------------
+
+# Specify tags app will start on
+function tags () { 
+    case $# in
+        2)  
+            if [ "$2" != "all" ]; then
+                ruleAdd "$1" tags $(( 1 << ($2-1) )) 
+            else
+                ruleAdd "$1" tags $(( (1 << 32)-1 ))
+            fi
+            ;;
+        3)  
+            if [ "$3" != "all" ]; then
+                ruleAdd "$1" -title "$2" tags $(( 1 << ($3-1) ))
+            else
+                ruleAdd "$1" -title "$2" tags $(( (1 << 32)-1 ))
+            fi
+            ;;
+    esac
+}
 
 # --------------------
 # WM-related keybinds
 # --------------------
 riverctl map normal Super Q close  # defeault, kills the focused view
 
-# Super+J and Super+K to focus the next/previous view in the layout stack
-riverctl map normal Super J focus-view next
-riverctl map normal Super K focus-view next
-# L H is redundant but helps it work as you would expect when there are mixed splits
-riverctl map normal Super L focus-view next
-riverctl map normal Super H focus-view previous
+# vi-style motions to select focus
+riverctl map normal Super H focus-view left
+riverctl map normal Super J focus-view down
+riverctl map normal Super K focus-view up
+riverctl map normal Super L focus-view right
 
-# Super+Shift+J and Super+Shift+K to swap the focused view with the next/previous view in the layout stack
-riverctl map normal Super+Shift J swap next
-riverctl map normal Super+Shift H swap next
-riverctl map normal Super+Shift K swap previous
-riverctl map normal Super+Shift L swap previous
+# in wideriver monocle layout, directions don't work
+riverctl map normal Super N focus-view next
+riverctl map normal Super P focus-view previous
+
+# add shift to throw the view in a direction
+riverctl map normal Super+Shift H swap left
+riverctl map normal Super+Shift J swap down
+riverctl map normal Super+Shift K swap up
+riverctl map normal Super+Shift L swap right
 
 # Super+Period and Super+Comma to focus the next/previous output (display)
 riverctl map normal Super Period focus-output next
@@ -45,27 +86,27 @@ riverctl map normal Super+Shift Comma send-to-output previous
 # Super+Shift+Return to bump the focused view to the top of the layout stack
 riverctl map normal Super+Shift Return zoom
 
-# Super+N and Super+M to decrease/increase the main ratio of rivertile(1)
-# riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
-# riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
+# --------------------------
+# some layout mode controls
+# --------------------------
 
-# Super+Alt+{H,J,K,L} to move views
-riverctl map normal Super+Alt H move left 100
-riverctl map normal Super+Alt J move down 100
-riverctl map normal Super+Alt K move up 100
-riverctl map normal Super+Alt L move right 100
+# Shift+{H,J,K,L} to move views when in layout mode
+riverctl map $LAYOUT_MODE Shift H move left 100
+riverctl map $LAYOUT_MODE Shift J move down 100
+riverctl map $LAYOUT_MODE Shift K move up 100
+riverctl map $LAYOUT_MODE Shift L move right 100
 
-# Super+Alt+Control+{H,J,K,L} to snap views to screen edges
-riverctl map normal Super+Alt+Control H snap left
-riverctl map normal Super+Alt+Control J snap down
-riverctl map normal Super+Alt+Control K snap up
-riverctl map normal Super+Alt+Control L snap right
+# Super+{H,J,K,L} to snap views to screen edges
+riverctl map $LAYOUT_MODE Super H snap left
+riverctl map $LAYOUT_MODE Super J snap down
+riverctl map $LAYOUT_MODE Super K snap up
+riverctl map $LAYOUT_MODE Super L snap right
 
-# Super+Alt+Shift+{H,J,K,L} to resize views
-riverctl map normal Super+Alt+Shift H resize horizontal -100
-riverctl map normal Super+Alt+Shift J resize vertical 100
-riverctl map normal Super+Alt+Shift K resize vertical -100
-riverctl map normal Super+Alt+Shift L resize horizontal 100
+# Super+Shift+{H,J,K,L} to resize views
+riverctl map $LAYOUT_MODE Super+Shift H resize horizontal -100
+riverctl map $LAYOUT_MODE Super+Shift J resize vertical 100
+riverctl map $LAYOUT_MODE Super+Shift K resize vertical -100
+riverctl map $LAYOUT_MODE Super+Shift L resize horizontal 100
 
 # Super + Left Mouse Button to move views
 riverctl map-pointer normal Super BTN_LEFT move-view
@@ -137,20 +178,20 @@ riverctl map normal Alt+Shift C spawn " \
 	"
 
 # Audio controls
-riverctl map normal None XF86AudioRaiseVolume spawn "pamixer -i 4"
-riverctl map normal None XF86AudioLowerVolume spawn "pamixer -d 4"
+riverctl map normal None XF86AudioRaiseVolume spawn "pamixer -i 5"
+riverctl map normal None XF86AudioLowerVolume spawn "pamixer -d 5"
 riverctl map normal None XF86AudioMute spawn "pamixer --toggle-mute"
 
 # Brightness controls
-riverctl map normal None XF86MonBrightnessUp spawn "brightnessctl -c backlight set +2%"
-riverctl map normal None XF86MonBrightnessDown spawn "brightnessctl -c backlight set 2%-"
+riverctl map normal None XF86MonBrightnessUp spawn "brightnessctl -c backlight set +5%"
+riverctl map normal None XF86MonBrightnessDown spawn "brightnessctl -c backlight set 5%-"
 
 # Custom screenshot shortcuts
-riverctl map normal Control+Shift+Alt+3 spawn ~/.config/sway/scripts/screenshot-upload.sh
-riverctl map normal Control+Alt+3 spawn 'grim -g "$(slurp)" - | wl-copy'
-riverctl map normal Shift+Alt+3 spawn ~/.config/sway/scripts/screenshot.sh
-riverctl map normal Shift+Alt+4 spawn ~/.config/sway/scripts/screenrecord.sh
-riverctl map normal Control+Alt+4 spawn 'pkill --signal SIGINT wf-recorder'
+riverctl map normal Control+Shift+Alt 3 spawn ~/.config/sway/scripts/screenshot-upload.sh
+riverctl map normal Control+Alt 3 spawn 'grim -g "$(slurp)" - | wl-copy'
+riverctl map normal Shift+Alt 3 spawn ~/.config/river/scripts/screenshot.sh
+riverctl map normal Shift+Alt 4 spawn ~/.config/river/scripts/screenrecord.sh
+riverctl map normal Control+Alt 4 spawn 'pkill --signal SIGINT wf-recorder'
 
 
 # ----------------
@@ -163,15 +204,17 @@ riverctl input *Touchpad tap enabled
 riverctl input *Touchpad disable-while-typing enabled
 riverctl input *Touchpad pointer-accel 0.3
 riverctl input *Touchpad scroll-factor 0.2
+riverctl input '*TrackBall' pointer-accel 0.2
 
-riverctl input "1578:16768:MOSART_Semi._2.4G_INPUT_DEVICE_Mouse" pointer-accel 1
+riverctl input "pointer-9610-51-Glorious_Model_D" pointer-accel -2
+riverctl input "1578:16768:MOSART_Semi._2.4G_INPUT_DEVICE_Mouse" pointer-accel 0.2
 riverctl input "1578:16768:MOSART_Semi._2.4G_INPUT_DEVICE_Mouse" scroll-factor 2
 
 # ----------------------------
 # leftover stuff from the default bash
 # ----------------------------
 # Make all views with an app-id that starts with "float" and title "foo" start floating.
-riverctl rule-add -app-id 'float*' -title 'foo' float
+riverctl rule-add -app-id 'float*' float
 
 # Make all views with app-id "bar" and any title use client-side decorations
 riverctl rule-add -app-id "bar" csd
@@ -182,17 +225,44 @@ riverctl rule-add -app-id "bar" csd
 # --------------
 # Tiling config
 # --------------
-# requires river-bsp-layout installed
-riverctl default-layout bsp-layout
-river-bsp-layout --inner-gap 5      \
-								 --outer-gap 5      \
-								 --og-top 5         \
-								 --vsplit-perc 0.55 \
-								 --hsplit-perc 0.5 &
+ 
+# send command to tiler (in this case, wideriver)
+function tiler () { riverctl map -layout 0 $LAYOUT_MODE $1 $2 send-layout-cmd $TILER "$3"; }
 
-# similar to adjusting the tiling ratios
-riverctl map normal Super N send-layout-cmd bsp-layout '--inc-vsplit 0.1'    
-riverctl map normal Super M send-layout-cmd bsp-layout '--dec-vsplit 0.1'    
+# requires wideriver - https://github.com/alex-courtis/wideriver
+riverctl default-layout $TILER
+# wideriver --layout left        \
+# 					--layout-alt monocle \
+# 					--count-master 1     \
+# 					--ratio-master 0.55  \
+# 					--stack dwindle      \
+# 					--smart-gaps         \
+# 					&
+
+# start layout manager
+wideriver \
+    --layout                       left        \
+    --layout-alt                   monocle     \
+    --stack                        dwindle     \
+    --count-master                 1           \
+    --ratio-master                 0.55        \
+    --count-wide-left              0           \
+    --ratio-wide                   0.35        \
+    --no-smart-gaps                            \
+    --inner-gaps                   0           \
+    --outer-gaps                   0           \
+    --border-width                 1           \
+    --border-width-monocle         2           \
+    --border-width-smart-gaps      0           \
+    --border-color-focused         "0xb0e0e6"  \
+    --border-color-focused-monocle "0x586e75"  \
+    --border-color-unfocused       "0x586e75"  \
+    --log-threshold                info        \
+   > "/tmp/wideriver.${XDG_VTNR}.${USER}.log" 2>&1 &
+
+tiler None H "--ratio -0.05"       # resize left
+tiler None L "--ratio +0.05"       # resize right
+tiler None Tab "--layout-toggle"   # toggle layout
 
 # without this, river starts with a crosshair that you need to specify as the first tiling focus area
 riverctl focus-output 0
@@ -206,7 +276,7 @@ nm-applet --indicator &
 # clipboard saver
 wl-paste -t text --watch cliphist store &
 wl-paste -t image --watch cliphist store &
-wl-paste --primary --watch cliphist store &
+# wl-paste --primary --watch cliphist store &
 waybar -c ~/.config/waybar/river.jsonc &  # status bar
 # notification toasts
 mako &
