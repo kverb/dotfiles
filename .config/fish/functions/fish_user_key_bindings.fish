@@ -14,7 +14,7 @@ function fish_user_key_bindings
     bind -k btab complete-and-search
     bind -M insert \cr history-search-backward
 
-    # restore ctrl-a ctrl-k home/end behavior
+    # restore ctrl-a ctrl-e home/end behavior
     bind -M insert \ca beginning-of-line
     bind -M insert \ce end-of-line
 end
