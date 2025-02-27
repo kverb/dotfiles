@@ -8,12 +8,11 @@
 # sudo udevadm control --reload-rules
 # sudo udevadm trigger /dev/input/event{ID}
 # (to verify the changes were made): udevadm info /dev/input/event{ID}
-
-# set 'forward' btn to be another left click
-# set 'fn1' to be 'forward'
+HomeHomeHome
 # set 'fn3' to be a middle click
+# update 2025-02-13: swap mid/right buttons
 evdev:name:ELECOM TrackBall Mouse HUGE TrackBall:*
   KEYBOARD_KEY_90002=btn_middle
-  KEYBOARD_KEY_90005=btn_left
+  KEYBOARD_KEY_90005=btn_forward
   KEYBOARD_KEY_90006=btn_extra
   KEYBOARD_KEY_90008=btn_right
