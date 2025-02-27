@@ -74,6 +74,11 @@ command = "vscode-eslint-language-server"
 # problems = { shortenToSingleLine = false }
 # workingDirectory = { mode = "auto" }
 
+[language-server.astro-ls]
+command = "/home/jim/.bun/bin/astro-ls"
+args = ["--stdio"]
+config = { typescript = { tsdk = "/usr/lib/node_modules/typescript/lib" }}
+
 [language-server.emmet-language-server]
 command="emmet-language-server"
 args = ["--stdio"]
@@ -84,6 +89,11 @@ language-id = "typescriptreact"
 command = "tailwindcss-language-server"
 args = ["--stdio"]
 config = {}
+
+[language-server.tailwindcss-react.config]
+userLanguages.astro = "html"
+userLanguages."*.astro" = "html"
+classAttributes = ["class", "className", "ngClass", "class:list"]
 
 [language-server.typescript-language-server.config]
 # To specify nested configurations, you directly reference them as shown below
@@ -115,3 +125,12 @@ includeInlayVariableTypeHints = true
 name = "markdown"
 file-types = ["md", "mdx"]
 
+[[language]]
+name = "astro"
+scope = "source.astro"
+injection-regex = "astro"
+file-types = ["astro"]
+roots = ["package.json", "astro.config.mjs"]
+language-servers = [ "astro-ls", "tailwindcss-react" ]
+auto-format = true
+formatter = { command = "prettier", args = ["--parser", "astro"] }
