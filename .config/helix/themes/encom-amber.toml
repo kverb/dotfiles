@@ -14,7 +14,8 @@ primary4 = "#4a4139"    # very dark amber
 # TODO: this teal clashes
 secondary = "#00a595"   # Encom teal
 bseconday = "#00d8c3"   # bright teal
-tertiary = "#b0e0e6"    # Encom primary color (cyan)
+tertiary = "#57ca9d"    # Encom primary color (cyan)
 btertiary = "#66e1f1"   # Encom primary slightly darker
 red = "#C71585"         # "medium violet red"
 whitespace = "#3f3730"  # one shade darker than primary4
+

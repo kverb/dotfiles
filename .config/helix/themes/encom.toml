@@ -5,7 +5,7 @@
 # Syntax highlighting
 # -------------------
 "attribute" = { fg = "tertiary", modifiers = ["italic"] }
-"keyword" = { fg = "keyword" }
+"keyword" = { fg = "primary3" }
 "keyword.control.conditional" = { fg = "primary3" }
 "keyword.directive" = { fg = "red" }
 "namespace" = { fg = "primary1", modifiers = ["italic"] }
@@ -17,8 +17,8 @@
 "variable.builtin" = { fg = "btertiary" }
 "variable.parameter" = { fg = "primary1" }
 "variable.other.member" = { fg = "primary1" }
-"type" = { fg = "secondary" }
-"type.builtin" = { fg = "red" }
+"type" = { fg = "secondary", modifiers = ["italic"] }
+"type.builtin" = { fg = "red", modifiers = ["italic"]}
 "type.enum.variant" = { fg = "red" }
 "constructor" = { fg = "primary2" }
 "function" = { fg = "primary2" }
@@ -67,14 +67,15 @@
 "ui.window" = { fg = "primary2", bg = "bg2" }
 "ui.help" = { bg = "bg", fg = "primary3" }
 
-# "ui.bufferline" = {}
+"ui.bufferline" = { fg = "bg" , bg = "primary3" }
 # "ui.bufferline.active" = {}
 # "ui.bufferline.background" = {}
 
 "ui.text" = { fg = "primary1" }
-# "ui.text.inactive" = {}
+"ui.text.inactive" = { fg = "primary3"}
+"ui.text.directory" = { fg = "secondary", bg="bg2" }
 "ui.text.info" = { fg = "primary1" }
-"ui.text.focus" = { fg = "primary2" }
+"ui.text.focus" = { fg = "tertiary" }
 
 "ui.virtual.ruler" = { bg = "primary2" }
 "ui.virtual.indent-guide" = { fg = "primary4" }
@@ -99,7 +100,7 @@
 
 "ui.highlight" = { fg = "bsecondary", bg = "bg" }
 
-"ui.menu" = { fg = "bg", bg = "primary2" }
+"ui.menu" = { fg = "bg", bg = "primary3" }
 "ui.menu.selected" = { fg = "primary1", bg = "bg2" }
 "ui.menu.scroll" = { fg = "primary3", bg = "bg2" }
 
@@ -123,10 +124,11 @@ primary3 = "#69868a"     # darker still
 primary4 = "#46595c"     # very dark cyan
 secondary = "#00a595"    # teal
 bsecondary = "#00d8c3"   # bright teal
-tertiary = "#d9c400"     # yellow
-btertiary = "#e8db66"    # bright yellow
+tertiary = "#29825f"     # dim-greenish
+btertiary = "#48c594"    # brightened greenish
 red = "#C71585"          # "medium violet red"
 # picked by going one shade darker from "primary4" on https://www.colorhexa.com/46595c
 # for rendering whitespace glyphs
 whitespace = "#3e4e51"
+
 
