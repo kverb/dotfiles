@@ -56,6 +56,4 @@ config.keys = {
 
 -- config.debug_key_events = true
 
-config.enable_kitty_keyboard = true
-
 return config
