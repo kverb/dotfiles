@@ -23,6 +23,8 @@
 !.config/makepkg.conf
 !.config/mako
 !.config/mako/**
+!.config/niri
+!.config/niri/**
 !.config/pkglist.txt
 !.config/ranger
 !.config/ranger/**
