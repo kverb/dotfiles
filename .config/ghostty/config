@@ -1,5 +1,6 @@
 window-decoration = false
 theme = GruvboxBlack
+window-theme = ghostty
 font-family = "Kode Mono"
 font-size = 13
 
