@@ -1,6 +1,13 @@
 // Niri configuration for CachyOS
 // For documentation and full reference, see: https://github.com/YaLTeR/niri/wiki
 
+
+switch-events {
+    // lid-close { spawn "systemctl suspend"; }
+    // lid-open  { spawn "swaylock"; }
+}
+
+
 // ────────────── Input Configuration ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
 
@@ -12,11 +19,14 @@ input {
 
         }
         numlock // Enable numlock on startup
+        repeat-delay 200
+        repeat-rate 40
     }
 
     touchpad {
         tap // Enable tap-to-click
         // natural-scroll // Enable natural (macOS-style) scrolling
+        scroll-factor 0.3
     }
 
     focus-follows-mouse // Automatically focus windows under the mouse pointer
@@ -27,12 +37,17 @@ input {
 // You can run `niri msg outputs` to get the correct name for your displays.
 // You will have to remove "/-" and edit it before it takes effect.
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
+//
 
-/- output "DP-1" {
-    mode "2560x1440@359.979" // Set resolution and refresh rate
-    scale 1 // No scaling (use 2 for HiDPI)
-    background-color "#000000"
+output "eDP-1" {
+    mode "2880x1800@60.001"
+    scale 1.5
 }
+
+// /- output "DP-1" {
+//     mode "2560x1440@359.979" // Set resolution and refresh rate
+//     scale 1 // No scaling (use 2 for HiDPI)
+// }
 
 // ────────────── Keybindings ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
@@ -41,13 +56,18 @@ binds {
     MOD+SHIFT+ESCAPE                     { show-hotkey-overlay; }
 
     // ─── Applications ───
-    MOD+RETURN                          hotkey-overlay-title="Open Terminal: alacritty" { spawn-sh "alacritty"; }
-    MOD+SPACE                           hotkey-overlay-title="Open App Launcher: wofi" { spawn-sh "wofi"; }
-    MOD+B                               hotkey-overlay-title="Open Browser: firefox" { spawn-sh "firefox"; }
+    MOD+RETURN                          hotkey-overlay-title="Open Terminal: alacritty" { spawn-sh "ghostty"; }
+    MOD+SPACE                           hotkey-overlay-title="Open App Launcher: wofi" { spawn-sh "fuzzel"; }
+    MOD+B                               hotkey-overlay-title="Open Browser: firefox" { spawn-sh "chromium"; }
     MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
     
     // Please choose your own file manager
     MOD+E                             hotkey-overlay-title="File Manager: Nautilus" { spawn-sh "nautilus"; }
+
+    // clipboard history
+    ALT+SHIFT+C hotkey-overlay-title="Launch Clipboard history picker" { spawn-sh "cliphist list | fuzzel -d -R -p '  ' | cliphist decode | wl-copy "; }
+
+    MOD+SHIFT+E hotkey-overlay-title="Launch power menu" { spawn-sh "~/.config/niri/scripts/powermenu.sh"; }
 
     // ─── KB system Controls ───
     // ─── Audio Controls ───
@@ -173,9 +193,15 @@ binds {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#spawn-sh-at-startup
 
     spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &" // Polkit
-    spawn-sh-at-startup "swww-daemon" // Wallpaper daemon
-    spawn-sh-at-startup "swww img /home/kverb/ign_astronaut.png" // Set wallpaper
-    spawn-sh-at-startup "waybar" // Launch waybar
+    // spawn-sh-at-startup "swww-daemon" // Wallpaper daemon
+    // spawn-sh-at-startup "swww img /home/kverb/ign_astronaut.png" // Set wallpaper
+    spawn-sh-at-startup "waybar -c /home/kverb/.config/waybar/niri.jsonc" // Launch waybar
+
+    spawn-sh-at-startup "nm-applet --indicator &"  // network manager tray
+    // clipboard saver
+    spawn-sh-at-startup "wl-paste -t text --watch cliphist store &"
+    spawn-sh-at-startup "wl-paste -t image --watch cliphist store &"
+    spawn-sh-at-startup "mako &" // notification toasts
 
     prefer-no-csd // Disable program decorations
     screenshot-path null // Disable screenshot saving
@@ -185,28 +211,36 @@ binds {
 
     layout {
         gaps 16 // Gap between windows
-        center-focused-column "never" // Don’t auto-center focused column
+        // center-focused-column "never" // Don’t auto-center focused column
+        center-focused-column "always"
+
+        always-center-single-column  // overrides above
+
 
         preset-column-widths {
-            proportion 0.33333
-            proportion 0.5
-            proportion 0.66667
+            // proportion 0.1
+            proportion 0.8
+            // proportion 0.3
         }
+
+        default-column-width { proportion 0.7; }
 
         focus-ring {
-            width 3
-            active-color "#00ac89"
-            inactive-color "#505050"
+            width 1
+            active-color "#b0e0e6"
+            inactive-color "#69868a"
         }
 
-        shadow {
-            softness 30
-            spread 5
-            offset x=0 y=5
-            color "#0007"
-        }
+        // shadow {
+        //     softness 30
+        //     spread 5
+        //     offset x=0 y=5
+        //     color "#0007"
+        // }
 
         struts {}
+
+        background-color "#000000"
     }
 
 // ────────────── Animation Settings ──────────────
@@ -253,7 +287,7 @@ binds {
     }
 
     window-rule {
-        geometry-corner-radius 20 // Set every window radius to 20
+        geometry-corner-radius 10 // Set every window radius to 10
         clip-to-geometry true
     }
 
