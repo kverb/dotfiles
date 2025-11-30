@@ -2,9 +2,20 @@
 // For documentation and full reference, see: https://github.com/YaLTeR/niri/wiki
 
 
+layer-rule {
+    match namespace="^wallpaper$"
+    place-within-backdrop true
+}
+
+overview {
+    backdrop-color "#171d1e"
+}
+
 switch-events {
-    // lid-close { spawn "systemctl suspend"; }
-    // lid-open  { spawn "swaylock"; }
+    // lid-close {
+    //     spawn "systemctl suspend"
+    // }
+    // lid-open  { spawn "niri msg power-on-monitors"; }
 }
 
 
@@ -24,12 +35,16 @@ input {
     }
 
     touchpad {
+        dwt 
         tap // Enable tap-to-click
         // natural-scroll // Enable natural (macOS-style) scrolling
         scroll-factor 0.3
+
+        // workaround asus laptop keyboards not disabling touchpad while typing
+        // dwt-timeout 200ms
     }
 
-    focus-follows-mouse // Automatically focus windows under the mouse pointer
+    // focus-follows-mouse // Automatically focus windows under the mouse pointer
     workspace-auto-back-and-forth // Enable workspace back & forth switching
 }
 
@@ -56,13 +71,13 @@ binds {
     MOD+SHIFT+ESCAPE                     { show-hotkey-overlay; }
 
     // ─── Applications ───
-    MOD+RETURN                          hotkey-overlay-title="Open Terminal: alacritty" { spawn-sh "ghostty"; }
-    MOD+SPACE                           hotkey-overlay-title="Open App Launcher: wofi" { spawn-sh "fuzzel"; }
-    MOD+B                               hotkey-overlay-title="Open Browser: firefox" { spawn-sh "chromium"; }
+    MOD+RETURN                          hotkey-overlay-title="Open Terminal: ghostty" { spawn-sh "ghostty"; }
+    MOD+SPACE                           hotkey-overlay-title="Open App Launcher: fuzzel" { spawn-sh "fuzzel"; }
+    MOD+B                               hotkey-overlay-title="Open Browser: chromium" { spawn-sh "chromium"; }
     MOD+ALT+L                           hotkey-overlay-title="Lock Screen: swaylock" { spawn-sh "swaylock"; }
     
     // Please choose your own file manager
-    MOD+E                             hotkey-overlay-title="File Manager: Nautilus" { spawn-sh "nautilus"; }
+    MOD+E                             hotkey-overlay-title="File Manager: Nemo" { spawn-sh "nemo"; }
 
     // clipboard history
     ALT+SHIFT+C hotkey-overlay-title="Launch Clipboard history picker" { spawn-sh "cliphist list | fuzzel -d -R -p '  ' | cliphist decode | wl-copy "; }
@@ -92,29 +107,29 @@ binds {
     MOD+H                               { focus-column-left; }
     MOD+RIGHT                           { focus-column-right; }
     MOD+L                               { focus-column-right; }
-    MOD+UP                              { focus-window-up; }
-    MOD+K                               { focus-window-up; }
-    MOD+DOWN                            { focus-window-down; }
-    MOD+J                               { focus-window-down; }
+    MOD+UP                              { focus-window-or-workspace-up; }
+    MOD+K                               { focus-window-or-workspace-up; }
+    MOD+DOWN                            { focus-window-or-workspace-down; }
+    MOD+J                               { focus-window-or-workspace-down; }
 
-    MOD+CTRL+LEFT                       { move-column-left; }
-    MOD+CTRL+H                          { move-column-left; }
-    MOD+CTRL+RIGHT                      { move-column-right; }
-    MOD+CTRL+L                          { move-column-right; }
-    MOD+CTRL+UP                         { move-window-up; }
-    MOD+CTRL+K                          { move-window-up; }
-    MOD+CTRL+DOWN                       { move-window-down; }
-    MOD+CTRL+J                          { move-window-down; }
+    MOD+SHIFT+LEFT                       { move-column-left; }
+    MOD+SHIFT+H                          { move-column-left; }
+    MOD+SHIFT+RIGHT                      { move-column-right; }
+    MOD+SHIFT+L                          { move-column-right; }
+    MOD+SHIFT+UP                        { move-window-to-workspace-up; }
+    MOD+SHIFT+K                         { move-window-to-workspace-up; }
+    MOD+SHIFT+DOWN                      { move-window-to-workspace-down; }
+    MOD+SHIFT+J                         { move-window-to-workspace-down; }
 
     MOD+HOME                            { focus-column-first; }
     MOD+END                             { focus-column-last; }
     MOD+CTRL+HOME                       { move-column-to-first; }
     MOD+CTRL+END                        { move-column-to-last; }
 
-    MOD+SHIFT+LEFT                      { focus-monitor-left; }
-    MOD+SHIFT+RIGHT                     { focus-monitor-right; }
-    MOD+SHIFT+UP                        { focus-monitor-up; }
-    MOD+SHIFT+DOWN                      { focus-monitor-down; }
+    // MOD+CTRL+LEFT                       { focus-monitor-left; }
+    // MOD+CTRL+RIGHT                      { focus-monitor-right; }
+    // MOD+CTRL+UP                         { focus-monitor-up; }
+    // MOD+CTRL+DOWN                       { focus-monitor-down; }
 
     MOD+SHIFT+CTRL+LEFT                 { move-column-to-monitor-left; }
     MOD+SHIFT+CTRL+RIGHT                { move-column-to-monitor-right; }
@@ -159,6 +174,12 @@ binds {
 
     MOD+TAB                             { focus-workspace-previous; }
 
+    // we're using spawn-sh here to invoke fuzzel, jq, cut
+    // ALT+TAB {
+    //     spawn-sh "niri msg action focus-window --id $( niri msg -j windows | jq -r 'sort_by(.is_focused | not)[] | \"\\(.id): \\(.app_id) - \\(.title)\"' | fuzzel --dmenu --prompt \"Select window \" | cut -d':' -f1 )"
+    // }
+
+
     // ─── Layout Controls ───
     MOD+CTRL+F                          { expand-column-to-available-width; }
     MOD+C                               { center-column; }
@@ -167,11 +188,16 @@ binds {
     MOD+EQUAL                           { set-column-width "+10%"; }
     MOD+SHIFT+MINUS                     { set-window-height "-10%"; }
     MOD+SHIFT+EQUAL                     { set-window-height "+10%"; }
+    // MOD+M                               { maximize-window-to-edges; }
+    MOD+M                               { maximize-column; }
 
     // ─── Modes ───
     MOD+T                               { toggle-window-floating; }
     MOD+F                               { fullscreen-window; }
     MOD+W                               { toggle-column-tabbed-display; }
+    // This brings the window immediately to the right into the focused window's column, essentially creating stacked tiles
+    MOD+CTRL+W                          { consume-window-into-column; }
+
 
     // ─── Screenshots ───
     CTRL+SHIFT+1                        { screenshot; }
@@ -193,8 +219,11 @@ binds {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#spawn-sh-at-startup
 
     spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &" // Polkit
-    // spawn-sh-at-startup "swww-daemon" // Wallpaper daemon
-    // spawn-sh-at-startup "swww img /home/kverb/ign_astronaut.png" // Set wallpaper
+    // 'main' wallpaper daemon
+    spawn-sh-at-startup "swaybg -i /home/kverb/encom-wp2-blurred.png"
+    // we need a second instance of a wallpaper daemon for the blurred version (used in overview)
+    spawn-sh-at-startup "swww-daemon" // Wallpaper daemon
+    spawn-sh-at-startup "swww img /home/kverb/encom-wp2.png" // Set wallpaper for overview
     spawn-sh-at-startup "waybar -c /home/kverb/.config/waybar/niri.jsonc" // Launch waybar
 
     spawn-sh-at-startup "nm-applet --indicator &"  // network manager tray
@@ -209,100 +238,131 @@ binds {
 // ────────────── Layout Settings ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 
-    layout {
-        gaps 16 // Gap between windows
-        // center-focused-column "never" // Don’t auto-center focused column
-        center-focused-column "always"
+layout {
+    gaps 16 // Gap between windows
+    // center-focused-column "never" // Don’t auto-center focused column
+    center-focused-column "always"
 
-        always-center-single-column  // overrides above
+    always-center-single-column  // overrides above
 
 
-        preset-column-widths {
-            // proportion 0.1
-            proportion 0.8
-            // proportion 0.3
-        }
-
-        default-column-width { proportion 0.7; }
-
-        focus-ring {
-            width 1
-            active-color "#b0e0e6"
-            inactive-color "#69868a"
-        }
-
-        // shadow {
-        //     softness 30
-        //     spread 5
-        //     offset x=0 y=5
-        //     color "#0007"
-        // }
-
-        struts {}
-
-        background-color "#000000"
+    preset-column-widths {
+        // proportion 0.1
+        proportion 0.8
+        // proportion 0.3
     }
+
+    default-column-width { proportion 0.7; }
+
+    focus-ring {
+        width 1
+        active-color "#b0e0e6"
+        inactive-color "#69868a"
+    }
+
+    // shadow {
+    //     softness 30
+    //     spread 5
+    //     offset x=0 y=5
+    //     color "#0007"
+    // }
+
+    struts {}
+
+    background-color "transparent"
+}
 
 // ────────────── Animation Settings ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
-    animations {
-        workspace-switch {
-            spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
-        }
-        window-open {
-            duration-ms 200
-            curve "ease-out-quad"
-        }
-        window-close {
-            duration-ms 200
-            curve "ease-out-cubic"
-        }
-        horizontal-view-movement {
-            spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
-        }
-        window-movement {
-            spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
-        }
-        window-resize {
-            spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
-        }
-        config-notification-open-close {
-            spring damping-ratio=0.6 stiffness=1200 epsilon=0.001
-        }
-        screenshot-ui-open {
-            duration-ms 300
-            curve "ease-out-quad"
-        }
-        overview-open-close {
-            spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
-        }
+animations {
+    workspace-switch {
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
     }
+    window-open {
+        duration-ms 200
+        curve "ease-out-quad"
+    }
+    window-close {
+        duration-ms 200
+        curve "ease-out-cubic"
+    }
+    horizontal-view-movement {
+        spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
+    }
+    window-movement {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+    window-resize {
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+    }
+    config-notification-open-close {
+        spring damping-ratio=0.6 stiffness=1200 epsilon=0.001
+    }
+    screenshot-ui-open {
+        duration-ms 300
+        curve "ease-out-quad"
+    }
+    overview-open-close {
+        spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
+    }
+}
 
 // ────────────── Window Rules ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
 
-    window-rule {
-        match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-        open-floating true // Always float Firefox PiP windows
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true // Always float Firefox PiP windows
+}
+
+window-rule {
+    geometry-corner-radius 10 // Set every window radius to 10
+    clip-to-geometry true
+}
+
+recent-windows {
+    // off
+    debounce-ms 750
+
+    open-delay-ms 50
+
+    highlight {
+        active-color "#999999ff"
+        urgent-color "#ff9999ff"
+        padding 30
+        corner-radius 30
     }
 
-    window-rule {
-        geometry-corner-radius 10 // Set every window radius to 10
-        clip-to-geometry true
+    previews {
+        max-height 380
+        max-scale 0.5
     }
+
+    binds {
+        Alt+Tab         { next-window      scope="output"; }
+        Alt+Shift+Tab   { previous-window  scope="output"; }
+        Alt+grave       { next-window     filter="app-id"; }
+        Alt+Shift+grave { previous-window filter="app-id"; }
+
+        Mod+Tab         { next-window; }
+        Mod+Shift+Tab   { previous-window; }
+        Mod+grave       { next-window     filter="app-id"; }
+        Mod+Shift+grave { previous-window filter="app-id"; }
+    }
+}
 
 // ────────────── Environment Variables ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#environment
 
-    environment {
-        DISPLAY ":1"
-        ELECTRON_OZONE_PLATFORM_HINT "auto"
-        QT_QPA_PLATFORM "wayland"
-        QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
-        XDG_SESSION_TYPE "wayland"
-        XDG_CURRENT_DESKTOP "niri"
-    }
+environment {
+    DISPLAY ":1"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    QT_QPA_PLATFORM "wayland"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    XDG_SESSION_TYPE "wayland"
+    XDG_CURRENT_DESKTOP "niri"
+}
 
-    hotkey-overlay {
-        skip-at-startup
-    }
+hotkey-overlay {
+    skip-at-startup
+}

@@ -13,7 +13,7 @@ selected=$(printf '%s\n' $entries | fuzzel \
 
 case $selected in
   logout)
-    niri msg action quit;;
+    niri msg action quit -s;;
   suspend)
     systemctl suspend;;
   reboot)
