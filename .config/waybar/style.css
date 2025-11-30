@@ -18,8 +18,11 @@
 
 * {
   border-radius: 0;
-  font-family: "OCR A";
+  /* font-family: "OCR A"; */
+  /* font-family: "Monaspace Krypton"; */
+  /* font-family: "Departure Mono"; */
   /* font-family: "Kode Mono"; */
+  font-family: "Ndot57Caps";
   font-size: 15px;
   min-height: 28px;
   border: none;
@@ -94,6 +97,12 @@ tooltip {
   padding: 0px 5px 0px 5px;
 }
 
+#window label {
+  /* font-family: "Departure Mono"; */
+  font-size: 16;
+  font-family: "Ndot 57";
+}
+
 /* #window:blank { */
 /*     border: none; */
 /* } */
@@ -135,6 +144,7 @@ tooltip {
 #network {
   /* on the left edge of the right modules */
   border-left: solid 1px #b0e0e6;
+  font-family: "OCR A";
 }
 
 #network.disabled {

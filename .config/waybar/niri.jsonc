@@ -47,7 +47,10 @@
 
     "niri/window": {
         "rewrite": {
-            "(.*) - Chromium": " $1"
+            "(.*) - Chromium": " $1",
+            ".*WhatsApp.*": "",
+            "Signal": "",
+            ".*Inbox.*": "",
         }  
     },
 
