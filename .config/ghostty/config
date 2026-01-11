@@ -1,6 +1,7 @@
 window-decoration = false
-theme = GruvboxBlack
-window-theme = ghostty
+# theme = GruvboxBlack
+# window-theme = ghostty
+minimum-contrast = 0
 font-family = "Kode Mono"
 font-size = 13
 
@@ -11,3 +12,8 @@ keybind = alt+c=copy_to_clipboard
 keybind = alt+v=paste_from_clipboard
 
 command = fish
+
+# include dank material shell colors
+config-file = ./themes/dankcolors
+# but hard set black bg
+# config-file = "config-reset-black"
