@@ -4,6 +4,8 @@
 # But not these files...
 !.config
 .config/*
+!.config/DankMaterialShell
+!.config/DankMaterialShell/**
 !.config/*flags.conf
 !.config/fish
 !.config/fish/**

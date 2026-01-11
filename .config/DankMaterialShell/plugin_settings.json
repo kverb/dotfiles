@@ -1,0 +1,37 @@
+{
+  "calculator": {
+    "enabled": true,
+    "trigger": "="
+  },
+  "commandRunner": {
+    "enabled": true,
+    "terminal": "alacritty",
+    "noTrigger": false,
+    "trigger": ">",
+    "history": [
+      "sudo pacman -S xwayland-satellite",
+      "dms theme color hex 88C0D0",
+      "dgop"
+    ]
+  },
+  "emojiLauncher": {
+    "enabled": true
+  },
+  "niriWindows": {
+    "enabled": true
+  },
+  "webSearch": {
+    "enabled": true,
+    "searchEngines": [
+      {
+        "id": "kagi",
+        "name": "kagi",
+        "icon": "unicode:🔍",
+        "url": "https://kagi.com/search?q=%s&token=ie-5shpjKG_w36pxGhMjnwB1UUr6ODs5W1x-9KsriG0.Q6viSVxITzcMFo3B8A3WZg5U_XzNpwp4RrlvAMoZ2Uc",
+        "keywords": [
+          "k"
+        ]
+      }
+    ]
+  }
+}
