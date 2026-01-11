@@ -1,149 +1,165 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[](fg:primary2)\
-$os\
 $username\
-$hostname\
-[](fg:primary2 bg:primary3)\
 $directory\
-[](fg:primary3 bg:primary4)\
 $git_branch\
 $git_status\
-[](fg:primary4 bg:bg2)\
-$rust\
+$fill\
+$c\
+$elixir\
+$elm\
 $golang\
+$haskell\
+$java\
+$julia\
 $nodejs\
+$nim\
+$rust\
+$scala\
+$conda\
 $python\
-[](fg:bg2 bg:bg)\
-$docker_context\
-$line_break$character"""
+$time\n  \
+[󱞪](fg:iris) \
+"""
 
-# palette = 'gruvbox_dark'
+palette = "rose-pine"
 
-palette = 'encom'
-[palettes.encom]
-bg = "#000000"           # nearly black
-bg2 = "#303340"          # dark slate blue
-primary1 = "#b0e0e6"     # "powder blue"
-primary2 = "#8cb3b8"     # a little darker
-primary3 = "#69868a"     # darker still
-primary4 = "#46595c"     # very dark cyan
-
-secondary = "#00a595"    # Encom Primary color (teal)
-bseconday = "#00d8c3"    # bright teal
-tertiary = "#d9c400"     # yellow
-btertiary = "#e8db66"    # bright yellow
-red = "#C71585"          # "medium violet red"
-
-
-[palettes.gruvbox_dark]
-color_fg0 = '#b0e0e6'  # very bright, "powder blue"
-color_bg1 = '#000000'
-color_bg2 = '#303340'  # dark slate blue
-color_bg3 = '#46595c'
-color_blue = '#b0e0e6'
-color_aqua = '#689d6a'
-color_green = '#98971a'
-color_orange = '#8cb3b8'
-color_purple = '#b16286'
-color_red = '#cc241d'
-color_yellow = '#d79921'
-
-[os]
-disabled = false
-format = '[$symbol](bg:primary2 fg:bg2)'
-
-[os.symbols]
-EndeavourOS = ""
-Windows = "󰍲"
-Ubuntu = "󰕈"
-SUSE = ""
-Raspbian = "󰐿"
-Mint = "󰣭"
-Macos = "󰀵"
-Manjaro = ""
-Linux = ""
-Gentoo = "󰣨"
-Fedora = "󰣛"
-Alpine = ""
-Amazon = ""
-Android = ""
-Arch = "󰣇"
-Artix = "󰣇"
-CentOS = ""
-Debian = "󰣚"
-Redhat = "󱄛"
-RedHatEnterprise = "󱄛"
-Unknown = "?"
-
-[username]
-show_always = true
-style_user = "bg:primary2 fg:bg2"
-style_root = "bg:red fg:primary1"
-format = '[ $user ]($style)'
-
-[hostname]
-ssh_only = true
-ssh_symbol = '@ '
-format = '[$ssh_symbol$hostname ]($style)'
-style = "bg:primary2 fg:red"
+[palettes.rose-pine]
+overlay = '#26233a'
+love = '#eb6f92'
+gold = '#f6c177'
+rose = '#ebbcba'
+pine = '#31748f'
+foam = '#9ccfd8'
+iris = '#c4a7e7'
 
 [directory]
-style = "fg:bg bg:primary3"
-format = "[ $path ]($style)"
+format = "[](fg:overlay)[ $path ]($style)[](fg:overlay) "
+style = "bg:overlay fg:pine"
 truncation_length = 3
 truncation_symbol = "…/"
 
 [directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = "󰝚 "
-"Pictures" = " "
-"Developer" = "󰲋 "
+Documents = "󰈙"
+Downloads = " "
+Music = " "
+Pictures = " "
+
+[fill]
+style = "fg:overlay"
+symbol = " "
 
 [git_branch]
+format = "[](fg:overlay)[ $symbol $branch ]($style)[](fg:overlay) "
+style = "bg:overlay fg:foam"
 symbol = ""
-style = "bg:color_aqua"
-format = '[[ $symbol $branch ](fg:primary1 bg:primary4)]($style)'
 
 [git_status]
-style = "bg:color_aqua"
-format = '[[($all_status$ahead_behind )](fg:btertiary bg:primary4)]($style)'
+disabled = false
+style = "bg:overlay fg:love"
+format = '[](fg:overlay)([$all_status$ahead_behind]($style))[](fg:overlay) '
+up_to_date = '[ ✓ ](bg:overlay fg:iris)'
+untracked = '[?\($count\)](bg:overlay fg:gold)'
+stashed = '[\$](bg:overlay fg:iris)'
+modified = '[!\($count\)](bg:overlay fg:gold)'
+renamed = '[»\($count\)](bg:overlay fg:iris)'
+deleted = '[✘\($count\)](style)'
+staged = '[++\($count\)](bg:overlay fg:gold)'
+ahead = '[⇡\(${count}\)](bg:overlay fg:foam)'
+diverged = '⇕[\[](bg:overlay fg:iris)[⇡\(${ahead_count}\)](bg:overlay fg:foam)[⇣\(${behind_count}\)](bg:overlay fg:rose)[\]](bg:overlay fg:iris)'
+behind = '[⇣\(${count}\)](bg:overlay fg:rose)'
 
-[nodejs]
-symbol = ""
-style = "bg:bg2"
-format = '[[ $symbol( $version) ](fg:primary1 bg:bg2)]($style)'
+[time]
+disabled = false
+format = " [](fg:overlay)[ $time 󰴈 ]($style)[](fg:overlay)"
+style = "bg:overlay fg:rose"
+time_format = "%I:%M%P"
+use_12hr = true
 
-[rust]
-symbol = ""
-style = "bg:bg2"
-format = '[[ $symbol( $version) ](fg:primary1 bg:bg2)]($style)'
+[username]
+disabled = false
+format = "[](fg:overlay)[ 󰧱 $user ]($style)[](fg:overlay) "
+show_always = true
+style_root = "bg:overlay fg:iris"
+style_user = "bg:overlay fg:iris"
+
+# Languages
+
+[c]
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
+
+[elixir]
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
+
+[elm]
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
 
 [golang]
-symbol = "󰟓"
-style = "bg:bg2"
-format = '[[ $symbol( $version) ](fg:primary1 bg:bg2)]($style)'
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
+
+[haskell]
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
+
+[java]
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
+
+[julia]
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
+
+[nodejs]
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = "󰎙 "
+
+[nim]
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = "󰆥 "
+
+[rust]
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
+
+[scala]
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
 
 [python]
-symbol = ""
-style = "bg:bg2"
-format = '[[ $symbol( $version) ](fg:primary1 bg:bg2)]($style)'
-
-[docker_context]
-symbol = ""
-style = "bg:color_bg3"
-format = '[[ $symbol( $context) ](fg:bsecondary bg:bg)]($style)'
-
-[line_break]
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
+symbol = ' '
 
-[character]
+[conda]
+style = "bg:overlay fg:pine"
+format = " [](fg:overlay)[ $symbol$environment ]($style)[](fg:overlay)"
 disabled = false
-success_symbol = '[](bold fg:blue)'
-error_symbol = '[](bold fg:red)'
-vimcmd_symbol = '[](bold fg:tertiary)'
-vimcmd_replace_one_symbol = '[](bold fg:primary3)'
-vimcmd_replace_symbol = '[](bold fg:primary2)'
-vimcmd_visual_symbol = '[](bold fg:primary3)'
+symbol = '🅒 '
