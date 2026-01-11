@@ -11,7 +11,7 @@ function fish_user_key_bindings
     # same binding for toggling insert mode
     bind -M default -m insert \cs 'commandline -f repaint'
     bind -M insert \cf accept-autosuggestion
-    bind -k btab complete-and-search
+    bind -m insert tab complete-and-search
     bind -M insert \cr history-search-backward
 
     # restore ctrl-a ctrl-e home/end behavior
