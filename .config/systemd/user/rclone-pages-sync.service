@@ -1,0 +1,13 @@
+[Unit]
+Description=Sync Obsidian HTML pages to R2
+# Prevent the sync from running if network is down
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+# %h automatically resolves to your home directory (/home/youruser)
+ExecStart=/usr/bin/rclone copy %h/Documents/vault141/pages R2:evergreen/pages/ --verbose
+# clear logs or keep them tidy
+StandardOutput=journal
+StandardError=journal

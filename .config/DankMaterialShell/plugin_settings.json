@@ -9,6 +9,9 @@
     "noTrigger": false,
     "trigger": ">",
     "history": [
+      "bookokrat",
+      "paru discord",
+      "paru vlc",
       "sudo pacman -S xwayland-satellite",
       "dms theme color hex 88C0D0",
       "dgop"

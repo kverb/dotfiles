@@ -1,0 +1,13 @@
+[Unit]
+Description=Run R2 pages sync every 5 minutes
+
+[Timer]
+# Runs every 5 minutes (00:05, 00:10, 00:15...)
+OnCalendar=*:0/15
+# If the machine was off, run it immediately upon boot/login
+Persistent=true
+# Prevents overlapping: won't start if the previous sync is still running
+Unit=rclone-pages-sync.service
+
+[Install]
+WantedBy=timers.target
