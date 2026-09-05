@@ -1,0 +1,145 @@
+# Belafonte Day — Helix theme
+# Colors sourced from mbadolato/iTerm2-Color-Schemes: "Belafonte Day"
+# https://github.com/mbadolato/iTerm2-Color-Schemes
+
+# ---------- Syntax highlighting ----------
+"attribute" = "yellow"
+"type" = "blue"
+"type.builtin" = { fg = "blue", modifiers = ["italic"] }
+"constructor" = "purple"
+
+"constant" = "purple"
+"constant.builtin" = { fg = "purple", modifiers = ["bold"] }
+"constant.character.escape" = "cyan"
+"constant.numeric" = "purple"
+
+"string" = "green"
+"string.regexp" = "cyan"
+"string.special" = "cyan"
+
+"comment" = { fg = "muted", modifiers = ["italic"] }
+
+"variable" = "fg"
+"variable.builtin" = { fg = "red", modifiers = ["italic"] }
+"variable.parameter" = { fg = "fg", modifiers = ["italic"] }
+"variable.other.member" = "yellow"
+
+"label" = "blue"
+"punctuation" = "muted"
+"punctuation.bracket" = "muted"
+"punctuation.delimiter" = "muted"
+
+"keyword" = "red"
+"keyword.control" = "red"
+"keyword.control.conditional" = "red"
+"keyword.control.import" = "blue"
+"keyword.control.return" = "red"
+"keyword.function" = "red"
+"keyword.operator" = "red"
+"keyword.storage" = "red"
+
+"operator" = "muted"
+
+"function" = "yellow"
+"function.builtin" = { fg = "yellow", modifiers = ["italic"] }
+"function.macro" = "cyan"
+
+"tag" = "blue"
+"namespace" = "purple"
+"special" = "cyan"
+
+"markup.heading" = { fg = "yellow", modifiers = ["bold"] }
+"markup.list" = "red"
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.link.url" = { fg = "cyan", modifiers = ["underlined"] }
+"markup.link.text" = "blue"
+"markup.quote" = { fg = "muted", modifiers = ["italic"] }
+"markup.raw" = "green"
+
+"diff.plus" = "green"
+"diff.minus" = "red"
+"diff.delta" = "yellow"
+
+# ---------- Editor UI ----------
+"ui.background" = { fg = "fg", bg = "bg" }
+"ui.background.separator" = { fg = "muted" }
+
+"ui.text" = "fg"
+"ui.text.focus" = { fg = "fg", modifiers = ["bold"] }
+"ui.text.inactive" = "muted"
+
+"ui.cursor" = { fg = "bg", bg = "fg" }
+"ui.cursor.primary" = { fg = "bg", bg = "purple" }
+"ui.cursor.match" = { fg = "yellow", modifiers = ["bold"] }
+"ui.cursor.insert" = { fg = "bg", bg = "blue" }
+"ui.cursor.select" = { fg = "bg", bg = "yellow" }
+
+"ui.cursorline.primary" = { bg = "surface_high" }
+
+"ui.linenr" = { fg = "muted" }
+"ui.linenr.selected" = { fg = "purple", modifiers = ["bold"] }
+
+"ui.statusline" = { fg = "fg", bg = "surface" }
+"ui.statusline.inactive" = { fg = "muted", bg = "surface" }
+"ui.statusline.normal" = { fg = "bg", bg = "purple", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "bg", bg = "blue", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "bg", bg = "yellow", modifiers = ["bold"] }
+"ui.statusline.separator" = { fg = "muted" }
+
+"ui.bufferline" = { fg = "muted", bg = "surface" }
+"ui.bufferline.active" = { fg = "fg", bg = "surface_high", modifiers = ["bold"] }
+"ui.bufferline.background" = { bg = "surface" }
+
+"ui.popup" = { fg = "fg", bg = "surface" }
+"ui.popup.info" = { fg = "fg", bg = "surface" }
+"ui.window" = { fg = "muted" }
+
+"ui.help" = { fg = "fg", bg = "surface" }
+
+"ui.selection" = { bg = "selection" }
+"ui.selection.primary" = { bg = "selection" }
+
+"ui.highlight" = { bg = "surface_high" }
+
+"ui.menu" = { fg = "fg", bg = "surface" }
+"ui.menu.selected" = { fg = "bg", bg = "purple" }
+"ui.menu.scroll" = { fg = "muted", bg = "surface" }
+
+"ui.virtual.whitespace" = "surface_high"
+"ui.virtual.ruler" = { bg = "surface_high" }
+"ui.virtual.indent-guide" = "surface_high"
+"ui.virtual.inlay-hint" = { fg = "muted", bg = "surface" }
+"ui.virtual.wrap" = "muted"
+"ui.virtual.jump-label" = { fg = "bg", bg = "yellow", modifiers = ["bold"] }
+
+"ui.gutter" = { bg = "bg" }
+"ui.gutter.selected" = { bg = "surface_high" }
+
+"diagnostic.error" = { underline = { color = "red", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "yellow", style = "curl" } }
+"diagnostic.info" = { underline = { color = "cyan", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "blue", style = "curl" } }
+
+"error" = "red"
+"warning" = "yellow"
+"info" = "cyan"
+"hint" = "blue"
+
+# ---------- Palette ----------
+[palette]
+bg           = "#D5CCBA"  # background
+fg           = "#45373C"  # foreground
+muted        = "#968C83"  # white / secondary text
+surface      = "#E2D9C8"  # panels, statusline
+surface_high = "#DED2BC"  # cursorline, selected gutter, guides
+selection    = "#C7C0AC"  # text selection
+
+black   = "#20111B"
+red     = "#BE100E"
+green   = "#858162"
+yellow  = "#EAA549"
+blue    = "#426A79"
+purple  = "#97522C"
+cyan    = "#989A9C"
+white   = "#968C83"

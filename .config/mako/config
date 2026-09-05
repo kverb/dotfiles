@@ -1,4 +1,4 @@
-font=Spleen32x64
+font=Kode Mono
 format=<b> %s </b>\n%b
 text-alignment=right
 background-color=#000000

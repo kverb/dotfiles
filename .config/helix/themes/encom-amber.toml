@@ -5,7 +5,7 @@ inherits = "encom"
 
 [palette]
 
-bg = "#0F1014"          # nearly black
+bg = "#291802"          # nearly black
 bg2 = "#3e322a"         # dark brown
 primary1 = "#f7dabe"    # "amber" light
 primary2 = "#f4cda7"    # a little darker

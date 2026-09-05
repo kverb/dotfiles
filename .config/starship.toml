@@ -20,146 +20,201 @@ $scala\
 $conda\
 $python\
 $time\n  \
-[󱞪](fg:iris) \
+[󱿪](fg:yellow) \
 """
 
-palette = "rose-pine"
+palette = "sumi_linen"
 
-[palettes.rose-pine]
-overlay = '#26233a'
-love = '#eb6f92'
-gold = '#f6c177'
-rose = '#ebbcba'
-pine = '#31748f'
-foam = '#9ccfd8'
-iris = '#c4a7e7'
+# 1. Direct 1:1 match to Sumi Linen terminal ANSI/base colors
+[palettes.sumi_linen]
+bg      = "#E7E2D9"   # Terminal canvas background
+fg      = "#49453F"   # Primary text foreground
+surface = "#D8D0C3"   # Slightly deeper tinted linen for segmented prompts / powerline pills
+muted   = "#766D62"   # Bright black / tertiary elements
+red     = "#C23B3B"   # Error codes, dirty repo indicators
+green   = "#4D7A46"   # Execution time, clean git state
+yellow  = "#AB712A"   # Directory, branch names, warnings
+blue    = "#3F678F"   # Hostname, username, rust/docker icons
+purple  = "#834F82"   # SSH markers, package versions
+cyan    = "#2E7874"   # Git commits, node/go indicators
+
+# 2. Deeper contrast variant (ideal for small symbols, powerline glyphs, and high-readability git info)
+[palettes.sumi_linen_ink]
+bg      = "#E7E2D9"   # Terminal canvas background
+fg      = "#221D1B"   # Ink black (highest contrast text)
+surface = "#CBBEAD"   # Defined pill/separator segment background
+muted   = "#5E564E"   # Medium-dark ash
+red     = "#A52A2A"   # Deep vermilion
+green   = "#3C6336"   # Deep bamboo green
+yellow  = "#8F5A18"   # Ochre yellow/amber
+blue    = "#2F4F70"   # Indigo / sumi-blue
+purple  = "#693B68"   # Plum / aubergine
+cyan    = "#1F5754"   # Deep teal / pine
+
+# 3. Soft muted variant (subdued tones designed to blend unobtrusively into long prompt lines)
+[palettes.sumi_linen_muted]
+bg      = "#E7E2D9"   # Terminal canvas background
+fg      = "#49453F"   # Soft charcoal foreground
+surface = "#DED7CB"   # Subtle background lift
+muted   = "#8E8478"   # Light warm gray
+red     = "#B04343"   # Soft brick
+green   = "#5C7E57"   # Sage green
+yellow  = "#9C763E"   # Raw amber
+blue    = "#4E7292"   # Faded denim
+purple  = "#7B557A"   # Dusty violet
+cyan    = "#3E7B78"   # Muted mineral
+
+# Sourced from mbadolato/iTerm2-Color-Schemes: Belafonte Day/Night
+[palettes.belafonte_night]
+bg      = "#20111B"   # background
+fg      = "#D5CCBA"   # foreground (bright white)
+surface = "#2C1B28"   # panel/segment background, tinted off bg
+muted   = "#5E5252"   # bright black
+red     = "#BE100E"
+green   = "#858162"
+yellow  = "#EAA549"
+blue    = "#426A79"
+purple  = "#97522C"
+cyan    = "#989A9C"
+
+[palettes.belafonte_day]
+bg      = "#D5CCBA"   # background
+fg      = "#45373C"   # foreground
+surface = "#E6DBC6"   # panel/segment background, tinted off bg
+muted   = "#968C83"   # white
+red     = "#BE100E"
+green   = "#858162"
+yellow  = "#EAA549"
+blue    = "#426A79"
+purple  = "#97522C"
+cyan    = "#989A9C"
 
 [directory]
-format = "[](fg:overlay)[ $path ]($style)[](fg:overlay) "
-style = "bg:overlay fg:pine"
+format = "[](fg:surface)[ $path ]($style)[](fg:surface) "
+style = "bg:surface fg:blue"
 truncation_length = 3
 truncation_symbol = "…/"
 
 [directory.substitutions]
 Documents = "󰈙"
-Downloads = " "
-Music = " "
-Pictures = " "
+Downloads = "󰇚"
+Music = "󰝚"
+Pictures = "󰈟"
 
 [fill]
-style = "fg:overlay"
+style = "fg:surface"
 symbol = " "
 
 [git_branch]
-format = "[](fg:overlay)[ $symbol $branch ]($style)[](fg:overlay) "
-style = "bg:overlay fg:foam"
-symbol = ""
+format = "[](fg:surface)[ $symbol $branch ]($style)[](fg:surface) "
+style = "bg:surface fg:cyan"
+symbol = ""
 
 [git_status]
 disabled = false
-style = "bg:overlay fg:love"
-format = '[](fg:overlay)([$all_status$ahead_behind]($style))[](fg:overlay) '
-up_to_date = '[ ✓ ](bg:overlay fg:iris)'
-untracked = '[?\($count\)](bg:overlay fg:gold)'
-stashed = '[\$](bg:overlay fg:iris)'
-modified = '[!\($count\)](bg:overlay fg:gold)'
-renamed = '[»\($count\)](bg:overlay fg:iris)'
-deleted = '[✘\($count\)](style)'
-staged = '[++\($count\)](bg:overlay fg:gold)'
-ahead = '[⇡\(${count}\)](bg:overlay fg:foam)'
-diverged = '⇕[\[](bg:overlay fg:iris)[⇡\(${ahead_count}\)](bg:overlay fg:foam)[⇣\(${behind_count}\)](bg:overlay fg:rose)[\]](bg:overlay fg:iris)'
-behind = '[⇣\(${count}\)](bg:overlay fg:rose)'
+style = "bg:surface fg:red"
+format = '[](fg:surface)([$all_status$ahead_behind]($style))[](fg:surface) '
+up_to_date = '[ ✓ ](bg:surface fg:yellow)'
+untracked = '[?\($count\)](bg:surface fg:purple)'
+stashed = '[\$](bg:surface fg:yellow)'
+modified = '[!\($count\)](bg:surface fg:purple)'
+renamed = '[»\($count\)](bg:surface fg:yellow)'
+deleted = '[✘\($count\)](bg:surface fg:red)'
+staged = '[++\($count\)](bg:surface fg:purple)'
+ahead = '[⇡\(${count}\)](bg:surface fg:cyan)'
+diverged = '⇕[\[](bg:surface fg:yellow)[⇡\(${ahead_count}\)](bg:surface fg:cyan)[⇣\(${behind_count}\)](bg:surface fg:purple)[\]](bg:surface fg:yellow)'
+behind = '[⇣\(${count}\)](bg:surface fg:purple)'
 
 [time]
 disabled = false
-format = " [](fg:overlay)[ $time 󰴈 ]($style)[](fg:overlay)"
-style = "bg:overlay fg:rose"
+format = " [](fg:surface)[ $time 󰥔 ]($style)[](fg:surface)"
+style = "bg:surface fg:purple"
 time_format = "%I:%M%P"
 use_12hr = true
 
 [username]
 disabled = false
-format = "[](fg:overlay)[ 󰧱 $user ]($style)[](fg:overlay) "
+format = "[](fg:surface)[ 󰧡 $user ]($style)[](fg:surface) "
 show_always = true
-style_root = "bg:overlay fg:iris"
-style_user = "bg:overlay fg:iris"
+style_root = "bg:surface fg:red"
+style_user = "bg:surface fg:yellow"
 
 # Languages
 
 [c]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:surface fg:blue"
+format = " [](fg:surface)[ $symbol$version ]($style)[](fg:surface)"
 disabled = false
 symbol = " "
 
 [elixir]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:surface fg:blue"
+format = " [](fg:surface)[ $symbol$version ]($style)[](fg:surface)"
 disabled = false
-symbol = " "
+symbol = " "
 
 [elm]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:surface fg:blue"
+format = " [](fg:surface)[ $symbol$version ]($style)[](fg:surface)"
 disabled = false
 symbol = " "
 
 [golang]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:surface fg:blue"
+format = " [](fg:surface)[ $symbol$version ]($style)[](fg:surface)"
 disabled = false
-symbol = " "
+symbol = " "
 
 [haskell]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:surface fg:blue"
+format = " [](fg:surface)[ $symbol$version ]($style)[](fg:surface)"
 disabled = false
 symbol = " "
 
 [java]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:surface fg:blue"
+format = " [](fg:surface)[ $symbol$version ]($style)[](fg:surface)"
 disabled = false
 symbol = " "
 
 [julia]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:surface fg:blue"
+format = " [](fg:surface)[ $symbol$version ]($style)[](fg:surface)"
 disabled = false
 symbol = " "
 
 [nodejs]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:surface fg:blue"
+format = " [](fg:surface)[ $symbol$version ]($style)[](fg:surface)"
 disabled = false
 symbol = "󰎙 "
 
 [nim]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:surface fg:blue"
+format = " [](fg:surface)[ $symbol$version ]($style)[](fg:surface)"
 disabled = false
-symbol = "󰆥 "
+symbol = "󰝥 "
 
 [rust]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:surface fg:blue"
+format = " [](fg:surface)[ $symbol$version ]($style)[](fg:surface)"
 disabled = false
 symbol = " "
 
 [scala]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:surface fg:blue"
+format = " [](fg:surface)[ $symbol$version ]($style)[](fg:surface)"
 disabled = false
 symbol = " "
 
 [python]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:surface fg:blue"
+format = " [](fg:surface)[ $symbol$version ]($style)[](fg:surface)"
 disabled = false
-symbol = ' '
+symbol = ' '
 
 [conda]
-style = "bg:overlay fg:pine"
-format = " [](fg:overlay)[ $symbol$environment ]($style)[](fg:overlay)"
+style = "bg:surface fg:blue"
+format = " [](fg:surface)[ $symbol$environment ]($style)[](fg:surface)"
 disabled = false
-symbol = '🅒 '
+symbol = '🍏 '

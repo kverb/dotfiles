@@ -457,5 +457,3 @@ hotkey-overlay {
 
 include "dms/colors.kdl"
 // include "dms/layout.kdl"
-
-include "dms/outputs.kdl"

@@ -1,4 +1,4 @@
-theme = "encom"
+theme = "sumi-linen"
 
 [keys.insert]
 "A-x" = "normal_mode" # Maps Alt-X to enter normal mode

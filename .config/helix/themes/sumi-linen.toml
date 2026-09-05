@@ -1,0 +1,122 @@
+# "Sumi Linen" Helix Theme
+# Based on the Gogh Sumi Linen palette
+
+"ui.background" = { bg = "background" }
+"ui.text" = { fg = "foreground" }
+"ui.text.focus" = { fg = "bright-white", modifiers = ["bold"] }
+"ui.text.inactive" = { fg = "bright-black" }
+
+"ui.cursor" = { fg = "background", bg = "cursor" }
+"ui.cursor.primary" = { fg = "background", bg = "cursor" }
+"ui.cursor.match" = { fg = "bright-white", bg = "selection" }
+
+"ui.selection" = { bg = "selection" }
+"ui.selection.primary" = { bg = "selection" }
+
+"ui.linenr" = { fg = "bright-black" }
+"ui.linenr.selected" = { fg = "foreground", modifiers = ["bold"] }
+
+"ui.statusline" = { fg = "foreground", bg = "surface" }
+"ui.statusline.inactive" = { fg = "bright-black", bg = "background" }
+"ui.statusline.normal" = { fg = "background", bg = "blue", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "background", bg = "green", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "background", bg = "yellow", modifiers = ["bold"] }
+
+"ui.popup" = { fg = "foreground", bg = "surface" }
+"ui.window" = { fg = "surface" }
+"ui.help" = { fg = "foreground", bg = "surface" }
+
+"ui.menu" = { fg = "foreground", bg = "surface" }
+"ui.menu.selected" = { fg = "background", bg = "blue", modifiers = ["bold"] }
+"ui.menu.scroll" = { fg = "bright-black", bg = "selection" }
+
+# Syntax Highlighting
+"keyword" = { fg = "magenta", modifiers = ["bold"] }
+"keyword.control" = { fg = "magenta", modifiers = ["bold"] }
+"keyword.operator" = { fg = "bright-magenta" }
+
+"function" = { fg = "blue" }
+"function.builtin" = { fg = "bright-blue", modifiers = ["bold"] }
+"function.method" = { fg = "blue" }
+"function.macro" = { fg = "bright-magenta" }
+
+"type" = { fg = "yellow" }
+"type.builtin" = { fg = "bright-yellow", modifiers = ["bold"] }
+
+"variable" = { fg = "foreground" }
+"variable.builtin" = { fg = "bright-yellow" }
+"variable.parameter" = { fg = "foreground" }
+"variable.other.member" = { fg = "black" }
+
+"constant" = { fg = "bright-yellow" }
+"constant.builtin" = { fg = "bright-yellow", modifiers = ["bold"] }
+"constant.numeric" = { fg = "yellow" }
+"constant.character.escape" = { fg = "bright-cyan" }
+
+"string" = { fg = "green" }
+"string.regexp" = { fg = "cyan" }
+
+"comment" = { fg = "bright-black", modifiers = ["italic"] }
+"comment.line" = { fg = "bright-black", modifiers = ["italic"] }
+"comment.block" = { fg = "bright-black", modifiers = ["italic"] }
+
+"operator" = { fg = "black" }
+"punctuation" = { fg = "bright-black" }
+"punctuation.delimiter" = { fg = "bright-black" }
+"punctuation.bracket" = { fg = "foreground" }
+
+"tag" = { fg = "red" }
+"attribute" = { fg = "yellow" }
+"namespace" = { fg = "yellow" }
+
+# Diagnostics & Markup
+"info" = { fg = "bright-blue" }
+"hint" = { fg = "bright-cyan" }
+"warning" = { fg = "bright-yellow" }
+"error" = { fg = "bright-red" }
+
+"diagnostic.info" = { underline = { color = "bright-blue", style = "line" } }
+"diagnostic.hint" = { underline = { color = "bright-cyan", style = "line" } }
+"diagnostic.warning" = { underline = { color = "bright-yellow", style = "curl" } }
+"diagnostic.error" = { underline = { color = "bright-red", style = "curl" } }
+
+"special" = { fg = "cyan" }
+"markup.heading" = { fg = "bright-white", modifiers = ["bold"] }
+"markup.list" = { fg = "red" }
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.link.url" = { fg = "blue", underline = { style = "line" } }
+"markup.link.text" = { fg = "green" }
+"markup.quote" = { fg = "bright-black", modifiers = ["italic"] }
+
+"diff.plus" = { fg = "green" }
+"diff.delta" = { fg = "yellow" }
+"diff.minus" = { fg = "red" }
+
+
+[palette]
+background = "#E6DFD0"
+foreground = "#1C1814"
+cursor = "#18786C"
+
+black = "#3A342C"
+red = "#B83830"
+green = "#2E8050"
+yellow = "#A87820"
+blue = "#3060A0"
+magenta = "#704890"
+cyan = "#18786C"
+white = "#5A5448"
+
+bright-black = "#6A6458"
+bright-red = "#C84840"
+bright-green = "#3A9868"
+bright-yellow = "#C09030"
+bright-blue = "#4080C0"
+bright-magenta = "#8858A8"
+bright-cyan = "#28A090"
+bright-white = "#14100C"
+
+# Derived UI tints for readability
+surface = "#D9D1C2"
+selection = "#C9C0B0"

@@ -15,7 +15,6 @@ end
 set -U __done_min_cmd_duration 10000
 set -U __done_notification_urgency_level low
 
-
 ## Environment setup
 # Apply .profile: use this to put fish compatible .profile stuff in
 if test -f ~/.fish_profile
@@ -31,7 +30,6 @@ end
 if status --is-interactive
     source ("/usr/bin/starship" init fish --print-full-init | psub)
 end
-
 
 ## Functions
 # Functions needed for !! and !$ https://github.com/oh-my-fish/plugin-bang-bang
@@ -96,9 +94,9 @@ end
 
 # Replace some more things with better alternatives
 if command -sq bat
-    set -x BAT_THEME Coldark-Dark
-    alias batt='bat --style header --style rule --style snip --style changes --style header'
-    alias cat='bat -pp'
+    # set -x BAT_THEME Coldark-Dark
+    alias batt='bat --theme="ansi" --style header --style rule --style snip --style changes --style header'
+    alias cat='bat --theme="ansi" -pp'
 end
 [ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
 
@@ -146,7 +144,6 @@ alias jctl="journalctl -p 3 -xb"
 
 # Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
-
 
 ## Run paleofetch if session is interactive
 # if status --is-interactive

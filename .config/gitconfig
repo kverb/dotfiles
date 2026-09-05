@@ -1,7 +1,7 @@
 [user]
     email = git@kverb.com
     name = Ken V
-    signingkey = kverb@users.noreply.github.com
+    signingkey = git@kverb.com
 [core]
     pager = delta
 
@@ -68,3 +68,8 @@
     find = log --pretty=\"format:%Cred%cr %Cgreen%h %Cblue%s\" --name-status -i --grep 
 [gpg]
 	program = gpg
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
