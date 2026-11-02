@@ -9,6 +9,10 @@
     "noTrigger": false,
     "trigger": ">",
     "history": [
+      "sudo pacman -S xournalpp",
+      "dms ipc call dash openAt overview right",
+      "dms ipc call dash toggle \"\"",
+      "dms ipc call dashboard toggle \"\"",
       "bookokrat",
       "paru discord",
       "paru vlc",

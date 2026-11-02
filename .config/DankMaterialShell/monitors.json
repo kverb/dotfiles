@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "configurations": [
+    {
+      "id": "profile_1792803639802_ikomtp2",
+      "name": "tv on top",
+      "outputs": {
+        "eDP-1": {
+          "mode": "2880x1800@60.001",
+          "position": {
+            "x": 4630,
+            "y": 2160
+          },
+          "scale": 1.5,
+          "transform": "Normal",
+          "vrr": false,
+          "disabled": false,
+          "niri": {}
+        },
+        "HDMI-A-1": {
+          "mode": "3840x2160@30.000",
+          "position": {
+            "x": 3840,
+            "y": 0
+          },
+          "scale": 1,
+          "transform": "Normal",
+          "vrr": false,
+          "disabled": false,
+          "niri": {}
+        }
+      }
+    },
+    {
+      "id": "auto_5af6115",
+      "name": "",
+      "outputs": {
+        "eDP-1": {
+          "mode": "2880x1800@60.001",
+          "position": {
+            "x": 4630,
+            "y": 2160
+          },
+          "scale": 1.5,
+          "transform": "Normal",
+          "vrr": false,
+          "disabled": false,
+          "niri": {}
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "lockfileVersion": 1,
+  "plugins": {
+    "calculator": {
+      "repo": "https://github.com/rochacbruno/DankCalculator",
+      "commit": "de6dbd59b7630e897a50e107f704c1cd4a131128"
+    },
+    "commandRunner": {
+      "repo": "https://github.com/devnullvoid/dms-command-runner",
+      "commit": "d89a09413e2fc041089b595a06c0fb316b12e17a"
+    },
+    "emojiLauncher": {
+      "repo": "https://github.com/devnullvoid/dms-emoji-launcher",
+      "commit": "2951ec7f823c983c11b6b231403581a386a7c9f6"
+    },
+    "niriWindows": {
+      "repo": "https://github.com/rochacbruno/DankNiriWindows",
+      "commit": "b845277ad505556caff828241ec6a80a75f0e034"
+    },
+    "webSearch": {
+      "repo": "https://github.com/devnullvoid/dms-web-search",
+      "commit": "81ccd9fd8249b3c9ef40dde42549f807e36ae3e3"
+    }
+  }
+}
