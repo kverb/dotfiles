@@ -17,6 +17,8 @@
 !.config/grimshot
 !.config/helix
 !.config/helix/**
+!.config/hwdb.d
+!.config/hwdb.d/**
 !.config/kanshi
 !.config/kanshi/**
 !.config/kitty
